@@ -31,4 +31,3 @@ week 4 - slotstuk
 		rush hour 
 		creëer grid met blokjes (auto's) die kunnen schuiven in de juiste richting
 		bedenk een algoritme wat een rush hour bord kan oplossen (de rode auto naar de uitgang leiden zonder te botsen)
-		
