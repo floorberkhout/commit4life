@@ -19,3 +19,5 @@ week 3 - exploratie resultaten en verfijning
 	vergelijk je nieuwe manier(en) van oplossingen maken met random
 
 week 4 - slotstuk
+
+test test test
