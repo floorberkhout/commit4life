@@ -31,4 +31,12 @@ week 4 - slotstuk
 		rush hour 
 		creëer grid met blokjes (auto's) die kunnen schuiven in de juiste richting
 		bedenk een algoritme wat een rush hour bord kan oplossen (de rode auto naar de uitgang leiden zonder te botsen)
+		oplossing: start bij de auto wat de uitgang blokkeert, check elke auto die vanaf dan de mogelijkheid tot het verschuiven blokkeert
+					zoveel mogelijk blokjes verschuiven tot het rode autootje stappen naar rechts kan zetten om uiteindelijk de uitgang te vinden
+		repo weergeven op de manier van classes zoals bij adventure
+		
+<img src="doc/umlrushhour.png" width="50%">
+		
+	Complicaties:
+		het rode blokje moet soms terug 
 		
