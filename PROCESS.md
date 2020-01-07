@@ -44,6 +44,15 @@ week 4 - slotstuk
 
 
 ###### dinsdag 07-01-20
-	niet vergeten:
+	Bart werkt aan load grid
+	Paloma werkt aan load cars
+	Floor werkt aan objects voor load cars car.py
+	
+	
+	Niet vergeten:
 		'data' ipv 'games'
+		
+	Vragen voor presentatiesessie:
+		voortgangsgesprek tijdens college
+		waar is het college?
 
