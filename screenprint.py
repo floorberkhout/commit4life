@@ -20,16 +20,20 @@ next(itercars)
 for car in itercars:
 
     y = abs(int(car[3][0]) - n)
-
+    car[3] = y
     x = int(car[2][-1]) - 1
+    car[2] = x
 
     car_char = car[0]
+    car_orientation = car[1][-1]
+    car[1] = car_orientation
     car_length = int(car[4])
+    car[4] = car_length
 
     # create a list with all the cars in the play
     car_list.append(car_char)
 
-    if(car[1][-1]=="H"):
+    if(car_orientation=="H"):
         for letter in range(car_length):
             board[x+letter][y] = car_char
 
@@ -82,33 +86,49 @@ def move(request_car, request_move):
     next(itercars)
     for car in itercars:
         if car[0] == request_car:
-            car_length = int(car[4])
+            car_length = car[4]
             car_char = car[0]
-            y = abs(int(car[3][0]) - n)
-            x = int(car[2][-1]) - 1
+            y = car[3]
+            x = car[2]
 
             # check if the move would be valid
-            if car[1][-1] == "H":
-                for position in range(car_length):
-                    if board[x+position+request_move][y] != "." and board[x+position+request_move][y] != car_char:
-                        print("invalid move")
-                        return(0)
+            if car[1] == "H":
+                try:
+                    for position in range(car_length):
+                        if board[x+position+request_move][y] != "." and board[x+position+request_move][y] != car_char:
+                            print("invalid move")
+                            return(0)
+                except IndexError:
+                    print("invalid move")
+                    return(0)
                 for position in range(car_length):
                     board[x+position][y] = "."
                 for position in range(car_length):
                     board[x+position+request_move][y] = car_char
+                car[2] = x+request_move
             else:
+                try:
+                    for position in range(car_length):
+                        if board[x][y-position+request_move] != "." and board[x][y-position+request_move] != car_char:
+                            print(position)
+                            print(x, y, request_move)
+                            print("invalid move")
+                            return(0)
+                except IndexError:
+                    print("invalid move")
+                    return(0)
                 for position in range(car_length):
-                    if board[x][y+position+request_move] != "." and board[x][y+position+request_move] != car_char:
-                        print("invalid move")
-                        return(0)
+                    board[x][y-position] = "."
                 for position in range(car_length):
-                    board[x][y+position] = "."
-                for position in range(car_length):
-                    board[x][y+position+request_move] = car_char
+                    board[x][y-position+request_move] = car_char
+                car[3] = y+request_move
+
+        # todo fix out of bounds going round?
 
 
     # perform the move
 while True:
     printboard()
     ask_move()
+
+    # todo make statement for win
