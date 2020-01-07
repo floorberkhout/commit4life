@@ -14,7 +14,7 @@ for rows in range(n):
     row = ['.'] * n
     board.append(row)
 
-# read in the cars
+# read in the cars and clean the cars data
 itercars = iter(cars)
 next(itercars)
 for car in itercars:
@@ -24,17 +24,17 @@ for car in itercars:
     x = int(car[2][-1]) - 1
 
     car_char = car[0]
-    char_length = int(car[4])
+    car_length = int(car[4])
 
     # create a list with all the cars in the play
     car_list.append(car_char)
 
-    if(car[1]==" H"):
-        for letter in range(char_length):
+    if(car[1][-1]=="H"):
+        for letter in range(car_length):
             board[x+letter][y] = car_char
 
     else:
-        for letter in range(char_length):
+        for letter in range(car_length):
             board[x][y-letter] = car_char
 
 print("cars loaded")
@@ -59,27 +59,56 @@ def printboard():
         print("-", end="")
     print("")
 
-printboard()
-
 def ask_move():
     while True:
         user_input = input("what move would you like to make? ([car], [move]): ")
         a = tuple(x for x in user_input.split(","))
-        car = a[0]
-        request = int(a[1])
-        if car in car_list and request > - 5 and request < 5:
+        request_car = a[0]
+        request_move = int(a[1])
+        if request_car in car_list and request_move > - n and request_move < n:
             break
         print("invalid input")
-    move(car, request)
+    move(request_car, request_move)
 
 # ask user for a move
-def move(car, request):
+def move(request_car, request_move):
     """ funcation that allows a car to make a move """
-    print("check if car ", car, "can make move ", request)
+    print("check if car ", request_car, "can make move ", request_move)
 
-    # check if the move would be valid
+
+
+    # fetch the current possition of the car
+    itercars = iter(cars)
+    next(itercars)
+    for car in itercars:
+        if car[0] == request_car:
+            car_length = int(car[4])
+            car_char = car[0]
+            y = abs(int(car[3][0]) - n)
+            x = int(car[2][-1]) - 1
+
+            # check if the move would be valid
+            if car[1][-1] == "H":
+                for position in range(car_length):
+                    if board[x+position+request_move][y] != "." and board[x+position+request_move][y] != car_char:
+                        print("invalid move")
+                        return(0)
+                for position in range(car_length):
+                    board[x+position][y] = "."
+                for position in range(car_length):
+                    board[x+position+request_move][y] = car_char
+            else:
+                for position in range(car_length):
+                    if board[x][y+position+request_move] != "." and board[x][y+position+request_move] != car_char:
+                        print("invalid move")
+                        return(0)
+                for position in range(car_length):
+                    board[x][y+position] = "."
+                for position in range(car_length):
+                    board[x][y+position+request_move] = car_char
 
 
     # perform the move
-
-ask_move()
+while True:
+    printboard()
+    ask_move()
