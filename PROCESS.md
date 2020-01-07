@@ -42,3 +42,8 @@ week 4 - slotstuk
 	Complicaties:
 		het rode blokje moet soms terug 
 
+
+###### dinsdag 07-01-20
+	niet vergeten:
+		'data' ipv 'games'
+
