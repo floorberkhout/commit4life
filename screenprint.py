@@ -7,6 +7,7 @@ with open('games/Rushhour6x6_1.csv', newline='') as csvfile:
 n=6
 
 board=[]
+car_list = []
 
 # initialize the matrix with dots
 for rows in range(n):
@@ -17,35 +18,68 @@ for rows in range(n):
 itercars = iter(cars)
 next(itercars)
 for car in itercars:
-    x = int(car[2][-1])-1
-    y = int(car[3][0])-1
+
+    y = abs(int(car[3][0]) - n)
+
+    x = int(car[2][-1]) - 1
+
     car_char = car[0]
     char_length = int(car[4])
 
-    if(car[1]=="H"):
+    # create a list with all the cars in the play
+    car_list.append(car_char)
+
+    if(car[1]==" H"):
         for letter in range(char_length):
-            board[x-letter][y] = car_char
+            board[x+letter][y] = car_char
+
     else:
         for letter in range(char_length):
             board[x][y-letter] = car_char
 
 print("cars loaded")
-
+print(car_list)
 print("")
 
-# prints the board
-for dash in range(n+2):
-    print("_", end="")
-print("")
-for i in range(n):
-    print("|", end="")
-    for j in range(n):
-        print(board[i][j], end="")
-        j =+ 1
-    if (i+1)/n != 0.5:
-        print("|", end="")
+def printboard():
+    """ prints the board"""
+    for dash in range(n+2):
+        print("_", end="")
     print("")
-    i =+ 1
-for dash in range(n+2):
-    print("-", end="")
-print("")
+    for y in range(n):
+        print("|", end="")
+        for x in range(n):
+            print(board[x][y], end="")
+            x =+ 1
+        if (y+1)/n != 0.5:
+            print("|", end="")
+        print("")
+        y =+ 1
+    for dash in range(n+2):
+        print("-", end="")
+    print("")
+
+printboard()
+
+def ask_move():
+    while True:
+        user_input = input("what move would you like to make? ([car], [move]): ")
+        a = tuple(x for x in user_input.split(","))
+        car = a[0]
+        request = int(a[1])
+        if car in car_list and request > - 5 and request < 5:
+            break
+        print("invalid input")
+    move(car, request)
+
+# ask user for a move
+def move(car, request):
+    """ funcation that allows a car to make a move """
+    print("check if car ", car, "can make move ", request)
+
+    # check if the move would be valid
+
+
+    # perform the move
+
+ask_move()
