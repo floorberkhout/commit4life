@@ -26,6 +26,7 @@ week 4 - slotstuk
 		3 branches
 		floor is master
 		2 forks van bart en paloma
+		> gebruiken alleen de masterbranch op aanraden van Quinten
 	
 	Probleem omschrijving
 		rush hour 
