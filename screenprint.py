@@ -19,11 +19,13 @@ for rows in range(n):
 itercars = iter(cars)
 next(itercars)
 for car in itercars:
-
+    print(int(car[3][0]))
     y = abs(int(car[3][0]) - n)
     car[3] = y
+    print(f" y: {y}")
     x = int(car[2][-1]) - 1
     car[2] = x
+    print(x)
 
     car_char = car[0]
     car_orientation = car[1][-1]
@@ -34,6 +36,7 @@ for car in itercars:
     # create a list with all the cars in the play
     car_list.append(car_char)
 
+    # saves coordinates of length car
     if(car_orientation=="H"):
         for letter in range(car_length):
             board[x+letter][y] = car_char
@@ -123,28 +126,28 @@ def move(request_car, request_move):
 
         # todo fix out of bounds going round?
 
-# set game_won boolean to false
-game_won = False
-
-def random_move():
-    request_car = random.choice(car_list)
-    request_move = random.choice([-1, 1])
-    print(request_car, request_move)
-    return(request_car, request_move)
-
-move_count = 0
-
-# play the game untill won
-while game_won == False:
-    printboard()
-    move(random_move()[0], random_move()[1])
-    move_count += 1
-    print(move_count)
-    print(board[n-1][int(n/2-0.5)])
-    # check if the game has been won ( when the XX car is in front of the exit)
-    if board[n-1][int(n/2-0.5)] == "X":
-        game_won = True
-
-# print the board one more time and tell the player he has won
-printboard()
-print("Congratulations you've won the game!")
+# # set game_won boolean to false
+# game_won = False
+#
+# def random_move():
+#     request_car = random.choice(car_list)
+#     request_move = random.choice([-1, 1])
+#     print(request_car, request_move)
+#     return(request_car, request_move)
+#
+# move_count = 0
+#
+# # play the game untill won
+# while game_won == False:
+#     printboard()
+#     move(random_move()[0], random_move()[1])
+#     move_count += 1
+#     print(move_count)
+#     print(board[n-1][int(n/2-0.5)])
+#     # check if the game has been won ( when the XX car is in front of the exit)
+#     if board[n-1][int(n/2-0.5)] == "X":
+#         game_won = True
+#
+# # print the board one more time and tell the player he has won
+# printboard()
+# print("Congratulations you've won the game!")

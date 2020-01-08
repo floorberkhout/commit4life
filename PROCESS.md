@@ -63,4 +63,9 @@ week 4 - slotstuk
 
 ###### woensdag 08-01-20
 	vragen voor vragen:
-		hoe verwijs je naar de data map in rushhour.py
+		
+		
+	Verbeterpunten:
+		Onnodig power verbruiken tijdens het itereren
+		+2 / +12 stappen 
+		
