@@ -44,10 +44,8 @@ week 4 - slotstuk
 
 <img src="doc/umlrushhour.png" width="50%">
 
-<<<<<<< HEAD
 	Complicaties:
 		het rode blokje moet soms terug
-=======
 
 ###### dinsdag 07-01-20
 	Bart werkt aan load grid
@@ -62,4 +60,5 @@ week 4 - slotstuk
 		voortgangsgesprek tijdens college
 		waar is het college?
 
->>>>>>> d173f7721520ece8aa853a24373ae4220d5a0c4c
+
+###### woensdag 08-01-20
