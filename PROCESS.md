@@ -27,21 +27,27 @@ week 4 - slotstuk
 		floor is master
 		2 forks van bart en paloma
 		> gebruiken alleen de masterbranch op aanraden van Quinten
-	
+
+	Start programmeren
+		- Simpele versie voor uitlezen autos van CSV
+		- simpele grid versie op autos te laten zien
+		- Randen rond spelbord aangebracht
+
 	Probleem omschrijving
-		rush hour 
+		rush hour
 		creëer grid met blokjes (auto's) die kunnen schuiven in de juiste richting
 		bedenk een algoritme wat een rush hour bord kan oplossen (de rode auto naar de uitgang leiden zonder te botsen)
 
 		oplossing: start bij de auto wat de uitgang blokkeert, check elke auto die vanaf dan de mogelijkheid tot het verschuiven blokkeert
 					zoveel mogelijk blokjes verschuiven tot het rode autootje stappen naar rechts kan zetten om uiteindelijk de uitgang te vinden
 		repo weergeven op de manier van classes zoals bij adventure
-		
-<img src="doc/umlrushhour.png" width="50%">
-		
-	Complicaties:
-		het rode blokje moet soms terug 
 
+<img src="doc/umlrushhour.png" width="50%">
+
+<<<<<<< HEAD
+	Complicaties:
+		het rode blokje moet soms terug
+=======
 
 ###### dinsdag 07-01-20
 	Bart werkt aan load grid
@@ -56,3 +62,4 @@ week 4 - slotstuk
 		voortgangsgesprek tijdens college
 		waar is het college?
 
+>>>>>>> d173f7721520ece8aa853a24373ae4220d5a0c4c
