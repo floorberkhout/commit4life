@@ -16,6 +16,7 @@ class Car(object):
         self.coordinates = coordinates
         self.length = length
         
-        # Gets orientation of car
-        def get_orientation(self, direction):
-                return self.orientation
+        def set_coordinates(self, x, y): 
+            self.coordinates[0] = x
+            self.coordinates[1] = y
+        

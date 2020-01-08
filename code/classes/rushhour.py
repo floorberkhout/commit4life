@@ -14,6 +14,7 @@ class Rushhour():
         self.x = 0
         self.y = 0
         self.cars = {}
+        self.board=[]
         
         # Function load_games returns game_data
         data = self.load_games(game)
@@ -29,6 +30,9 @@ class Rushhour():
         
         # Function move moves the requested car
         self.move(dict_cars)
+        
+        # Extra loop
+        self.print_board(dict_cars)
 
     def load_games(self, filename):
         """ Loads game data from the given csv file """
@@ -68,7 +72,6 @@ class Rushhour():
             car_coordinates = car_coordinates.split(',')
             car_coordinates[0] = int(car_coordinates[0]) - 1
             car_coordinates[1] = abs(int(car_coordinates[1]) - self.length)          
-            car_coordinates = tuple(car_coordinates)
             
             # Turns string length into int
             car_length = int(car_data[3])
@@ -82,12 +85,10 @@ class Rushhour():
     def print_board(self, dict_cars):
         """ Prints board with cars """
         
-        board=[]
-        
         # Initialize the empty matrix
         for rows in range(self.length):
             row = ['.'] * self.length
-            board.append(row)
+            self.board.append(row)
 
         # Adds cars to board list
         for car in dict_cars.values():          
@@ -97,11 +98,11 @@ class Rushhour():
             # Saves coordinates of cars in list board
             if(car.orientation=="H"):
                 for letter in range(car.length):
-                    board[self.x+letter][self.y] = car.name
+                    self.board[self.x+letter][self.y] = car.name
 
             else:
                 for letter in range(car.length):
-                    board[self.x][self.y-letter] = car.name
+                    self.board[self.x][self.y-letter] = car.name
         
         # Prints content of the board and border 
         for dash in range(self.length + 2):
@@ -112,7 +113,7 @@ class Rushhour():
             print("|", end="")
             
             for self.x in range(self.length):
-                print(board[self.x][self.y], end="")
+                print(self.board[self.x][self.y], end="")
                 
             if self.y != int(self.length/2-0.5):
                 print("|", end="")
@@ -149,40 +150,40 @@ class Rushhour():
 
         # fetch the current possition of the car
         for car in dict_cars.values():
-            if car[0] == request_car:
-                car_length = car[4]
-                car_char = car[0]
-                y = car[3]
-                x = car[2]
-
+            if car.name == request_car:
+                
                 # check if the move would be valid TODO:
-                if car[1] == "H":
+                if car.orientation == "H":
+                    x = car.coordinates[0]
+                    y = car.coordinates[1]
+
                     try:
-                        for position in range(car_length):
-                            print(x+position+request_move)
-                            if board[x+position+request_move][y] != "." and board[x+position+request_move][y] != car_char or x + position + request_move < 0:
+                        for position in range(car.length):
+                            if self.board[x+position+request_move][y] != "." and self.board[x+position+request_move][y] != car.name or x + position + request_move < 0:
                                 print("invalid move")
                                 return(0)
                     except IndexError:
                         print("invalid move")
                         return(0)
-                    for position in range(car_length):
-                        board[x+position][y] = "."
-                    for position in range(car_length):
-                        board[x+position+request_move][y] = car_char
-                    car[2] = x+request_move
+                    for position in range(car.length):
+                        self.board[x+position][y] = "."
+                    for position in range(car.length):
+                        self.board[x+position+request_move][y] = car.name
+                    car.coordinates[0] = int(x+request_move)
+
                 else:
                     try:
-                        for position in range(car_length):
-                            if board[x][y-position+request_move] != "." and board[x][y-position+request_move] != car_char or y - position + request_move < 0:
+                        for position in range(car.length):
+                            if self.board[x][y-position+request_move] != "." and self.board[x][y-position+request_move] != car.name or y - position + request_move < 0:
                                 print("invalid move")
                                 return(0)
                     except IndexError:
                         print("invalid move")
                         return(0)
-                    for position in range(car_length):
-                        board[x][y-position] = "."
-                    for position in range(car_length):
-                        board[x][y-position+request_move] = car_char
-                    car[3] = y+request_move
+                    for position in range(car.length):
+                        self.board[x][y-position] = "."
+                    for position in range(car.length):
+                        self.board[x][y-position+request_move] = car.name
+                    car.coordinates[1] = int(y+request_move)
+
   

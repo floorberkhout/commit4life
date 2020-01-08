@@ -126,28 +126,28 @@ def move(request_car, request_move):
 
         # todo fix out of bounds going round?
 
-# # set game_won boolean to false
-# game_won = False
-#
-# def random_move():
-#     request_car = random.choice(car_list)
-#     request_move = random.choice([-1, 1])
-#     print(request_car, request_move)
-#     return(request_car, request_move)
-#
-# move_count = 0
-#
-# # play the game untill won
-# while game_won == False:
-#     printboard()
-#     move(random_move()[0], random_move()[1])
-#     move_count += 1
-#     print(move_count)
-#     print(board[n-1][int(n/2-0.5)])
-#     # check if the game has been won ( when the XX car is in front of the exit)
-#     if board[n-1][int(n/2-0.5)] == "X":
-#         game_won = True
-#
-# # print the board one more time and tell the player he has won
-# printboard()
-# print("Congratulations you've won the game!")
+# set game_won boolean to false
+game_won = False
+
+def random_move():
+    request_car = random.choice(car_list)
+    request_move = random.choice([-1, 1])
+    print(request_car, request_move)
+    return(request_car, request_move)
+
+move_count = 0
+
+# play the game untill won
+while game_won == False:
+    printboard()
+    move(random_move()[0], random_move()[1])
+    move_count += 1
+    print(move_count)
+    print(board[n-1][int(n/2-0.5)])
+    # check if the game has been won ( when the XX car is in front of the exit)
+    if board[n-1][int(n/2-0.5)] == "X":
+        game_won = True
+
+# print the board one more time and tell the player he has won
+printboard()
+print("Congratulations you've won the game!")

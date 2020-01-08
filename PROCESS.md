@@ -62,7 +62,8 @@ week 4 - slotstuk
 
 
 ###### woensdag 08-01-20
-	vragen voor vragen:
+	Bart is bezig met de resultaten omzetten in een csv bestand
+	Floor en Paloma hebben barts screenprint omgezet in de goede structuur
 		
 		
 	Verbeterpunten:
