@@ -10,4 +10,9 @@ from rushhour import Rushhour
 
 
 def main():
-A = Rushhour("data/Rushhour6x6_1.csv")
+    A = Rushhour("data/Rushhour6x6_1.csv")
+    
+    return
+
+if __name__ == "__main__":
+    main()
