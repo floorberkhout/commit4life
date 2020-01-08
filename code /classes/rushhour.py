@@ -54,5 +54,5 @@ class Rushhour():
 
  
 if __name__ == "__main__":
-    rushhour = Rushhour("data/Rushhour6x6_1.csv")
+    rushhour = Rushhour("games/Rushhour6x6_1.csv")
   
