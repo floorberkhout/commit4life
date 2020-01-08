@@ -10,17 +10,25 @@ class Rushhour():
     def __init__(self, game):
         """ Initializes the game """
         
-        n = int(game[13])
-        
-        data = self.load_games(game)
-        
+        self.length = int(game[13])
+        self.x = 0
+        self.y = 0
         self.cars = {}
         
-        dict_cars = self.car_objects(data, n)
+        # Function load_games returns game_data
+        data = self.load_games(game)
         
-        self.print_board(dict_cars, n)
+        # Function car_objects returns dictionary of car objects
+        dict_cars = self.car_objects(data)
         
+        # Function print_board visualizes board 
+        self.print_board(dict_cars)
         
+        # Function ask_move asks for move if userinput is necessary and returns requested car and move
+        self.requests = self.ask_move(dict_cars)
+        
+        # Function move moves the requested car
+        self.move(dict_cars)
 
     def load_games(self, filename):
         """ Loads game data from the given csv file """
@@ -37,7 +45,7 @@ class Rushhour():
             game_data.remove(game_data[0])                              
         return game_data
     
-    def car_objects(self, data, length_game):
+    def car_objects(self, data):
         """ Creates car objects from game data """
 
         # Creates car objects for each set of data
@@ -59,7 +67,7 @@ class Rushhour():
             car_coordinates = car_coordinates.strip('""')
             car_coordinates = car_coordinates.split(',')
             car_coordinates[0] = int(car_coordinates[0]) - 1
-            car_coordinates[1] = abs(int(car_coordinates[1]) - length_game)          
+            car_coordinates[1] = abs(int(car_coordinates[1]) - self.length)          
             car_coordinates = tuple(car_coordinates)
             
             # Turns string length into int
@@ -71,42 +79,110 @@ class Rushhour():
         
         return self.cars
    
-    def print_board(self, dict_cars, length_game):
+    def print_board(self, dict_cars):
         """ Prints board with cars """
         
         board=[]
         
         # Initialize the empty matrix
-        for rows in range(length_game):
-            row = ['.'] * length_game
+        for rows in range(self.length):
+            row = ['.'] * self.length
             board.append(row)
 
         # Adds cars to board list
         for car in dict_cars.values():          
-            x = car.coordinates[0]
-            y = car.coordinates[1]
+            self.x = car.coordinates[0]
+            self.y = car.coordinates[1]
             
             # Saves coordinates of cars in list board
             if(car.orientation=="H"):
                 for letter in range(car.length):
-                    board[x+letter][y] = car.name
+                    board[self.x+letter][self.y] = car.name
 
             else:
                 for letter in range(car.length):
-                    board[x][y-letter] = car.name
+                    board[self.x][self.y-letter] = car.name
         
         # Prints content of the board and border 
-        for dash in range(length_game+2):
+        for dash in range(self.length + 2):
             print("_", end="")
         print("")
-        for y in range(length_game):
+        
+        for self.y in range(self.length):
             print("|", end="")
-            for x in range(length_game):
-                print(board[x][y], end="")
-            if y != int(length_game/2-0.5):
+            
+            for self.x in range(self.length):
+                print(board[self.x][self.y], end="")
+                
+            if self.y != int(self.length/2-0.5):
                 print("|", end="")
             print("")
-        for dash in range(length_game+2):
+        
+        for dash in range(self.length+2):
             print("-", end="")
         print("")
+        
+    def ask_move(self, dict_cars):
+        while True:
+            user_input = input("what move would you like to make? ([car], [move]): ")
+            a = tuple(x for x in user_input.split(","))
+ 
+            request_car = a[0]
+            request_move = int(a[1])
+            
+            for car in dict_cars.values():
+                if car.name is request_car:
+                    status = "valid"
+            if status is "valid":
+                break      
+            # extra checkes????? and request_move > - self.length and request_move < self.length:
+            print("invalid input")
+        return request_car, request_move
+    
+    def move(self, dict_cars):
+        """ function that allows a car to make a move """
+        
+        request_car = self.requests[0]
+        request_move = self.requests[1]
+        
+        print("check if car ", request_car, "can make move ", request_move)
+
+        # fetch the current possition of the car
+        for car in dict_cars.values():
+            if car[0] == request_car:
+                car_length = car[4]
+                car_char = car[0]
+                y = car[3]
+                x = car[2]
+
+                # check if the move would be valid TODO:
+                if car[1] == "H":
+                    try:
+                        for position in range(car_length):
+                            print(x+position+request_move)
+                            if board[x+position+request_move][y] != "." and board[x+position+request_move][y] != car_char or x + position + request_move < 0:
+                                print("invalid move")
+                                return(0)
+                    except IndexError:
+                        print("invalid move")
+                        return(0)
+                    for position in range(car_length):
+                        board[x+position][y] = "."
+                    for position in range(car_length):
+                        board[x+position+request_move][y] = car_char
+                    car[2] = x+request_move
+                else:
+                    try:
+                        for position in range(car_length):
+                            if board[x][y-position+request_move] != "." and board[x][y-position+request_move] != car_char or y - position + request_move < 0:
+                                print("invalid move")
+                                return(0)
+                    except IndexError:
+                        print("invalid move")
+                        return(0)
+                    for position in range(car_length):
+                        board[x][y-position] = "."
+                    for position in range(car_length):
+                        board[x][y-position+request_move] = car_char
+                    car[3] = y+request_move
   

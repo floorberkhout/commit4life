@@ -19,7 +19,7 @@ for rows in range(n):
 itercars = iter(cars)
 next(itercars)
 for car in itercars:
-    print(int(car[3][0]))
+    
     y = abs(int(car[3][0]) - n)
     car[3] = y
     print(f" y: {y}")
