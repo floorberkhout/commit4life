@@ -55,7 +55,7 @@ def printboard():
         print("|", end="")
         for x in range(n):
             print(board[x][y], end="")
-        if (y+1)/n != 0.5:
+        if y != int(n/2-0.5):
             print("|", end="")
         print("")
     for dash in range(n+2):
@@ -90,11 +90,12 @@ def move(request_car, request_move):
             y = car[3]
             x = car[2]
 
-            # check if the move would be valid
+            # check if the move would be valid TODO:
             if car[1] == "H":
                 try:
                     for position in range(car_length):
-                        if board[x+position+request_move][y] != "." and board[x+position+request_move][y] != car_char:
+                        print(x+position+request_move)
+                        if board[x+position+request_move][y] != "." and board[x+position+request_move][y] != car_char or x + position + request_move < 0:
                             print("invalid move")
                             return(0)
                 except IndexError:
@@ -108,9 +109,7 @@ def move(request_car, request_move):
             else:
                 try:
                     for position in range(car_length):
-                        if board[x][y-position+request_move] != "." and board[x][y-position+request_move] != car_char:
-                            print(position)
-                            print(x, y, request_move)
+                        if board[x][y-position+request_move] != "." and board[x][y-position+request_move] != car_char or y - position + request_move < 0:
                             print("invalid move")
                             return(0)
                 except IndexError:
