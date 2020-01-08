@@ -47,16 +47,15 @@ class Rushhour():
             
         for car in self.cars.values():
             # name of car
-            car_name = car.name
-            car_name = car_name.strip(',')
-            print(car_name)
-            print(car.orientation)
-            print(car.coordinates)
-            print(car.length)
+            car_name = car.name.strip(',')
+            car_orientation = car.orientation.strip(',')
+            car_coordinates = car.coordinates.strip(',')
+            car_coordinates = car_coordinates.strip('""')
+            car_coordinates = car_coordinates.split(',')
+            car_coordinates[0] = int(car_coordinates[0])
+            car_coordinates[1] = int(car_coordinates[1])            
+            tuple_coordinates = tuple(car_coordinates)        
 
         return
 
- 
-if __name__ == "__main__":
-    rushhour = Rushhour("Rushhour6x6_1 copy.csv")
   
