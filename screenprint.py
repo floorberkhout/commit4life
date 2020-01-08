@@ -1,4 +1,5 @@
 import csv
+import random
 
 with open('data/Rushhour6x6_1.csv', newline='') as csvfile:
     cars = list(csv.reader(csvfile))
@@ -54,11 +55,9 @@ def printboard():
         print("|", end="")
         for x in range(n):
             print(board[x][y], end="")
-            x =+ 1
-        if (y+1)/n != 0.5:
+        if y != int(n/2-0.5):
             print("|", end="")
         print("")
-        y =+ 1
     for dash in range(n+2):
         print("-", end="")
     print("")
@@ -91,11 +90,12 @@ def move(request_car, request_move):
             y = car[3]
             x = car[2]
 
-            # check if the move would be valid
+            # check if the move would be valid TODO:
             if car[1] == "H":
                 try:
                     for position in range(car_length):
-                        if board[x+position+request_move][y] != "." and board[x+position+request_move][y] != car_char and x+postion+request_move < 0:
+                        print(x+position+request_move)
+                        if board[x+position+request_move][y] != "." and board[x+position+request_move][y] != car_char or x + position + request_move < 0:
                             print("invalid move")
                             return(0)
                 except IndexError:
@@ -109,9 +109,7 @@ def move(request_car, request_move):
             else:
                 try:
                     for position in range(car_length):
-                        if board[x][y-position+request_move] != "." and board[x][y-position+request_move] != car_char:
-                            print(position)
-                            print(x, y, request_move)
+                        if board[x][y-position+request_move] != "." and board[x][y-position+request_move] != car_char or y - position + request_move < 0:
                             print("invalid move")
                             return(0)
                 except IndexError:
@@ -128,16 +126,25 @@ def move(request_car, request_move):
 # set game_won boolean to false
 game_won = False
 
+def random_move():
+    request_car = random.choice(car_list)
+    request_move = random.choice([-1, 1])
+    print(request_car, request_move)
+    return(request_car, request_move)
+
+move_count = 0
+
 # play the game untill won
 while game_won == False:
     printboard()
-    print(cars[13])
-    ask_move()
+    move(random_move()[0], random_move()[1])
+    move_count += 1
+    print(move_count)
     print(board[n-1][int(n/2-0.5)])
+    # check if the game has been won ( when the XX car is in front of the exit)
     if board[n-1][int(n/2-0.5)] == "X":
         game_won = True
 
+# print the board one more time and tell the player he has won
 printboard()
 print("Congratulations you've won the game!")
-
-    # check if the game has been won ( when the XX car is in front of the exit)
