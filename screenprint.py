@@ -131,13 +131,12 @@ game_won = False
 # play the game untill won
 while game_won == False:
     printboard()
-    print(cars[13])
     ask_move()
     print(board[n-1][int(n/2-0.5)])
+    # check if the game has been won ( when the XX car is in front of the exit)
     if board[n-1][int(n/2-0.5)] == "X":
         game_won = True
 
+# print the board one more time and tell the player he has won
 printboard()
 print("Congratulations you've won the game!")
-
-    # check if the game has been won ( when the XX car is in front of the exit)
