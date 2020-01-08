@@ -1,6 +1,6 @@
 import csv
 
-with open('games/Rushhour6x6_1.csv', newline='') as csvfile:
+with open('data/Rushhour6x6_1.csv', newline='') as csvfile:
     cars = list(csv.reader(csvfile))
 
 # dimensions of the board
@@ -95,7 +95,7 @@ def move(request_car, request_move):
             if car[1] == "H":
                 try:
                     for position in range(car_length):
-                        if board[x+position+request_move][y] != "." and board[x+position+request_move][y] != car_char:
+                        if board[x+position+request_move][y] != "." and board[x+position+request_move][y] != car_char and x+postion+request_move < 0:
                             print("invalid move")
                             return(0)
                 except IndexError:
@@ -125,10 +125,19 @@ def move(request_car, request_move):
 
         # todo fix out of bounds going round?
 
+# set game_won boolean to false
+game_won = False
 
-    # perform the move
-while True:
+# play the game untill won
+while game_won == False:
     printboard()
+    print(cars[13])
     ask_move()
+    print(board[n-1][int(n/2-0.5)])
+    if board[n-1][int(n/2-0.5)] == "X":
+        game_won = True
 
-    # todo make statement for win
+printboard()
+print("Congratulations you've won the game!")
+
+    # check if the game has been won ( when the XX car is in front of the exit)
