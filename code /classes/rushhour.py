@@ -49,6 +49,10 @@ class Rushhour():
             # name of car
             car_name = car.name
             car_name = car_name.strip(',')
+            print(car_name)
+            print(car.orientation)
+            print(car.coordinates)
+            print(car.length)
 
         return
 
