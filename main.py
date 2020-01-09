@@ -6,12 +6,20 @@ sys.path.append(os.path.join(directory, "code", "algoritmes"))
 
 
 # importeer de gebruikte structuur
-from rushhour import Rushhour
+from board import Board
+from random_move import Random_move
 
+# from code.classes import car, board
+# from code.algoritmes import random_move
 
 def main():
-    A = Rushhour("data/Rushhour6x6_1.csv")
+    board = Board("data/Rushhour6x6_1.csv")
     
+    result = Random_move(board)
+    
+    # request = Random_move(load)
+
+
     return
 
 if __name__ == "__main__":

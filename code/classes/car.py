@@ -16,7 +16,5 @@ class Car(object):
         self.coordinates = coordinates
         self.length = length
         
-        def set_coordinates(self, x, y): 
-            self.coordinates[0] = x
-            self.coordinates[1] = y
-        
+        def __repr__(self):
+            return self.name

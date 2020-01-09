@@ -25,3 +25,8 @@
 	
 	skiena: can make short work of very hard work
 		
+
+## Lecture 2: Random oplossingen
+
+wat doet from .class import ..
+ 

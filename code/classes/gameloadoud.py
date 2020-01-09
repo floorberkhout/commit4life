@@ -4,7 +4,7 @@
 ################################
 from car import Car
 
-class Rushhour():
+class Gameload():
     """ Sets up the Rush Hour game """
     
     def __init__(self, game):
@@ -18,30 +18,65 @@ class Rushhour():
         
         # Function load_games returns game_data
         data = self.load_games(game)
-        
+    
         # Function car_objects returns dictionary of car objects
         dict_cars = self.car_objects(data)
+    
         
-        # Function print_board visualizes board 
+        move_count = 0
+        game_won = False
+
+        
+        # Plays the game untill won
+        while game_won == False:
+            
+            # Prints board 
+            self.print_board(dict_cars)
+            
+            randommove 
+            
+            # Moves chosen car
+            self.move(dict_cars, request_car, request_move)
+
+            # Increases move count
+            move_count += 1
+            print(move_count)
+            
+            
+            # check if the game has been won ( when the XX car is in front of the exit)
+            print(self.board[self.length-1][int(self.length/2-0.5)])
+            if self.board[self.length-1][int(self.length/2-0.5)] == "X":
+                game_won = True
+                
+        # print the board one more time and tell the player he has won
         self.print_board(dict_cars)
+        print("Congratulations you've won the game!")
         
-        # Function ask_move asks for move if userinput is necessary and returns requested car and move
-        self.requests = self.ask_move(dict_cars)
-        
-        # Function move moves the requested car
-        self.move(dict_cars)
-        
-        # Extra loop
-        self.print_board(dict_cars)
+        # # Function load_games returns game_data
+        # data = self.load_games(game)
+        #
+        # # Function car_objects returns dictionary of car objects
+        # dict_cars = self.car_objects(data)
+        #
+        # # Function print_board visualizes board
+        # self.print_board(dict_cars)
+        #
+        # # # Function ask_move asks for move if userinput is necessary and returns requested car and move
+        # # self.requests = self.ask_move(dict_cars)
+        #
+        # # Function move moves the requested car
+        # self.move(dict_cars)
+        #
+        # # Extra loop
+        # self.print_board(dict_cars)
 
     def load_games(self, filename):
         """ Loads game data from the given csv file """
 
-        games_data = []
+        game_data = []
 
         # Loads from datafile
         with open(filename, "r") as f:
-            game_data = []
             
             for line in f:
                 line = line.split()
@@ -123,39 +158,36 @@ class Rushhour():
             print("-", end="")
         print("")
         
-    def ask_move(self, dict_cars):
-        while True:
-            user_input = input("what move would you like to make? ([car], [move]): ")
-            a = tuple(x for x in user_input.split(","))
- 
-            request_car = a[0]
-            request_move = int(a[1])
-            
-            for car in dict_cars.values():
-                if car.name is request_car:
-                    status = "valid"
-            if status is "valid":
-                break      
-            # extra checkes????? and request_move > - self.length and request_move < self.length:
-            print("invalid input")
-        return request_car, request_move
+    # def ask_move(self, dict_cars):
+    #     while True:
+    #         user_input = input("what move would you like to make? ([car], [move]): ")
+    #         a = tuple(x for x in user_input.split(","))
+    #
+    #         request_car = a[0]
+    #         request_move = int(a[1])
+    #
+    #         for car in dict_cars.values():
+    #             if car.name is request_car:
+    #                 status = "valid"
+    #         if status is "valid":
+    #             break
+    #         # extra checkes????? and request_move > - self.length and request_move < self.length:
+    #         print("invalid input")
+    #     return request_car, request_move
     
-    def move(self, dict_cars):
+    def move(self, dict_cars, request_car, request_move):
         """ function that allows a car to make a move """
-        
-        request_car = self.requests[0]
-        request_move = self.requests[1]
         
         print("check if car ", request_car, "can make move ", request_move)
 
         # fetch the current possition of the car
         for car in dict_cars.values():
             if car.name == request_car:
+                x = car.coordinates[0]
+                y = car.coordinates[1]
                 
                 # check if the move would be valid TODO:
                 if car.orientation == "H":
-                    x = car.coordinates[0]
-                    y = car.coordinates[1]
 
                     try:
                         for position in range(car.length):
