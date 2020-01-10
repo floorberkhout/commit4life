@@ -14,11 +14,6 @@ class Board:
         
         # Fill empty board with cars
         self.fill_board()
-        
-        print("hier")
-        print(self.board)
-        print("hier")
-        
     
     def load_cars(self, car_file):
 

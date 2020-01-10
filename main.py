@@ -13,9 +13,10 @@ from random_move import Random_move
 # from code.algoritmes import random_move
 
 def main():
-    board = Board("data/Rushhour6x6_1.csv")
+    board = Board("data/Rushhour9x9_4.csv")
     
     result = Random_move(board)
+    print(result)
 
 
     return
