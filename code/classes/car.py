@@ -16,6 +16,5 @@ class Car(object):
         self.coordinates = coordinates
         self.length = length
         
-        # Gets orientation of car
-        def get_orientation(self, direction):
-                return self.orientation
+        def __repr__(self):
+            return self.name

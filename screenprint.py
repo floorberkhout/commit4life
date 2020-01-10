@@ -21,11 +21,13 @@ for rows in range(n):
 itercars = iter(cars)
 next(itercars)
 for car in itercars:
-
+    
     y = abs(int(car[3][0]) - n)
     car[3] = y
+    print(f" y: {y}")
     x = int(car[2][-1]) - 1
     car[2] = x
+    print(x)
 
     car_char = car[0]
     car_orientation = car[1][-1]
@@ -36,6 +38,7 @@ for car in itercars:
     # create a list with all the cars in the play
     car_list.append(car_char)
 
+    # saves coordinates of length car
     if(car_orientation=="H"):
         for letter in range(car_length):
             board[x+letter][y] = car_char

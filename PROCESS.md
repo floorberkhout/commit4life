@@ -62,5 +62,11 @@ week 4 - slotstuk
 
 
 ###### woensdag 08-01-20
-	vragen voor vragen:
-		hoe verwijs je naar de data map in rushhour.py
+	Bart is bezig met de resultaten omzetten in een csv bestand
+	Floor en Paloma hebben barts screenprint omgezet in de goede structuur
+		
+		
+	Verbeterpunten:
+		Onnodig power verbruiken tijdens het itereren
+		+2 / +12 stappen 
+		
