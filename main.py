@@ -16,7 +16,8 @@ def main():
     board = Board("data/Rushhour9x9_4.csv")
     
     result = Random_move(board)
-    print(result)
+    
+    board.print_board()
 
 
     return

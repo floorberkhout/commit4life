@@ -88,3 +88,20 @@ class Board:
             else:
                 for letter in range(car.length):
                     self.board[x][y-letter] = car.name
+                    
+    def print_board(self):
+        """ prints the board"""
+        
+        for dash in range(self.length+2):
+            print("_", end="")
+        print("")
+        for y in range(self.length):
+            print("|", end="")
+            for x in range(self.length):
+                print(self.board[x][y], end="")
+            if y != int(self.length/2-0.5):
+                print("|", end="")
+            print("")
+        for dash in range(self.length+2):
+            print("-", end="")
+        print("")
