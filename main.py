@@ -16,8 +16,6 @@ def main():
     board = Board("data/Rushhour6x6_1.csv")
     
     result = Random_move(board)
-    
-    # request = Random_move(load)
 
 
     return

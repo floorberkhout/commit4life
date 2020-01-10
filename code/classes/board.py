@@ -88,8 +88,8 @@ class Board:
             # Saves coordinates of cars in list board
             if(car.orientation=="H"):
                 for letter in range(car.length):
-                    self.board[x+letter][y] = car
+                    self.board[x+letter][y] = car.name
 
             else:
                 for letter in range(car.length):
-                    self.board[x][y-letter] = car
+                    self.board[x][y-letter] = car.name
