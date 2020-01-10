@@ -75,9 +75,18 @@ def ask_move():
         # print("invalid input")
     move(request_car, request_move)
 
+def fetch_car_data(request_car):
+    itercars = iter(cars)
+    next(itercars)
+    for car in itercars:
+        if car[0] == request_car:
+            return car
+    return(1)
+
+
 # ask user for a move
 def move(request_car, request_move):
-    """ funcation that allows a car to make a move """
+    """ function that allows a car to make a move """
     # print("check if car ", request_car, "can make move ", request_move)
 
     # fetch the current possition of the car
@@ -121,8 +130,7 @@ def move(request_car, request_move):
                 car[3] = y+request_move
 
 
-# set game_won boolean to false
-game_won = False
+
 
 def random_move():
     request_car = random.choice(car_list)
@@ -135,6 +143,68 @@ def write_move(request_car, request_move):
     log_row = request_car + ',' + str(request_move) + '\n'
     log.write(log_row)
 
+
+
+def determine_moves(request_car):
+    moves = []
+    print(request_car)
+    # fetch the car details
+    request_car = fetch_car_data(request_car)
+    car_orientation = request_car[1]
+    x = request_car[2]
+    y = request_car[3]
+    length = request_car[4]
+
+    # determine moves
+    if car_orientation == 'H':
+        print('h')
+        for i in range (x + length, n):
+            print(i)
+            if board[i][y] == '.':
+                print(i)
+                print(i-x)
+                moves.append(i - x - length + 1)
+            else:
+                break
+        for i in range(x -1, -1, -1):
+            print(i)
+            if board[i][y] == '.':
+                print(i)
+                print(i-x)
+                moves.append(i - x)
+            else:
+                break
+    else:
+        for i in range (y - length, -1, -1):
+            if board[x][i] == '.':
+                moves.append(i - y)
+            else:
+                break
+        for i in range(y , n, -1):
+            if board[i][y] == '.':
+                moves.append(i - y - length + 1)
+            else:
+                break
+    print(moves)
+    return moves
+
+
+# nodes algorithm
+def node_algorithm():
+    global nodes
+
+# 1. Take the node highest up the tree
+
+
+
+
+# 2. Identify all possible moves
+# 3. Create the corresponding nodes
+# 4. Compare the new nodes with nodes earlier up the tree
+# 5. Check if the game is won
+# 6. Shut of nodes that represent a board state that was achieved before
+
+
 # sort of init
 move_count = 0
 start = time.time()
@@ -144,20 +214,50 @@ log.truncate()
 header = "car" + ',' + "move" + '\n'
 log.write(header)
 
-# play the game untill won
-while game_won == False:
-    printboard()
-    request_car = random_move()[0]
-    request_move = random_move()[1]
-    move(request_car, request_move)
-    # write_move(request_car, request_move)
+# set game_won boolean to false
+game_won = False
 
-    move_count += 1
+nodes = {}
 
-    # check if the game has been won ( when the XX car is in front of the exit)
+nodes[0] = {}
+nodes[0]['board'] = board
+nodes[0]['won'] = False
+nodes[0]['new'] = False
+nodes[0]['moves'] = []
+
+print(nodes[0])
+print(nodes[0]['moves'])
+
+# check if the game has been won ( when the XX car is in front of the exit)
+def check_if_won():
     if board[n-1][int(n/2-0.5)] == "X":
-        time_elapsed = time.time() - start
-        game_won = True
+        return True
+    return False
+
+
+
+
+
+request_car = random_move()[0]
+request_move = random_move()[1]
+determine_moves('A')
+
+
+# # play the game untill won
+# while game_won == False:
+#     # printboard()
+#     request_car = random_move()[0]
+#     request_move = random_move()[1]
+#     determine_moves(request_car)
+#     move(request_car, request_move)
+#     # write_move(request_car, request_move)
+#
+#     move_count += 1
+#
+#
+#     if check_if_won():
+#         time_elapsed = time.time() - start
+#         game_won = True
 
 # print the board one more time and tell the player he has won
 printboard()
