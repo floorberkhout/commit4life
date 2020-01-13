@@ -8,24 +8,23 @@ sys.path.append(os.path.join(directory, "code", "algoritmes"))
 # importeer de gebruikte structuur
 from board import Board
 from random_move import Random_move
-<<<<<<< HEAD
+
 from winning_row import Winning_row
-=======
+
 from palomaalgoritme import Algoritme1
->>>>>>> d6360bbe398263ae1adcce018c0f8fc7f4ce481c
+
 
 # from code.classes import car, board
 # from code.algoritmes import random_move
 
 def main():
     board = Board("data/Rushhour6x6_1.csv")
-<<<<<<< HEAD
-=======
+
     
-    # palomaalg = Algoritme1(board)
->>>>>>> d6360bbe398263ae1adcce018c0f8fc7f4ce481c
+    palomaalg = Algoritme1(board)
+
     
-    result = Random_move(board)
+    # result = Random_move(board)
     
     board.print_board()
 
