@@ -1,4 +1,3 @@
-from board import Board
 import random
 import time
 import csv
@@ -8,6 +7,7 @@ def Winning_row(board):
     
     move_count = 0
     game_won = False
+    winning_row = []
     start = time.time()
     log_file = "resultaten/log.csv"
     log = open(log_file, "w")
@@ -15,42 +15,39 @@ def Winning_row(board):
     header = "car" + ',' + "move" + '\n'
     log.write(header)
     
-    winning_row = []
-    
-    Board.print_board(board)
-    
-    for spot in range(len(board.board)):
-        winning_row.append(board.board[spot][4])
-        
-
-    
     # Plays the game untill won
     while game_won == False:
         
-        for car in winning_row[::-1]:
-            print(object.car.orientation)
-        input()
-        # # Get car and move
-        # request_car =
-        #
-        # request_move =
-        #
-    #     move(board, request_car, request_move)
-    #     write_move(request_car, request_move, log)
-    #
-    #     # Increases move count
-    #     move_count += 1
-    #
-    #     # check if the game has been won ( when the XX car is in front of the exit)
-    #     if board.board[board.length-1][int(board.length/2-0.5)] == "X":
-    #         time_elapsed = time.time() - start
-    #         game_won = True
-    #
-    # # print the board one more time and tell the player he has won
-    # print("Congratulations you've won the game!")
-    # print("Move count: ", move_count)
-    # print("Time elapsed: ", time_elapsed)
-    # return move_count, time_elapsed
+        # Get random car and move
+        request_car = random.choice(list(board.cars.values()))
+        
+        request_move = random.choice([-1, 1]) 
+        
+        move(board, request_car, request_move)
+        write_move(request_car, request_move, log)
+
+        # Increases move count
+        move_count += 1
+        
+        # Checks if another car prevents the winning car from getting out
+        for spot in range(len(board.board)):
+            winning_row.append(board.board[spot][int(board.length/2-0.5)])
+
+        for car in winning_row:
+            if car != "." and car.name == "X":
+                print(car.coordinates)
+                for spot in winning_row[(car.coordinates[0] + car.length):]:
+                    if spot != ".":
+                        break
+                    time_elapsed = time.time() - start
+                    game_won == True
+
+    # print the board one more time and tell the player he has won
+    board.print_board()
+    print("Congratulations you've won the game!")
+    print("Move count: ", move_count)
+    print("Time elapsed: ", time_elapsed)
+    return move_count, time_elapsed
 
 def move(board, request_car, request_move):
 
@@ -71,7 +68,8 @@ def move(board, request_car, request_move):
         for position in range(request_car.length):
             board.board[x+position+request_move][y] = request_car.name
         request_car.coordinates[0] = int(x+request_move)
-
+        board.print_board()
+        
     else:
         try:
             for position in range(request_car.length):
@@ -84,8 +82,9 @@ def move(board, request_car, request_move):
         for position in range(request_car.length):
             board.board[x][y-position+request_move] = request_car.name
         request_car.coordinates[1] = int(y+request_move)
+        board.print_board()
 
 # write a move to the log
 def write_move(request_car, request_move, log):
     log_row = request_car.name + ',' + str(request_move) + '\n'
-    log.write(log_row)
+    log.write(log_row)    
