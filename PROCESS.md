@@ -69,4 +69,9 @@ week 4 - slotstuk
 	Verbeterpunten:
 		Onnodig power verbruiken tijdens het itereren
 		+2 / +12 stappen 
+
+###### vrijdag 10-01-20
+	> aparte functies voor algoritmes
+	> cars laden in car.py of board.py
+	> str functie?
 		
