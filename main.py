@@ -16,9 +16,9 @@ from palomaalgoritme import Algoritme1
 def main():
     board = Board("data/Rushhour6x6_1.csv")
     
-    palomaalg = Algoritme1(board)
+    # palomaalg = Algoritme1(board)
     
-    # result = Random_move(board)
+    result = Random_move(board)
     
     board.print_board()
 
