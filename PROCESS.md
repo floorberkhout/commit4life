@@ -71,7 +71,26 @@ week 4 - slotstuk
 		+2 / +12 stappen 
 
 ###### vrijdag 10-01-20
-	> aparte functies voor algoritmes
-	> cars laden in car.py of board.py
-	> str functie?
+	> aparte functies voor algoritmes >> verwerken in board.py
+
+
+###### maandag 13-01-20
+
+	state space:
+		36 faculteit =  3.7199333e+41
+
+		36 × 34 × 32 × 30 × 28 × 26 × 24 × 22 × 20 × 18 × 16 × 14 × 12 × 10 × 8 × 6 × 4 × 2 =  1.6783439e+21
+	
+		36 × 33 × 30 × 27 × 24 × 21 × 18 × 15 × 12 × 9 × 6 × 3 = 2.5456109e+14
+
+		per bord state space berekenen want die zit per bord ergens hier tussen in > lege plekken zijn niet elkaar gebonden lengte van de auto's wel.
 		
+		6x6_1
+			2 x 2 x 3 x 3 x 5 x 3 x 3 x 5 x 5 x 4 x 3 x 3 x 5 =  7290000
+
+		
+	voortgangsgesprek:
+		win move (naar buiten rijden) telt als 1 stap
+		een move van meerdere stappen telt als maar 1 move
+		optimalisatie zit hem in het geheugenprobleem (het archief optimaliseren) (pruning)
+		verschillende manier vergelijken (waarom gebeurt wat er gebeurt, beargumenteren, waarom is het ene beter dan het ander)
