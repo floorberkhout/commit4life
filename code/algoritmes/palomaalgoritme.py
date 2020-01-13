@@ -6,6 +6,7 @@ def Algoritme1(board):
     log_file = "resultaten/log.csv"
     log = open(log_file, "w")
     log.truncate()
+    start = time.time()
     header = "car" + ',' + "move" + '\n'
     log.write(header)
     board.print_board()
@@ -13,9 +14,19 @@ def Algoritme1(board):
     
     # Plays the game untill won
     while game_won == False:
-        end_board = board.board[board.length-1][int(board.length/2-0.5)]
-        if end_board != ".":
-            
+        # end_board = board.board[board.length-1][int(board.length/2-0.5)]
+#         if end_board != ".":
+        for col in board.board:
+            print(col)
+            for car in col:
+                if car != ".":
+                    print(type(car))
+                    # for car.orientation
+                    
+#                 else:
+#                     print("nee")
+                # if board[x+position+request_move][y] != "." and board.board[x+position+request_move][y] != request_car.name or x + position + request_move < 0:
+#
             
             
         
@@ -37,8 +48,8 @@ def Algoritme1(board):
             time_elapsed = time.time() - start
             game_won = True
             
-        # print the board one more time and tell the player he has won
-        print("Congratulations you've won the game!")
-        print("Move count: ", move_count)
-        print("Time elapsed: ", time_elapsed)
-        return move_count, time_elapsed
+            # print the board one more time and tell the player he has won
+            print("Congratulations you've won the game!")
+            print("Move count: ", move_count)
+            print("Time elapsed: ", time_elapsed)
+    return move_count, time_elapsed
