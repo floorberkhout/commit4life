@@ -29,12 +29,14 @@ def Winning_row(board):
         
         request_move = random.choice([-1, 1]) 
 
-        # Makes sure it doesn't turn around the last move
+        # Makes sure it doesn't reverse the last move
         if request_car == last_car:
             if request_move != last_move:
-                make_move = "no"     
-        
-        # If move creates new state of board, perfom move    
+                make_move = "no"  
+            else:
+                move_count -= 1
+                
+        # If move creates new state of board (so no reversing of last move), perfom move    
         if make_move == "yes":
             move(board, request_car, request_move)
             write_move(request_car, request_move, log)

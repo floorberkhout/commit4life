@@ -101,4 +101,4 @@ week 4 - slotstuk
 				Verder met advanced algoritme door Bart
 				win functie verbeteren > kan niet duurt te lang doordat hij elke keer door board.cars.values() moet om de coordinaten te bepalen
 		CHECK 	zorgen dat de vorige stap niet wordt teruggedraait in een nieuwe move (pruning)
-				zorgen dat moves in dezelfde richting met de dezelfde auto die achterelkaar worden uitgevoerd niet een 'nieuwe' move is
+		CHECK	zorgen dat moves in dezelfde richting met de dezelfde auto die achterelkaar worden uitgevoerd niet een 'nieuwe' move is
