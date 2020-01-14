@@ -21,7 +21,19 @@ def main():
     
     # palomaalg = Algoritme1(board)
 
+<<<<<<< HEAD
     # result = Random_move(board)
+=======
+<<<<<<< HEAD
+    result = Random_move(board)
+=======
+<<<<<<< HEAD
+    result = Random_move(board)
+=======
+    # result = Random_move(board)
+>>>>>>> f65bacffd5f01d8d6f3f6e272a81ea37b793b637
+>>>>>>> b01a7fe877ad7782a1caabae9473b3d049fc376d
+>>>>>>> 87819b4b681d16d57c92b6cefaf83c6d567c18d5
 
 
 
