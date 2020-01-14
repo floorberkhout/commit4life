@@ -32,8 +32,7 @@ def Random_move(board):
         if board.board[board.length-1][int(board.length/2-0.5)] == "X":
             time_elapsed = time.time() - start
             game_won = True
-            print("hoi")
-        print("doei")
+        print(board.board[board.length-1][int(board.length/2-0.5)])
             
     # print the board one more time and tell the player he has won
     board.print_board()
@@ -59,8 +58,9 @@ def move(board, request_car, request_move):
         for position in range(request_car.length):
             board.board[x+position][y] = "."
         for position in range(request_car.length):
-            board.board[x+position+request_move][y] = request_car
+            board.board[x+position+request_move][y] = request_car.name
         request_car.coordinates[0] = int(x+request_move)
+        print(request_car.orientation)
         board.print_board()
         
     else:
@@ -73,7 +73,7 @@ def move(board, request_car, request_move):
         for position in range(request_car.length):
             board.board[x][y-position] = "."
         for position in range(request_car.length):
-            board.board[x][y-position+request_move] = request_car
+            board.board[x][y-position+request_move] = request_car.name
         request_car.coordinates[1] = int(y+request_move)
         board.print_board()
 
