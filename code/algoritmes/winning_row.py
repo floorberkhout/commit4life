@@ -1,12 +1,11 @@
 import random
 import time
-import csv
 
 
 def winning_row(board):
     
     # Plays the game untill won
-    while game_won == False:
+    while board.game_won == False:
         
         # Creates archive for last move
         last_car = board.request_car
@@ -26,11 +25,11 @@ def winning_row(board):
                 
         # If move creates new state of board (so no reversing of last move), perfom move    
         if board.make_move == "yes":
-            board.move(board, request_car, request_move)
-            board.write_move(request_car, request_move, log)
+            board.move(board.request_car, board.request_move)
+            board.write_move(board.request_car, board.request_move, board.log)
 
             # Increases move count
-            move_count += 1
+            board.move_count += 1
         
         # check if the game has been won ( when the XX car is in front of the exit)
         if board.board[board.length-1][int(board.length/2-0.5)] == "X":
