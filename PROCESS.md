@@ -94,3 +94,11 @@ week 4 - slotstuk
 		een move van meerdere stappen telt als maar 1 move (checken of er meerdere moves achter elkaar zijn en dan dat van het totaal moves aftrekken)
 		optimalisatie zit hem in het geheugenprobleem (het archief optimaliseren) (pruning)
 		verschillende manier vergelijken (waarom gebeurt wat er gebeurt, beargumenteren, waarom is het ene beter dan het ander)
+		write_move, check_for_win, move functions in board.py
+
+###### dinsdag 14-01-20
+				Write_move_csv, check_for_win, move functions in board.py
+				Verder met advanced algoritme door Bart
+				win functie verbeteren > kan niet duurt te lang doordat hij elke keer door board.cars.values() moet om de coordinaten te bepalen
+		CHECK 	zorgen dat de vorige stap niet wordt teruggedraait in een nieuwe move (pruning)
+				zorgen dat moves in dezelfde richting met de dezelfde auto die achterelkaar worden uitgevoerd niet een 'nieuwe' move is
