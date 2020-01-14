@@ -1,4 +1,5 @@
 from car import Car
+import time
 
 class Board:
     
@@ -88,7 +89,7 @@ class Board:
             else:
                 for letter in range(car.length):
                     self.board[x][y-letter] = car.name
-                    
+    
     def print_board(self):
         """ prints the board"""
         
@@ -106,4 +107,20 @@ class Board:
             print("-", end="")
         print("")
     
-    
+    def check_win (self, start):
+        # Checks if another car prevents the winning car from getting out
+        winning_row = []
+        time_elapsed = 0
+        game_won = False
+        for spot in range(len(self.board)):
+            winning_row.append(self.board[spot][int(self.length/2-0.5)])
+        for spot in winning_row:
+            if spot != "." and spot == "X":
+                for car in self.cars.values():
+                    if car == spot:
+                        for spot in winning_row[(car.coordinates[0] + car.length):]:
+                            if spot != ".":
+                                return game_won
+                            time_elapsed = time.time() - start
+                            game_won == True
+        return game_won, time_elapsed
