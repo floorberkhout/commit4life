@@ -9,8 +9,11 @@ sys.path.append(os.path.join(directory, "code", "algoritmes"))
 from board import Board
 from random_algo import random_algo
 from winning_row import winning_row
+<<<<<<< HEAD
 from palomaalgoritme import algoritme1
 
+=======
+>>>>>>> 507d125bbeb9ecfb07cf0cedf74fbbcafdc20aab
 
 def main():
 
@@ -18,7 +21,10 @@ def main():
     
     # random algo
     move_count, time_elapsed = winning_row(board)
+<<<<<<< HEAD
     #move_count, time_elapsed = random_algo(board)
+=======
+>>>>>>> 507d125bbeb9ecfb07cf0cedf74fbbcafdc20aab
     
     board.print_board()
     
@@ -29,5 +35,9 @@ def main():
     
     # palomaalg = Algoritme1(board)
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 507d125bbeb9ecfb07cf0cedf74fbbcafdc20aab
 if __name__ == "__main__":
     main()
