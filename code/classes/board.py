@@ -105,3 +105,5 @@ class Board:
         for dash in range(self.length+2):
             print("-", end="")
         print("")
+    
+    

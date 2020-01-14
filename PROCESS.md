@@ -91,6 +91,6 @@ week 4 - slotstuk
 		
 	voortgangsgesprek:
 		win move (naar buiten rijden) telt als 1 stap
-		een move van meerdere stappen telt als maar 1 move
+		een move van meerdere stappen telt als maar 1 move (checken of er meerdere moves achter elkaar zijn en dan dat van het totaal moves aftrekken)
 		optimalisatie zit hem in het geheugenprobleem (het archief optimaliseren) (pruning)
 		verschillende manier vergelijken (waarom gebeurt wat er gebeurt, beargumenteren, waarom is het ene beter dan het ander)
