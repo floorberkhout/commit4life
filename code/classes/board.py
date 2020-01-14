@@ -130,6 +130,9 @@ class Board:
         
     def start_algo(self):
     
+        self.request_car = ""
+        self.request_move = 0
+        self.make_move = "yes"
         self.move_count = 0
         self.game_won = False
         self.start = time.time()
