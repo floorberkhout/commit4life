@@ -12,19 +12,14 @@ from winning_row import winning_row
 
 def main():
 
-    board = Board("data/Rushhour6x6_1.csv")
+    board = Board("data/Rushhour9x9_5.csv")
     
     # random algo
-    move_count, time_elapsed = winning_row(board)
+    move_count, time_elapsed = random_algo(board)
     
     board.print_board()
     
     board.end_game(move_count, time_elapsed)
-
-
-    # result = Winning_row(board)
-    
-    # palomaalg = Algoritme1(board)
 
 
 if __name__ == "__main__":

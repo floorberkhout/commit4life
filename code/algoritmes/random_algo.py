@@ -3,7 +3,7 @@ import time
 
 
 def random_algo(board):
-    
+
     # Plays the game untill won
     while board.game_won  == False:
         
