@@ -175,7 +175,6 @@ class Board:
             for position in range(request_car.length):
                 self.board[x+position+request_move][y] = request_car.name
             request_car.coordinates[0] = int(x+request_move)
-            return 1
         
         else:
             try:
@@ -189,6 +188,8 @@ class Board:
             for position in range(request_car.length):
                 self.board[x][y-position+request_move] = request_car.name
             request_car.coordinates[1] = int(y+request_move)
+        self.move_count += 1
+        return 1
     
 
     # write a move to the log
