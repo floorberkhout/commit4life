@@ -7,19 +7,20 @@ sys.path.append(os.path.join(directory, "code", "algoritmes"))
 
 # importeer de gebruikte structuur
 from board import Board
-from random_move import Random_move
-
-# from code.classes import car, board
-# from code.algoritmes import random_move
+from random_algo import random_algo
+from winning_row import winning_row
 
 def main():
-    board = Board("data/Rushhour9x9_4.csv")
+
+    board = Board("data/Rushhour9x9_5.csv")
+
+    # move_count, time_elapsed = winning_row(board)
     
-    result = Random_move(board)
-    print(result)
+    move_count, time_elapsed = random_algo(board)
 
-
-    return
+    board.print_board()
+    
+    board.end_game(move_count, time_elapsed)
 
 if __name__ == "__main__":
     main()
