@@ -21,9 +21,6 @@ def main():
     # Runs algorithm
     move_count, time_elapsed = random_algo(board)
 
-    # Prints end board
-    board.print_board()
-
     # Prints results
     board.end_game(move_count, time_elapsed)
 
