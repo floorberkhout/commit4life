@@ -1,8 +1,6 @@
 from car import Car
 import time
 import numpy as np
-import matplotlib.pyplot as plt
-import itertools
 
 class Board:
     
