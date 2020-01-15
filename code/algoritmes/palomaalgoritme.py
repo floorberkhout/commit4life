@@ -2,6 +2,26 @@ import time
 from board import Board
 
 def algoritme1(board):    
+    global nodes
+    print(board.cars)
+    input()
+   
+
+    # 1. Take the node highest up the tree (this is the node first in the queue and than also pop it from the queue)
+    node = nodes_queue.pop(0)
+    # 2. Identify all possible moves
+    
+    for car in board.cars:
+        print(car)
+        input()
+        option = determine_moves(car[0])
+        print(option)
+        input()
+        if option:
+            nodes[node]['possible_moves'][car[0]] = option
+            print(nodes[node]['possible_moves'][car[0]])
+            print("klaar")
+            input()
     
     # Plays the game untill won
     while board.game_won == False:

@@ -111,6 +111,7 @@ week 4 - slotstuk
 						Geen mogelijkheid om aantal unieke states te checken (in een verder algoritme zorg je dat de vorige stap niet terug gedraait kan worden)
 						Hij zou invalid stappen niet als stap moeten zien
 						Random alleen maar loslaten op lijst movable_cars
+						
 	
 	
 				
