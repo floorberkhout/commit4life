@@ -21,7 +21,7 @@ def main():
     move_counts = []
     time_elapses = []
     start = time.time()
-    for iteration in range (100):
+    for iteration in range (10):
     
         board = Board("data/Rushhour9x9_5.csv")
 
@@ -46,15 +46,24 @@ def main():
         move_counts.append(state[0])
         time_elapses.append(state[1])
     
+    average_move_count = sum(move_counts) / len(move_counts) 
+    average_time_elapse = sum(time_elapses) / len(time_elapses) 
     
-    print_results(min_move_count, max_move_count, min_time_elapsed, max_time_elapsed, move_counts, time_elapses)
+    print_results(min_move_count, max_move_count, min_time_elapsed, max_time_elapsed, move_counts, time_elapses, average_move_count, average_time_elapse)
 
-def print_results(min_move_count, max_move_count, min_time_elapsed, max_time_elapsed, move_counts, time_elapses):
+def print_results(min_move_count, max_move_count, min_time_elapsed, max_time_elapsed, move_counts, time_elapses, average_move_count, average_time_elapse):
     
-    plt.axis([0, int(max_move_count), 0, float(max_time_elapsed)])
+    plt.text(4.5, 2, r'Average = {average_move_count}', fontsize=9)
+    plt.axis([0, (int(max_move_count)+ 50000), 0, (float(max_time_elapsed) + 1)])
     plt.plot(move_counts, time_elapses, '.')
+    plt.plot(average_move_count, average_time_elapse, "H")
+    plt.plot(int(min_move_count), float(min_time_elapsed), "o")
+    plt.plot(int(max_move_count), float(max_time_elapsed), "s")
     plt.ylabel('Runtimes in seconds')
     plt.xlabel('Amount moves')
+    plt.title('Display of 1000 runs Random Algorithm Rush Hour')
+    plt.legend(('Runs', 'Average', 'Minimum', 'Maximum'),
+               shadow=False, loc=(0.01, 0.7), handlelength=1.5, fontsize=9)
     plt.show()
     
     

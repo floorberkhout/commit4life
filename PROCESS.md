@@ -104,4 +104,13 @@ week 4 - slotstuk
 		CHECK	zorgen dat moves in dezelfde richting met de dezelfde auto die achterelkaar worden uitgevoerd niet een 'nieuwe' move is
 				random move seed zodat je kan vergelijken > voor requestes cars en moves oud csv bestand lezen voor exact dezelfde route
 		CHECK	visualisation
+
+###### woensdag 15-01-20
+	random algo > testen 1000 keer geeft een maximum en minimum in aantal zetten en duur
+					verbeteren:
+						Geen mogelijkheid om aantal unieke states te checken (in een verder algoritme zorg je dat de vorige stap niet terug gedraait kan worden)
+						Hij zou invalid stappen niet als stap moeten zien
+						Random alleen maar loslaten op lijst movable_cars
+	
+	
 				
