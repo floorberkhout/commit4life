@@ -18,10 +18,8 @@ def random_algo(board):
         # Increases move count
         board.move_count += 1
         
-        # check if the game has been won ( when the XX car is in front of the exit)
-        if board.board[board.length-1][int(board.length/2-0.5)] == "X":
-            time_elapsed = time.time() - board.start
-            board.game_won = True
-            
-            return board.move_count, time_elapsed
+        # Checks if another car prevents the winning car from getting out
+        board.game_won, time_elapsed = board.check_win(board.start)
+
+    return board.move_count, time_elapsed
 
