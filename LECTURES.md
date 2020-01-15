@@ -93,3 +93,16 @@ A* pruning:
 domein specifiek prunen:
 --------------------
 	<img src="doc/UNADJUSTEDNONRAW_thumb_146d.png" width="50%">
+
+## Lecture 3: Iteratief Algoritmen
+
+Hill climber 
+--------------------
+	kies een random start
+	Herhaal tot je na N-keer niet meer verbetert:
+		Doe een kleine aanpassing
+		Als de state verslechterd:
+			Maak de aanpassing ongedaan
+
+	de hoop is dat je door elke stap steeds dichter bij een oplossing komt
+	steepest ascent hill climber checkt voor 9 stapjes en kiest de beste eruit

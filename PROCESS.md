@@ -99,6 +99,9 @@ week 4 - slotstuk
 ###### dinsdag 14-01-20
 				Write_move_csv, check_for_win, move functions in board.py
 				Verder met advanced algoritme door Bart
-				win functie verbeteren > kan niet duurt te lang doordat hij elke keer door board.cars.values() moet om de coordinaten te bepalen
+		CHECK	win functie verbeteren 
 		CHECK 	zorgen dat de vorige stap niet wordt teruggedraait in een nieuwe move (pruning)
 		CHECK	zorgen dat moves in dezelfde richting met de dezelfde auto die achterelkaar worden uitgevoerd niet een 'nieuwe' move is
+				random move seed zodat je kan vergelijken > voor requestes cars en moves oud csv bestand lezen voor exact dezelfde route
+		CHECK	visualisation
+				
