@@ -13,22 +13,19 @@ from palomaalgoritme import algoritme1
 
 
 def main():
-
+    """ Runs Rush Hour game with the algorithm """
+    
+    # Creates board
     board = Board("data/Rushhour9x9_5.csv")
-
-    # move_count, time_elapsed = winning_row(board)    
-
+   
+    # Runs algorithm
     move_count, time_elapsed = random_algo(board)
 
+    # Prints end board
     board.print_board()
 
+    # Prints results
     board.end_game(move_count, time_elapsed)
-
-
-    
-    
-
-
 
 if __name__ == "__main__":
     main()
