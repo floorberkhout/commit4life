@@ -9,10 +9,12 @@ def random_algo(board):
         
         # Get random car and move
         request_car = random.choice(list(board.cars.values()))
-        
         request_move = random.choice([-1, 1]) 
         
+        # Makes move
         board.move(request_car, request_move)
+        
+        # Writes move in csv
         board.write_move(request_car, request_move, board.log)
 
         # Increases move count
