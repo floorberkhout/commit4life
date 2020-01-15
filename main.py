@@ -14,20 +14,17 @@ from palomaalgoritme import algoritme1
 
 def main():
 
-    board = Board("data/Rushhour6x6_1.csv")
-    
-    # random algo
-    # move_count, time_elapsed = winning_row(board)
-    
+    board = Board("data/Rushhour9x9_5.csv")
 
-    #move_count, time_elapsed = random_algo(board)
+    # move_count, time_elapsed = winning_row(board)    
 
-    palomaalg = algoritme1(board)
+    move_count, time_elapsed = random_algo(board)
 
+    board.print_board()
 
+    board.end_game(move_count, time_elapsed)
 
 
-    # result = Winning_row(board)
     
     
 

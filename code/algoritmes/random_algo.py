@@ -13,11 +13,7 @@ def random_algo(board):
         request_move = random.choice([-1, 1]) 
         
         board.move(request_car, request_move)
-<<<<<<< HEAD
-=======
-        board.write_move(request_car, request_move, board.log)
->>>>>>> 96130a19ec22c111c9d5a334a004d9f3fa8ca847
-        
+
         board.write_move(request_car, request_move, board.log)
  
         # Checks if another car prevents the winning car from getting out
