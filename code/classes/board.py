@@ -155,7 +155,6 @@ class Board:
         header = "car" + ',' + "move" + '\n'
         self.log.write(header)
         
-    # def validate_move(self, request_car, request_move)  
     def move(self, request_car, request_move):
 
         # fetch the current possition of the car
