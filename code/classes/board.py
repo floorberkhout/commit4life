@@ -125,15 +125,6 @@ class Board:
         print("")
 
     def check_win (self, start):
-        # Checks if winning_car is infront exit
-        # game_won = False
-        # time_elapsed = 0
-        #
-        # if self.board[self.length-1][int(self.length/2-0.5)] == "X":
-        #     time_elapsed = time.time() - start
-        #     game_won = True
-        # return game_won, time_elapsed
-
         # Checks if another car prevents the winning car from getting out
         length = self.length
         board = self.board
