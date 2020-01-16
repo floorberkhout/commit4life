@@ -1,28 +1,17 @@
 from car import Car
 import time
-<<<<<<< HEAD
-# import numpy as np
-# import matplotlib.pyplot as plt
-# import itertools
-=======
 import numpy as np
->>>>>>> 779f432ae5cc00ca14aea3a694b35bef49ddbb49
 
 class Board:
 
     def __init__(self, car_file):
-<<<<<<< HEAD
-
-=======
         """ Initializes the game of Rush Hour """
-        
->>>>>>> 779f432ae5cc00ca14aea3a694b35bef49ddbb49
+
         # Gets width and hide of board from file name
         length = [car_file[13]]
         if car_file[14].isdigit() == True:
             length.append(car_file[14])
         self.length = int(''.join(length))
-<<<<<<< HEAD
 
         # Get car data
         self.cars = self.load_cars(car_file)
@@ -35,19 +24,6 @@ class Board:
 
 
         # Variables that are required for all the algorithms
-=======
-             
-        # Gets car data
-        self.cars = self.load_cars(car_file)
-        
-        # Creates empty board
-        self.board = self.create_board(car_file)
-        
-        # Fills empty board with cars
-        self.fill_board()
-        
-        # Gets variables that are required for all the algorithms
->>>>>>> 779f432ae5cc00ca14aea3a694b35bef49ddbb49
         self.start_algo()
 
     def load_cars(self, car_file):
@@ -96,17 +72,10 @@ class Board:
         return cars
 
     def create_board(self, car_file):
-<<<<<<< HEAD
-
-        board=[]
-
-        # Initialize the empty matrix
-=======
         """ Creates the empty board """
     
         board=[]
 
->>>>>>> 779f432ae5cc00ca14aea3a694b35bef49ddbb49
         for rows in range(self.length):
             row = ['.'] * self.length
             board.append(row)
@@ -115,12 +84,8 @@ class Board:
 
 
     def fill_board(self):
-<<<<<<< HEAD
-
-=======
         """ Fills the empty board with cars """
         
->>>>>>> 779f432ae5cc00ca14aea3a694b35bef49ddbb49
         # Adds cars to board list
         for car in self.cars.values():
             x = car.coordinates[0]
@@ -135,14 +100,9 @@ class Board:
                     self.board[x][y-letter] = car.name
 
     def print_board(self):
-<<<<<<< HEAD
-        """ prints the board"""
-
-=======
         """ Prints the board """
         
         # Prints border
->>>>>>> 779f432ae5cc00ca14aea3a694b35bef49ddbb49
         print(' '"_", end="")
         for dash in range(self.length + int(self.length / 3)):
             print("___", end="")
@@ -249,25 +209,17 @@ class Board:
             # write a move to the log
         
         self.move_count += 1
-        return 1
-    
->>>>>>> 779f432ae5cc00ca14aea3a694b35bef49ddbb49
+        return self.board
+
     def write_move(self, request_car, request_move, log):
         """ Writes every move to a csv file """
         
         log_row = request_car.name + ',' + str(request_move) + '\n'
         log.write(log_row)
-<<<<<<< HEAD
 
-    def end_game(self, move_count, time_elapsed):
-         # print the board one more time and tell the player he has won
-=======
-        
     def end_game(self, move_count, time_elapsed): 
         """ Prints end state """
         
-        self.print_board()
->>>>>>> 779f432ae5cc00ca14aea3a694b35bef49ddbb49
         print("Congratulations you've won the game!")
         print("Move count: ", move_count)
         print("Time elapsed: ", time_elapsed)

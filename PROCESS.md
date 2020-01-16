@@ -122,13 +122,23 @@ week 4 - slotstuk
 ###### donderdag 16-01-20
 	random
 	improved random
+		+ reversed geen stappen
+		+ kiest random uit movable_cars
 	breadth first
 		> hij write de csv nog niet kan nog niet
+		> netter
+		> afmaken wat betreft printen enzo
+		> 12x12 super veel geheugen nodig > optimaliseren 
+	breadth first met iterative pruning
+		+ Minder goede uitslag maar wel sneller en minde geheugen opnemend
 	depth first
+		+ 185 moves
+		> print nog niet het laatste bord in de end_game functie
 	
 	iteratief algoritme > random oplossing optimalisere (eerst alle tussenstukken) (iteratief kijken of je tussen alle notes sneller kan zijn)
 	
 	doen:
+		depth first
 		grafiek van breadth first
 		12 proberen
 		1000 iteraties van random 
