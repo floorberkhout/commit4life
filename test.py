@@ -58,7 +58,7 @@ def print_results(min_move_count, max_move_count, min_time_elapsed, max_time_ela
     plt.axis([0, (int(max_move_count)+ 50000), 0, (float(max_time_elapsed) + 1)])
     
     # Plots content
-    plt.plot(move_counts, time_elapses, '.')
+    plt.plot(move_counts, time_elapses, '.', color='black')
     plt.plot(average_move_count, average_time_elapse, "H")
     plt.plot(int(min_move_count), float(min_time_elapsed), "o")
     plt.plot(int(max_move_count), float(max_time_elapsed), "s")
@@ -68,7 +68,7 @@ def print_results(min_move_count, max_move_count, min_time_elapsed, max_time_ela
     plt.xlabel('Amount moves')
     plt.title('Display of 1000 runs Random Algorithm Rush Hour')
     plt.legend(('Runs', 'Average', 'Minimum', 'Maximum'),
-               shadow=False, loc=(0.01, 0.7), handlelength=1.5, fontsize=9)
+               shadow=False, loc=(0.01, 0.75), handlelength=1.5, fontsize=9)
                
     plt.show()
     
