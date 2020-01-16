@@ -102,16 +102,43 @@ week 4 - slotstuk
 		CHECK	win functie verbeteren 
 		CHECK 	zorgen dat de vorige stap niet wordt teruggedraait in een nieuwe move (pruning)
 		CHECK	zorgen dat moves in dezelfde richting met de dezelfde auto die achterelkaar worden uitgevoerd niet een 'nieuwe' move is
-				random move seed zodat je kan vergelijken > voor requestes cars en moves oud csv bestand lezen voor exact dezelfde route
 		CHECK	visualisation
 
 ###### woensdag 15-01-20
 	random algo > testen 1000 keer geeft een maximum en minimum in aantal zetten en duur
 					verbeteren:
-						Geen mogelijkheid om aantal unieke states te checken (in een verder algoritme zorg je dat de vorige stap niet terug gedraait kan worden)
-						Hij zou invalid stappen niet als stap moeten zien
-						Random alleen maar loslaten op lijst movable_cars
-						
+								Geen mogelijkheid om aantal unieke states te checken (in een verder algoritme zorg je dat de vorige stap niet terug gedraait kan worden)
+						CHECK	Hij zou invalid stappen niet als stap moeten zien
+								Random alleen maar loslaten op lijst movable_cars
+								
+
 	
+	Presentatie:
+		staafdiagrammen om de gemiddelde te vergelijken van verschillende algoritmes
+		uitleggen waarom greedy en hillclimber niet geschikt zijn
+		random, advanced random, breadth first en deep first vergelijken
+		betere uml
+
+###### donderdag 16-01-20
+	random
+	improved random
+		+ reversed geen stappen
+		+ kiest random uit movable_cars
+	breadth first
+		> hij write de csv nog niet kan nog niet
+		> netter
+		> afmaken wat betreft printen enzo
+		> 12x12 super veel geheugen nodig > optimaliseren 
+	breadth first met iterative pruning
+		+ Minder goede uitslag maar wel sneller en minde geheugen opnemend
+	depth first
+		+ 185 moves
+		> print nog niet het laatste bord in de end_game functie
 	
-				
+	iteratief algoritme > random oplossing optimalisere (eerst alle tussenstukken) (iteratief kijken of je tussen alle notes sneller kan zijn)
+	
+	doen:
+		depth first
+		grafiek van breadth first
+		12 proberen
+		1000 iteraties van random 

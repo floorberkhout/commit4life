@@ -106,3 +106,20 @@ Hill climber
 
 	de hoop is dat je door elke stap steeds dichter bij een oplossing komt
 	steepest ascent hill climber checkt voor 9 stapjes en kiest de beste eruit
+
+## Lecture 4: Toepassen van Heuristieken
+
+random rush hour oplossing 
+nog een
+
+die combineren om het kortste pad te maken
+
+import pickle
+pickle.dump(object, file_path)
+variabele = pickle.load(file_path)
+ > soort deep copy in een file heel makkelijk wel heel veel ruimte innemen
+
+tweede slide gaat over het dumpen van data wanneer je je laptop uitzet of lange tijd moet runnen
+
+als je een oplossing wil hebben: depth first
+als je de kortste oplossing wil hebben: breadth first

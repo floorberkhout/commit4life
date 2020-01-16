@@ -1,4 +1,3 @@
-
 import os, sys
 import time
 import matplotlib.pyplot as plt
@@ -16,6 +15,12 @@ from random_algo import random_algo
 from winning_row import winning_row
 
 def main():
+
+    log_file = "resultaten/testresults.csv"
+    self.log = open(log_file, "w")
+    self.log.truncate()
+    header = "move count" + ',' + "time elapsed" + '\n'
+    self.log.write(header)
     
     test_results = {}
     move_counts = []
@@ -26,7 +31,7 @@ def main():
         board = Board("data/Rushhour9x9_5.csv")
 
         # move_count, time_elapsed = winning_row(board)
-    
+
         move_count, time_elapsed = random_algo(board)
         
         test_results[iteration] = [move_count, time_elapsed]
@@ -52,18 +57,24 @@ def main():
     print_results(min_move_count, max_move_count, min_time_elapsed, max_time_elapsed, move_counts, time_elapses, average_move_count, average_time_elapse)
 
 def print_results(min_move_count, max_move_count, min_time_elapsed, max_time_elapsed, move_counts, time_elapses, average_move_count, average_time_elapse):
+    """ Prints figure of 1000 runs Random Algorithm Rush Hour, average, lower bound and upper bound """
     
-    plt.text(4.5, 2, r'Average = {average_move_count}', fontsize=9)
+    # Creates axes
     plt.axis([0, (int(max_move_count)+ 50000), 0, (float(max_time_elapsed) + 1)])
-    plt.plot(move_counts, time_elapses, '.')
+    
+    # Plots content
+    plt.plot(move_counts, time_elapses, '.', color='black')
     plt.plot(average_move_count, average_time_elapse, "H")
     plt.plot(int(min_move_count), float(min_time_elapsed), "o")
     plt.plot(int(max_move_count), float(max_time_elapsed), "s")
+    
+    # Plots labels
     plt.ylabel('Runtimes in seconds')
     plt.xlabel('Amount moves')
     plt.title('Display of 1000 runs Random Algorithm Rush Hour')
     plt.legend(('Runs', 'Average', 'Minimum', 'Maximum'),
-               shadow=False, loc=(0.01, 0.7), handlelength=1.5, fontsize=9)
+               shadow=False, loc=(0.01, 0.75), handlelength=1.5, fontsize=9)
+               
     plt.show()
     
     

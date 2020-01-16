@@ -2,7 +2,7 @@ import csv
 import random
 import time
 
-with open('data/Rushhour6x6_1.csv', newline='') as csvfile:
+with open('data/Rushhour6x6_2.csv', newline='') as csvfile:
     cars = list(csv.reader(csvfile))
 
 # dimensions of the board
@@ -21,7 +21,7 @@ for rows in range(n):
 itercars = iter(cars)
 next(itercars)
 for car in itercars:
-    
+
     y = abs(int(car[3][0]) - n)
     car[3] = y
     print(f" y: {y}")
@@ -150,9 +150,10 @@ log.write(header)
 # play the game untill won
 while game_won == False:
     printboard()
-    request_car = random_move()[0]
-    request_move = random_move()[1]
-    move(request_car, request_move)
+    # request_car = random_move()[0]
+    # request_move = random_move()[1]
+    # move(request_car, request_move)
+    ask_move()
     # write_move(request_car, request_move)
 
     move_count += 1
