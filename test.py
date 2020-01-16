@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 
+>>>>>>> 779f432ae5cc00ca14aea3a694b35bef49ddbb49
 import os, sys
 import time
 import matplotlib.pyplot as plt
@@ -16,6 +19,17 @@ from random_algo import random_algo
 from winning_row import winning_row
 
 def main():
+<<<<<<< HEAD
+
+    log_file = "resultaten/testresults.csv"
+    self.log = open(log_file, "w")
+    self.log.truncate()
+    header = "move count" + ',' + "time elapsed" + '\n'
+    self.log.write(header)
+
+    for iteration in range (5):
+
+=======
     
     test_results = {}
     move_counts = []
@@ -23,10 +37,11 @@ def main():
     start = time.time()
     for iteration in range (10):
     
+>>>>>>> 779f432ae5cc00ca14aea3a694b35bef49ddbb49
         board = Board("data/Rushhour9x9_5.csv")
 
         # move_count, time_elapsed = winning_row(board)
-    
+
         move_count, time_elapsed = random_algo(board)
         
         test_results[iteration] = [move_count, time_elapsed]
@@ -77,4 +92,7 @@ def print_results(min_move_count, max_move_count, min_time_elapsed, max_time_ela
         
 if __name__ == "__main__":
     main()
+<<<<<<< HEAD
+=======
 
+>>>>>>> 779f432ae5cc00ca14aea3a694b35bef49ddbb49

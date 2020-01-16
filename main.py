@@ -9,7 +9,18 @@ import numpy as np
 from board import Board
 from random_algo import random_algo
 from winning_row import winning_row
-from palomaalgoritme import algoritme1
+<<<<<<< HEAD
+from breath_first import breath_first
+
+# def main():
+#
+#     board = Board("data/Rushhour6x6_3.csv")
+#
+#     # move_count, time_elapsed = winning_row(board)
+#
+#     move_count, time_elapsed = breath_first(board)
+#
+#     board.print_board()
 
 
 def main():
