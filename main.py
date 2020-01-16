@@ -9,7 +9,7 @@ import numpy as np
 from board import Board
 from random_algo import random_algo
 from winning_row import winning_row
-from palomaalgoritme import algoritme1
+from improved_random import algoritme1
 
 
 def main():
@@ -22,7 +22,7 @@ def main():
 
     #move_count, time_elapsed = random_algo(board)
 
-    palomaalg = algoritme1(board)
+    improved_random = algoritme1(board)
 
 
 
