@@ -12,6 +12,7 @@ from winning_row import winning_row
 from breath_first2 import breath_first
 from depth_first import depth_first
 from node import Node
+from improved_random import algoritme1
 
 
 def main():
