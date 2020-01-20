@@ -8,42 +8,20 @@ import numpy as np
 # importeer de gebruikte structuur
 from board import Board
 from random_algo import random_algo
-<<<<<<< HEAD
 from breath_first import breath_first
 from depth_first import depth_first
-=======
-from winning_row import winning_row
-
-from breath_first import breath_first
-from depth_first import depth_first
-
-
->>>>>>> e89119222210bb6dd7221db585a50fcc723009d3
 from improved_random import algoritme1
 
 
 def main():
     """ Runs Rush Hour game with the algorithm """
-    
-<<<<<<< HEAD
+
     # Creates board
     board = Board("data/Rushhour6x6_1.csv")
-   
-    # board.print_board()
     
     # Runs algorithm
     # move_count, time_elapsed = depth_first(board)
-    move_count, time_elapsed = algoritme1(board)
-
-=======
-    board = Board("data/Rushhour6x6_2.csv")
-   
-    board.print_board()
-    # Runs algorithm
-    # move_count, time_elapsed = depth_first(board)
-
-    move_count, time_elapsed = algoritme1(board)
->>>>>>> e89119222210bb6dd7221db585a50fcc723009d3
+    move_count, time_elapsed, nodes_list = depth_first(board)
 
     # Prints results
     board.print_board()
