@@ -12,7 +12,7 @@ sys.path.append(os.path.join(directory, "code", "algoritmes"))
 # importeer de gebruikte structuur
 from board import Board
 from random_algo import random_algo
-from winning_row import winning_row
+from improved_random import algoritme1
 
 def main():
     
@@ -27,6 +27,7 @@ def main():
         # move_count, time_elapsed = winning_row(board)
 
         move_count, time_elapsed = random_algo(board)
+        print(move_count, time_elapsed)
         
         test_results[iteration] = [move_count, time_elapsed]
     time_elapsed = time.time() - start
@@ -67,7 +68,7 @@ def print_results(min_move_count, max_move_count, min_time_elapsed, max_time_ela
     plt.plot(int(max_move_count), float(max_time_elapsed), "s")
     
     # Plots labels
-    plt.ylabel('Runtimes in seconds')
+    plt.ylabel('Runtimes in minutes')
     plt.xlabel('Amount moves')
     plt.title('Display of 1000 runs Random Algorithm Rush Hour')
     plt.legend(('Runs', 'Average', 'Minimum', 'Maximum'),
