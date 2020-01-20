@@ -71,14 +71,19 @@ def node_algorithm(nodes, nodes_queue):
             if board.check_win(board.start)[0]:
                 print("Game won")
                 board = copy.deepcopy(nodes[0,]['board'])
+<<<<<<< HEAD:code/algoritmes/breath_first_old.py
+                move_count = 0
+=======
                 time_elapsed = board.check_win(board.start)[1]
                 print(time_elapsed)
+>>>>>>> 57a928b5b8825c56049bd65142d0a15e414f4d79:code/algoritmes/breath_first.py
                 print(board)
                 for car_id, request_move in nodes[new_node]['history']:
                     request_car = board.cars[car_id]
                     board.move(request_car, request_move)
                     print(request_car, request_move)
                     board.print_board()
+                    move_count += 1
                     print("-------")
 
                 print(time_elapsed)
@@ -145,6 +150,7 @@ def breath_first(board):
     nodes[new_node]['solved'] = False
     nodes[new_node]['possible_moves'] = {}
     nodes[new_node]['history'] = []
+    print("hallo")
     print(board)
     # Plays the game untill won
     while board.game_won  == False:
