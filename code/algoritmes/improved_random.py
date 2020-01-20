@@ -3,18 +3,18 @@ import time
 from board import Board
 
 def algoritme1(board):      
-    # Plays the game untill won
     
+    length_board = board.length
     request_car = ""     
     request_move = ""
-        
+    
+    # Plays the game untill won    
     while board.game_won == False:
         cars_vertical = set()
         horizontal_board = []
         horizontal_list = []
-        for col in board.board:
-            length_board = len(col)
-    
+        
+        # Makes list from all rows instead of columns
         for i in range(length_board):    
             for col in board.board:
                 horizontal_list.append(col[i])
@@ -27,28 +27,28 @@ def algoritme1(board):
             
             for letter in col:   
                 if not letter in check_car or letter == ".":                   
-                    # appends all letters that are not double to a list
+                    # Appends all letters that are not double to a list
                     check_car.append(letter)
-                else:
-                    car = letter                   
-                    # vertical cars get saved in a list 
-                    vertical_car.append(car)
+                else:                  
+                    # Vertical cars get saved in a list 
+                    vertical_car.append(letter)
+                        
+            length_car_list = len(vertical_car)
+            length_check_cars = len(check_car)
             
-            if vertical_car != []:
-                length_car_list = len(vertical_car)
-                length_check_cars = len(check_car)
-                while vertical_car != []:
-                    car = vertical_car[0]
+            # Checks for moveable vertical cars
+            while vertical_car != []:
+                car = vertical_car[0]
                 
-                    # checks index of car to see where it is in the list
-                    index_car = check_car.index(car)
-                    vertical_car.remove(car)
-                
-                    # if the car can not move, the loop goes on, oterwise, the car gets saved in another list
-                    if (length_check_cars - 1 == index_car and check_car[index_car - 1] != ".") or (index_car == 0 and check_car[index_car + 1] != ".") or (check_car[index_car - 1] != "." and check_car[index_car + 1] != "."):
-                        break
-                    else:
-                        cars_vertical.add(car)
+                # Checks index of car to see where it is in the list
+                index_car = check_car.index(car)
+                vertical_car.remove(car)
+            
+                # If the car can not move, the loop goes on, oterwise, the car gets saved in another list
+                if (length_check_cars - 1 == index_car and check_car[index_car - 1] != ".") or (index_car == 0 and check_car[index_car + 1] != ".") or (check_car[index_car - 1] != "." and check_car[index_car + 1] != "."):
+                    hoi = 0
+                else:
+                    cars_vertical.add(car)
         
         horizontal_cars_to_move = set()    
         for row in horizontal_board:
@@ -82,30 +82,35 @@ def algoritme1(board):
         moveable_cars = cars_vertical.union(horizontal_cars_to_move)
         moveable_cars = list(moveable_cars)
         
+        # board.print_board()
+ #        print(moveable_cars)
+               
         move_cars_objects = []
         
         last_car = request_car
         last_move = request_move
-        
-     
+
+
         for objects in board.cars.values():
             if objects.name in moveable_cars:
                 move_cars_objects.append(objects)
-        
-        make_move = "yes"       
-        request_car = random.choice(list(move_cars_objects))       
+
+        make_move = "yes"
+        request_car = random.choice(list(move_cars_objects))
         request_move = random.choice([-1, 1])
+        # print(request_car)
+#         print(request_move)
         
                
         # Makes sure it doesn't reverse the last move
         if request_car == last_car:
             if request_move != last_move:
-                make_move = "no" 
+                make_move = "no"
 
             else:
                 board.move_count -= 1
-               
-        # If move creates new state of board (so no reversing of last move), perfom move    
+
+        # If move creates new state of board (so no reversing of last move), perfom move
         if make_move == "yes":
             board.move(request_car, request_move)
             
