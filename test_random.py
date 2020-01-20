@@ -15,18 +15,12 @@ from random_algo import random_algo
 from winning_row import winning_row
 
 def main():
-
-    log_file = "resultaten/testresults.csv"
-    self.log = open(log_file, "w")
-    self.log.truncate()
-    header = "move count" + ',' + "time elapsed" + '\n'
-    self.log.write(header)
     
     test_results = {}
     move_counts = []
     time_elapses = []
     start = time.time()
-    for iteration in range (10):
+    for iteration in range (1000):
     
         board = Board("data/Rushhour9x9_5.csv")
 

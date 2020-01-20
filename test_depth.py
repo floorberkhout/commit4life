@@ -3,6 +3,7 @@ import time
 import matplotlib.pyplot as plt
 import itertools
 import numpy as np
+import networkx as nx
 
 directory = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.join(directory, "code"))
@@ -47,10 +48,22 @@ def main():
 
 def print_results(nodes_list):
     """ Prints figure of 1000 runs Random Algorithm Rush Hour, average, lower bound and upper bound """
+
+    G = nx.Graph()
+    previous = ''
+    for node in nodes_list:
+        G.add_node(node)
+        G.add_edge(node, previous)
+        previous = node
+
+    nx.draw(G)
+    plt.savefig("simple_path.png") # save as png
+    plt.show() # display
     
-    longest_node = max(len(node) for node in nodes_list)
-    sum_node = len(nodes_list)
-    half_sum = sum_node / 2
+    
+    # longest_node = max(len(node) for node in nodes_list)
+    # sum_node = len(nodes_list)
+    # half_sum = sum_node / 2
     
 
     # girls_grades = [89, 90, 70, 89, 100, 80, 90, 100, 80, 34]
@@ -67,17 +80,23 @@ def print_results(nodes_list):
     
    
 
-    x = np.linspace(-half_sum, half_sum)
-    y = np.linspace(0, longest_node)
-
-    node_count = 0
-    for node in nodes_list:
-        if node_count < 1000:
-            for state in node:
-                plt.plot(node_count, len(node), '.', color='black')
-        node_count += 1
-
-    plt.show()
+    # x = np.linspace(-half_sum, half_sum)
+    # y = np.linspace(0, longest_node)
+    #
+    # node_count = 0
+    # for node in nodes_list:
+    #     if node_count < 100:
+    #         for state in node:
+    #             plt.plot(node_count, len(node), '.', color='black')
+    #     node_count += 1
+    #
+    # plt.show()
+    
+    
+    
+    
+    
+    
     #
     # # Creates axes
     # plt.axis([0, (int(max_move_count)+ 50000), 0, (float(max_time_elapsed) + 1)])
