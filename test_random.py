@@ -20,9 +20,9 @@ def main():
     move_counts = []
     time_elapses = []
     start = time.time()
-    for iteration in range (1000):
+    for iteration in range (1):
     
-        board = Board("data/Rushhour9x9_5.csv")
+        board = Board("data/Rushhour6x6_1.csv")
 
         # move_count, time_elapsed = winning_row(board)
 
@@ -41,12 +41,16 @@ def main():
     min_time_elapsed = ((min(test_results.items(), key=lambda x: (x[1])[1]))[1])[1]
     max_time_elapsed = ((max(test_results.items(), key=lambda x: (x[1])[1]))[1])[1]
     
+    print(min_move_count, min_time_elapsed)
+    print(max_move_count, max_time_elapsed)
+    
     for state in test_results.values():
         move_counts.append(state[0])
         time_elapses.append(state[1])
     
     average_move_count = sum(move_counts) / len(move_counts) 
     average_time_elapse = sum(time_elapses) / len(time_elapses) 
+    print(average_move_count, average_time_elapse)
     
     print_results(min_move_count, max_move_count, min_time_elapsed, max_time_elapsed, move_counts, time_elapses, average_move_count, average_time_elapse)
 
