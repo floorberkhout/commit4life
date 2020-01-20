@@ -1,12 +1,15 @@
+import random
 import time
 from board import Board
 
 def algoritme1(board):      
     # Plays the game untill won
+    
+    request_car = ""     
+    request_move = ""
+        
     while board.game_won == False:
-        moveable_cars = []
-        cars_to_move = []
-        board.print_board()
+        cars_vertical = set()
         horizontal_board = []
         horizontal_list = []
         for col in board.board:
@@ -45,11 +48,9 @@ def algoritme1(board):
                     if (length_check_cars - 1 == index_car and check_car[index_car - 1] != ".") or (index_car == 0 and check_car[index_car + 1] != ".") or (check_car[index_car - 1] != "." and check_car[index_car + 1] != "."):
                         break
                     else:
-                        cars_to_move.append(car)
-                        moveable_cars_vert = set(cars_to_move)
-                        moveable_cars.append(moveable_cars_vert)
+                        cars_vertical.add(car)
         
-        horizontal_cars_to_move = []    
+        horizontal_cars_to_move = set()    
         for row in horizontal_board:
             horizontal_car = []
             check_horizontal_car = []
@@ -72,20 +73,44 @@ def algoritme1(board):
                                 option_2 = int(index_list[j]) - 1
                                 
                                 if row[option_2] in horizontal_car:
-                                    horizontal_cars_to_move.append(row[option_2])
+                                    horizontal_cars_to_move.add(row[option_2])
                             if row[option_1] in horizontal_car:
-                                horizontal_cars_to_move.append(row[option_1])
-                            moveable_cars_h = set(horizontal_cars_to_move)
+                                horizontal_cars_to_move.add(row[option_1])
                         except IndexError: 
                             continue
+                   
+        moveable_cars = cars_vertical.union(horizontal_cars_to_move)
+        moveable_cars = list(moveable_cars)
         
-        moveable_cars.append(moveable_cars_h)
-        print(moveable_cars)
-       
-        # check if the game has been won ( when the XX car is in front of the exit)
-        if board.board[board.length-1][int(board.length/2-0.5)] == "X":
-            time_elapsed = time.time() - start
-            game_won = True
+        move_cars_objects = []
+        
+        last_car = request_car
+        last_move = request_move
+        
+     
+        for objects in board.cars.values():
+            if objects.name in moveable_cars:
+                move_cars_objects.append(objects)
+        
+        make_move = "yes"       
+        request_car = random.choice(list(move_cars_objects))       
+        request_move = random.choice([-1, 1])
+        
+               
+        # Makes sure it doesn't reverse the last move
+        if request_car == last_car:
+            if request_move != last_move:
+                make_move = "no" 
+
+            else:
+                board.move_count -= 1
+               
+        # If move creates new state of board (so no reversing of last move), perfom move    
+        if make_move == "yes":
+            board.move(request_car, request_move)
             
-         
+        
+        # Checks if another car prevents the winning car from getting out
+        board.game_won, time_elapsed = board.check_win(board.start)
+
     return board.move_count, time_elapsed
