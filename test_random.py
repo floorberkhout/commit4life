@@ -26,7 +26,7 @@ def main():
 
         # move_count, time_elapsed = winning_row(board)
 
-        move_count, time_elapsed = random_algo(board)
+        move_count, time_elapsed = algoritme1(board)
         print(move_count, time_elapsed)
         
         test_results[iteration] = [move_count, time_elapsed]
@@ -74,10 +74,7 @@ def print_results(min_move_count, max_move_count, min_time_elapsed, max_time_ela
     plt.legend(('Runs', 'Average', 'Minimum', 'Maximum'),
                shadow=False, loc=(0.01, 0.75), handlelength=1.5, fontsize=9)
                
-    plt.show()
-    
-    
-    
+    plt.show()  
         
 if __name__ == "__main__":
     main()

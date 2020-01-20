@@ -15,10 +15,6 @@ def random_algo(board):
         board.move(request_car, request_move)
 
         # board.write_move(request_car, request_move, board.log)
-<<<<<<< HEAD
- 
-=======
->>>>>>> e89119222210bb6dd7221db585a50fcc723009d3
         # Checks if another car prevents the winning car from getting out
         board.game_won, time_elapsed = board.check_win(board.start)
 
