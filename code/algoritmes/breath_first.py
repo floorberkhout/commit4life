@@ -71,6 +71,8 @@ def node_algorithm(nodes, nodes_queue):
             if board.check_win(board.start)[0]:
                 print("Game won")
                 board = copy.deepcopy(nodes[0,]['board'])
+                time_elapsed = board.check_win(board.start)[1]
+                print(time_elapsed)
                 print(board)
                 for car_id, request_move in nodes[new_node]['history']:
                     request_car = board.cars[car_id]
@@ -79,6 +81,7 @@ def node_algorithm(nodes, nodes_queue):
                     board.print_board()
                     print("-------")
 
+                print(time_elapsed)
                 print(nodes[new_node]['history'])
                 nodes[new_node]['new'] = True
                 return(1)

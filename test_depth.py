@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 import itertools
 import numpy as np
 import networkx as nx
+import sklearn.datasets
+from sklearn.datasets import load_iris
 
 directory = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.join(directory, "code"))
@@ -48,36 +50,51 @@ def main():
 
 def print_results(nodes_list):
     """ Prints figure of 1000 runs Random Algorithm Rush Hour, average, lower bound and upper bound """
+    
+    
+    iris = load_iris()
 
-    G = nx.Graph()
-    previous = ''
-    for node in nodes_list:
-        G.add_node(node)
-        G.add_edge(node, previous)
-        previous = node
+    # Model (can also use single decision tree)
+    from sklearn.ensemble import RandomForestClassifier
+    model = RandomForestClassifier(n_estimators=10)
 
-    nx.draw(G)
-    plt.savefig("simple_path.png") # save as png
-    plt.show() # display
+    # Train
+    model.fit(iris.data, iris.target)
+    # Extract single tree
+    estimator = model.estimators_[5]
+
+    from sklearn.tree import export_graphviz
+    # Export as dot file
+    export_graphviz(estimator, out_file='tree.dot', 
+                    feature_names = iris.feature_names,
+                    class_names = iris.target_names,
+                    rounded = True, proportion = False, 
+                    precision = 2, filled = True)
+
+    plt.plot(model)
+    plt.show()
+    
+    
+    # G = nx.Graph()
+    # previous = ''
+    # node_count = 0
+    # axe = 0
+    # for node in nodes_list:
+    #     if node_count < 10:
+    #         G.add_node(node, pos=(node_count, axe))
+    #         G.add_edge(node, previous)
+    #         previous = node
+    #         node_count += 1
+    #         axe += 1
+    #
+    # nx.draw(G)
+    # plt.savefig("simple_path.png") # save as png
+    # plt.show() # display
     
     
     # longest_node = max(len(node) for node in nodes_list)
     # sum_node = len(nodes_list)
     # half_sum = sum_node / 2
-    
-
-    # girls_grades = [89, 90, 70, 89, 100, 80, 90, 100, 80, 34]
-    # boys_grades = [30, 29, 49, 48, 100, 48, 38, 45, 20, 30]
-    # grades_range = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
-    # fig=plt.figure()
-    # ax=fig.add_axes([0,0,1,1])
-    # ax.plot(grades_range, girls_grades, 'o', color='r')
-    # ax.plot(grades_range, boys_grades, 'o', color='b')
-    # ax.set_xlabel('Grades Range')
-    # ax.set_ylabel('Grades Scored')
-    # ax.set_title('scatter plot')
-    # plt.show()
-    
    
 
     # x = np.linspace(-half_sum, half_sum)
@@ -91,30 +108,7 @@ def print_results(nodes_list):
     #     node_count += 1
     #
     # plt.show()
-    
-    
-    
-    
-    
-    
-    #
-    # # Creates axes
-    # plt.axis([0, (int(max_move_count)+ 50000), 0, (float(max_time_elapsed) + 1)])
-    #
-    # # Plots content
-    # plt.plot(move_counts, time_elapses, '.', color='black')
-    # plt.plot(average_move_count, average_time_elapse, "H")
-    # plt.plot(int(min_move_count), float(min_time_elapsed), "o")
-    # plt.plot(int(max_move_count), float(max_time_elapsed), "s")
-    #
-    # # Plots labels
-    # plt.ylabel('Runtimes in seconds')
-    # plt.xlabel('Amount moves')
-    # plt.title('Display of 1000 runs Random Algorithm Rush Hour')
-    # plt.legend(('Runs', 'Average', 'Minimum', 'Maximum'),
-    #            shadow=False, loc=(0.01, 0.75), handlelength=1.5, fontsize=9)
-    #
-    # plt.show()
+
 
 if __name__ == "__main__":
     main()
