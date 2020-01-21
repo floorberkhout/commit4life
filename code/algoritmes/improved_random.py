@@ -14,12 +14,27 @@ def algoritme1(board):
         horizontal_board = []
         horizontal_list = []
         
+        horizontal_cars_to_move = set()    
+        
         # Makes list from all rows instead of columns
         for i in range(length_board):    
             for col in board.board:
                 horizontal_list.append(col[i])
             horizontal_board.append(horizontal_list)
             horizontal_list = []
+               
+        # Loops over the board with al the horizontal rows
+        for row in horizontal_board:
+            horizontal_car = []
+            check_horizontal_car = []
+            index_list = []
+            
+            if "." in row:            
+                for i in range(length_board):                      
+                    if not row[i] in check_horizontal_car or row[i] == ".":
+                        check_horizontal_car.append(row[i])
+                    else:
+                        horizontal_car.append(row[i])
       
         for col in board.board:
             check_car = []
@@ -44,27 +59,35 @@ def algoritme1(board):
                 index_car = check_car.index(car)
                 vertical_car.remove(car)
             
-                # If the car can not move, the loop goes on, oterwise, the car gets saved in another list
+                # If the car can not move, the loop goes on, otherwise, the car gets saved in another list
                 if (length_check_cars - 1 == index_car and check_car[index_car - 1] != ".") or (index_car == 0 and check_car[index_car + 1] != ".") or (check_car[index_car - 1] != "." and check_car[index_car + 1] != "."):
                     hoi = 0
-                else:
-                    cars_vertical.add(car)
+                if (length_check_cars - 1 > index_car or check_car[index_car - 1] == ".") or (index_car != 0 or check_car[index_car + 1] == ".") or (check_car[index_car - 1] == "." or check_car[index_car + 1] == "."):
+                    cars_vertical.add(car)        
         
-        horizontal_cars_to_move = set()    
-        for row in horizontal_board:
-            horizontal_car = []
-            check_horizontal_car = []
-            index_list = []
-            length_row = len(row)
-            if "." in row:            
-                for i in range(length_row):                      
-                    # if not horizontal_letter in check_horizontal_car or horizontal_letter == ".":
-                    if not row[i] in check_horizontal_car or row[i] == ".":
-                        check_horizontal_car.append(row[i])
-                        if row[i] == ".":
-                            index_list.append(i)
-                    else:
-                        horizontal_car.append(row[i])
+        # horizontal_cars_to_move = set()
+#
+#         # Makes list from all rows instead of columns
+#         for i in range(length_board):
+#             for col in board.board:
+#                 horizontal_list.append(col[i])
+#             horizontal_board.append(horizontal_list)
+#             horizontal_list = []
+#
+#         # Loops over the board with al the horizontal rows
+#         for row in horizontal_board:
+#             horizontal_car = []
+#             check_horizontal_car = []
+#             index_list = []
+#
+#             if "." in row:
+#                 for i in range(length_board):
+#                     if not row[i] in check_horizontal_car or row[i] == ".":
+#                         check_horizontal_car.append(row[i])
+#                         if row[i] == ".":
+#                             index_list.append(i)
+#                     else:
+#                         horizontal_car.append(row[i])
             
                     for j in range(len(index_list)):
                         option_1 = int(index_list[j]) + 1
@@ -81,9 +104,8 @@ def algoritme1(board):
                    
         moveable_cars = cars_vertical.union(horizontal_cars_to_move)
         moveable_cars = list(moveable_cars)
-        
-        # board.print_board()
- #        print(moveable_cars)
+        print(moveable_cars)
+        board.print_board()
                
         move_cars_objects = []
         
@@ -98,8 +120,6 @@ def algoritme1(board):
         make_move = "yes"
         request_car = random.choice(list(move_cars_objects))
         request_move = random.choice([-1, 1])
-        # print(request_car)
-#         print(request_move)
         
                
         # Makes sure it doesn't reverse the last move
