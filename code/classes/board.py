@@ -228,7 +228,7 @@ class Board:
 
         print("Congratulations you've won the game!")
         print("Move count: ", move_count)
-        print("Time elapsed: ", time_elapsed)
+        print("Time elapsed: ", round(time_elapsed, 2))
 
 
     def __str__(self):
