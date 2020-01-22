@@ -15,13 +15,14 @@ from winning_row import winning_row
 from x_first import x_first
 from depth_first import depth_first
 from improved_random import algoritme1
+from board_visualisation import visualize_board
 # from tree import tree
 
 def main():
     """ Runs Rush Hour game with the algorithm """
 
     # Creates board
-    board = Board("data/Rushhour6x6_2.csv")
+    board = Board("data/Rushhour6x6_1.csv")
 
     # Runs algorithm
     # move_count, time_elapsed, nodes_list = depth_first(board)
@@ -35,10 +36,6 @@ def main():
     if memory_clearer:
         algorithm = algorithm + "_memory_clearer"
 
-<<<<<<< HEAD
-    x_first_algorithm = breath_first(first_node, memory_clearer, x)
-    solution, time_elapsed = x_first_algorithm.run()
-=======
     # Initializes the first node
     first_node_name = (0,)
     first_node = Node(board, first_node_name)
@@ -48,16 +45,18 @@ def main():
     solution, time_elapsed, nodes_dict = x_first_algorithm.run()
 
     # Prints results
->>>>>>> e9d7de2c8138621745b9fd053c1e1881f5dd8f53
     time_elapsed = round(time_elapsed, 2)
     move_count = len(solution)
     print(solution)
     print("Move count:", move_count)
     print("Time elapsed: ", time_elapsed)
+    
+    visualize_board(solution)
 
     # write the solution to a CSV file
     writer = CsvWriter(algorithm, board.name)
     writer.write_to_csv(time_elapsed, board.name, algorithm, move_count, solution)
 
+    
 if __name__ == "__main__":
     main()

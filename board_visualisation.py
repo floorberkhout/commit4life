@@ -52,9 +52,6 @@ def visualize_board(steps):
     
         count += 1
         
-if __name__ == "__main__":
-    steps = [["A", -1], ["B", -1]]
-    visualize_board(steps)
     
 
     
