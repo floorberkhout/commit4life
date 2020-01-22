@@ -2,7 +2,7 @@ import copy
 import time
 import sys
 
-class breath_first:
+class x_first:
     def __init__(self, first_node, memory_clearer, x):
 
         # create the firt node with name 0
@@ -18,7 +18,6 @@ class breath_first:
         self.start_time = time.time()
         self.memory_clearer = memory_clearer
         self.x_first = x
-
 
     def get_next_node_name(self):
         """
@@ -73,6 +72,8 @@ class breath_first:
                     request_car = finish_node.board.cars[finish_node.board.xcar]
                     request_move = finish_node.board.length - 2 - finish_node.board.cars[finish_node.board.xcar].coordinates[0]
                     finish_node.update_node(0, request_car, request_move)
+                    finish_node.won = True
+                    self.nodes[new_node.name] = new_node
                     self.solved = True
                     self.solution = copy.deepcopy(finish_node)
                     self.print_steps()
@@ -113,7 +114,6 @@ class breath_first:
             solution.append([str(request_car), request_move])
         self.solution = solution
 
-
     def run(self):
         """
         Runs the algorithm untill all possible states are visited.
@@ -123,4 +123,4 @@ class breath_first:
             self.build_children(next_node_name)
             time_elapsed = time.time() -  self.start_time
 
-        return self.solution, time_elapsed
+        return self.solution, time_elapsed, self.nodes

@@ -8,6 +8,7 @@ class Node():
         self.possible_moves = {}
         self.determine_possible_moves()
         self.history = []
+        self.won = False
 
     def update_node(self, child, request_car, request_move):
         self.board.move(request_car, request_move)
@@ -82,13 +83,6 @@ class Node():
             self.board.move(request_car, request_move)
         self.determine_possible_moves()
         self.set_name(name)
-
-    # def recreate_board(self, start_board):
-    #     self.board = copy.deepcopy(start_board)
-    #     for step in self.history:
-    #         request_car = self.board.cars[step[0]]
-    #         request_move = step[1]
-    #         self.board.move(request_car, request_move)
 
     def delete_board(self):
         del self.board
