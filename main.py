@@ -14,7 +14,7 @@ from winning_row import winning_row
 from breath_first2 import breath_first
 from depth_first import depth_first
 from improved_random import algoritme1
-from tree import tree
+# from tree import tree
 
 def main():
     """ Runs Rush Hour game with the algorithm """
@@ -26,23 +26,6 @@ def main():
     x = algorithm[:-6]
     if memory_clearer:
         algorithm = algorithm + "_memory_clearer"
-
-    # Creates board
-
-    board = Board("data/Rushhour6x6_2.csv")
-
-    # Runs algorithm
-    # move_count, time_elapsed, nodes_list = depth_first(board)
-
-
-    move_count, time_elapsed = algoritme1(board)
-
-    # Prints results
-    board.print_board()
-    board.end_game(move_count, time_elapsed)
-    
-    # tree_depth = tree(nodes_list)
-    # tree_breadth = tree(nodes)
 
     x_first_algorithm = breath_first(first_node, memory_clearer, x)
     solution, time_elapsed = x_first_algorithm.run()
