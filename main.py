@@ -21,27 +21,18 @@ def main():
     # Creates board
     board = Board("data/Rushhour6x6_1.csv")
     
-<<<<<<< HEAD
-    board = Board("data/Rushhour6x6_2.csv")
-    
     # Runs algorithm
-    move_count, time_elapsed, nodes_list = depth_first(board)
+    # move_count, time_elapsed, nodes_list = depth_first(board)
 
-    # move_count, time_elapsed = algoritme1(board)
+    move_count, time_elapsed = algoritme1(board)
 
     # Prints results
     board.print_board()
     board.end_game(move_count, time_elapsed)
     
-    tree_depth = tree(nodes_list)
+    # tree_depth = tree(nodes_list)
     # tree_breadth = tree(nodes)
-=======
-    # Runs algorithm
-    # move_count, time_elapsed = depth_first(board)
-    move_count, time_elapsed, nodes_list = depth_first(board)
-    print(move_count)
-    
->>>>>>> 53c3ca9c0c8c0067b4e67c081f91b8caa28c564d
+
 
 if __name__ == "__main__":
     main()
