@@ -22,6 +22,9 @@ class Board:
         # Fill empty board with cars
         self.fill_board()
 
+        # gives the board a name tag
+        self.name = car_file[5:-4]
+
 
         # Variables that are required for all the algorithms
         self.start_algo()
@@ -70,11 +73,14 @@ class Board:
             new_car = Car(id, car_name, car_orientation, car_coordinates, car_length)
             cars[id] = new_car
 
+            if car_name == 'X':
+                self.xcar = id
+
         return cars
 
     def create_board(self, car_file):
         """ Creates the empty board """
-    
+
         board=[]
 
         for rows in range(self.length):
@@ -86,7 +92,7 @@ class Board:
 
     def fill_board(self):
         """ Fills the empty board with cars """
-        
+
         # Adds cars to board list
         for car in self.cars.values():
             x = car.coordinates[0]
@@ -102,7 +108,7 @@ class Board:
 
     def print_board(self):
         """ Prints the board """
-        
+
         # Prints border
         print(' '"_", end="")
         for dash in range(self.length + int(self.length / 3)):
@@ -111,7 +117,7 @@ class Board:
         print("")
         for y in range(self.length):
             print("|",' ', end="")
-            
+
             # Prints content
             for x in range(self.length):
                 if len(self.board[x][y]) == 1:
@@ -119,7 +125,7 @@ class Board:
                 else:
                     print(self.board[x][y], ' ', end="")
             if y != int(self.length/2-0.5):
-                
+
                 # Prints border
                 print("|", end="")
             print("")
@@ -131,7 +137,7 @@ class Board:
 
     def check_win (self, start):
         """ Checks if no car prevents the winning car from getting out, thus: winning """
-        
+
         length = self.length
         board = self.board
         game_won = False
@@ -177,30 +183,30 @@ class Board:
         if request_car.orientation == "H":
             try:
                 for position in range(request_car.length):
-                    
-                    # Checks if the move is valid 
+
+                    # Checks if the move is valid
                     if self.board[x+position+request_move][y] != "." and self.board[x+position+request_move][y] != request_car.name or x + position + request_move < 0:
                         return 0
             except IndexError:
                 return 0
-                
+
             # Changes coordinates of the car to perform the move if it appears valid
             for position in range(request_car.length):
                 self.board[x+position][y] = "."
             for position in range(request_car.length):
                 self.board[x+position+request_move][y] = request_car.name
             request_car.coordinates[0] = int(x+request_move)
-            
+
         else:
             try:
                 for position in range(request_car.length):
-                    
-                    # Checks if the move is valid 
+
+                    # Checks if the move is valid
                     if self.board[x][y-position+request_move] != "." and self.board[x][y-position+request_move] != request_car.name or y - position + request_move < 0:
                         return 0
             except IndexError:
                 return 0
-            
+
             # Changes coordinates of the car to perform the move if it appears valid
             for position in range(request_car.length):
                 self.board[x][y-position] = "."
@@ -208,19 +214,19 @@ class Board:
                 self.board[x][y-position+request_move] = request_car.name
             request_car.coordinates[1] = int(y+request_move)
             # write a move to the log
-        
+
         self.move_count += 1
         return self.board
 
     def write_move(self, request_car, request_move, log):
         """ Writes every move to a csv file """
-        
+
         log_row = request_car.name + ',' + str(request_move) + '\n'
         log.write(log_row)
 
-    def end_game(self, move_count, time_elapsed): 
+    def end_game(self, move_count, time_elapsed):
         """ Prints end state """
-        
+
         print("Congratulations you've won the game!")
         print("Move count: ", move_count)
         print("Time elapsed: ", time_elapsed)

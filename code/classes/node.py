@@ -72,6 +72,27 @@ class Node():
         new_name.append(child)
         self.name = tuple(new_name)
 
+    def set_name(self, name):
+        self.name = tuple(name)
+
+    def recreate(self, name):
+        for step in self.history:
+            request_car = self.board.cars[step[0]]
+            request_move = step[1]
+            self.board.move(request_car, request_move)
+        self.determine_possible_moves()
+        self.set_name(name)
+
+    # def recreate_board(self, start_board):
+    #     self.board = copy.deepcopy(start_board)
+    #     for step in self.history:
+    #         request_car = self.board.cars[step[0]]
+    #         request_move = step[1]
+    #         self.board.move(request_car, request_move)
+
+    def delete_board(self):
+        del self.board
+
     def __repr__(self):
         """
         Make sure that the object is printed properly if it is in a list/dict.
