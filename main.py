@@ -20,7 +20,7 @@ def main():
     """ Runs Rush Hour game with the algorithm """
 
     # selectors
-    algorithm = "breath_first"
+    algorithm = "depth_first"
     memory_clearer = True
 
     x = algorithm[:-6]
@@ -32,30 +32,30 @@ def main():
     board = Board("data/Rushhour6x6_2.csv")
 
     # Runs algorithm
-    # move_count, time_elapsed, nodes_list = depth_first(board)
+    move_count, time_elapsed, nodes_list = depth_first(board)
 
 
-    move_count, time_elapsed = algoritme1(board)
+    # move_count, time_elapsed = algoritme1(board)
 
     # Prints results
     board.print_board()
     board.end_game(move_count, time_elapsed)
     
-    # tree_depth = tree(nodes_list)
-    # tree_breadth = tree(nodes)
+    tree_depth = tree(nodes_list)
+    tree_breadth = tree(nodes)
 
     x_first_algorithm = breath_first(first_node, memory_clearer, x)
     solution, time_elapsed = x_first_algorithm.run()
     time_elapsed = round(time_elapsed, 2)
 
     # Prints results
-    move_count = len(solution)
-    print(solution)
-    print("Move count:", move_count)
-    print("Time elapsed: ", time_elapsed)
+    # move_count = len(solution)
+ #    print(solution)
+ #    print("Move count:", move_count)
+ #    print("Time elapsed: ", time_elapsed)
 
-    writer = CsvWriter(algorithm, board.name)
-    writer.write_to_csv(time_elapsed, board.name, algorithm, move_count, solution)
+    # writer = CsvWriter(algorithm, board.name)
+#     writer.write_to_csv(time_elapsed, board.name, algorithm, move_count, solution)
 
 if __name__ == "__main__":
     main()
