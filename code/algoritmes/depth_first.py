@@ -7,7 +7,7 @@ import copy
 def node_algorithm(nodes, nodes_queue):
 
     # 1. Take the node highest up the tree (this is the node first in the queue and than also pop it from the queue)
-    node = nodes_queue.pop()
+    node = nodes_queue.pop(0)
     
     board = copy.deepcopy(nodes[node]['board'])
 
@@ -30,10 +30,11 @@ def node_algorithm(nodes, nodes_queue):
             # board.print_board()
             # print(request_car, request_move)
             status = board.move(request_car, request_move)
+            print(status)
             if status == 0:
                 print("invalid move!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
                 board.print_board()
-
+            
             # determine the index for the new node and create a tuple
             new_node = list(node)
             new_node.append(child)
@@ -144,6 +145,7 @@ def depth_first(board):
 
         # Get a car and move it
         results = node_algorithm(nodes, nodes_queue)
+        
         board.game_won = results[0]
         time_elapsed = results[1]
         move_count = results[2]

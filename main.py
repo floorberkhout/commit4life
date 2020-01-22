@@ -3,6 +3,7 @@ directory = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.join(directory, "code"))
 sys.path.append(os.path.join(directory, "code", "classes"))
 sys.path.append(os.path.join(directory, "code", "algoritmes"))
+sys.path.append(os.path.join(directory, "code", "data_visualisation"))
 import numpy as np
 
 # importeer de gebruikte structuur
@@ -12,8 +13,8 @@ from csvwriter import CsvWriter
 from winning_row import winning_row
 from breath_first2 import breath_first
 from depth_first import depth_first
-from node import Node
 from improved_random import algoritme1
+from tree import tree
 
 def main():
     """ Runs Rush Hour game with the algorithm """
@@ -30,8 +31,7 @@ def main():
     board = Board("data/Rushhour6x6_2.csv")
 
     # Runs algorithm
-    name = (0,)
-    first_node = Node(board, name)
+    move_count, time_elapsed, nodes_list = depth_first(board)
 
 
 
@@ -47,6 +47,7 @@ def main():
 
     writer = CsvWriter(algorithm, board.name)
     writer.write_to_csv(time_elapsed, board.name, algorithm, move_count, solution)
+>>>>>>> 6370e56fcbc2cda9a1251ddee1acfd0aff1dbc77
 
 if __name__ == "__main__":
     main()
