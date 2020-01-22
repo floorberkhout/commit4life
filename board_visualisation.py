@@ -23,10 +23,8 @@ def create_numpy(board, my_board):
                 my_board[[i], [n]] = 1
     return my_board
 
-
 def visualize_board(steps):
     """ Animates rush hour game 6x6_1 """
-    
     count = 0
     cmap = colors.ListedColormap(['white', 'grey', 'green', 'blue', 'pink', 'orange', 'black','purple', 'brown', 'beige', 'yellow', 'turquoise', 'coral', 'red'])
     
@@ -44,17 +42,19 @@ def visualize_board(steps):
                 request_car = car
                 board.move(request_car, step[1])
                 my_board = create_numpy(board, my_board)
-        
+                
         # Visualizes numpy list
         fig = plt.gcf()
-        im = plt.imshow(my_board, cmap=cmap, animated=True)              
-        
+        im = plt.imshow(my_board, cmap=cmap, animated=True)
+    
         # Saves visualisation
-        plt.savefig(fname=f'{count}Rush_hour6x6_1', dpi=150)
+        plt.savefig(fname=f'screenshots/{count}Rush_hour6x6_1', dpi=150)
     
         count += 1
         
 if __name__ == "__main__":
     steps = [["A", -1], ["B", -1]]
     visualize_board(steps)
+    
+
     

@@ -62,7 +62,6 @@ class Board:
             car_coordinates = car_data[2].strip(',')
             car_coordinates = car_coordinates.strip('""')
             car_coordinates = car_coordinates.split(',')
-            print(car_coordinates)
             car_coordinates[0] = int(car_coordinates[0]) - 1
             car_coordinates[1] = abs(int(car_coordinates[1]) - self.length)
 
@@ -229,7 +228,7 @@ class Board:
 
         print("Congratulations you've won the game!")
         print("Move count: ", move_count)
-        print("Time elapsed: ", time_elapsed)
+        print("Time elapsed: ", round(time_elapsed, 2))
 
 
     def __str__(self):
