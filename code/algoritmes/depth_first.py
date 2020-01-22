@@ -34,7 +34,7 @@ def node_algorithm(nodes, nodes_queue):
             if status == 0:
                 print("invalid move!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
                 board.print_board()
-
+            
             # determine the index for the new node and create a tuple
             new_node = list(node)
             new_node.append(child)
