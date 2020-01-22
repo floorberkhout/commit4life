@@ -9,19 +9,19 @@ import numpy as np
 # importeer de gebruikte structuur
 from board import Board
 from random_algo import random_algo
-from winning_row import winning_row
-
-from breath_first import breath_first
+from breath_first2 import breath_first
 from depth_first import depth_first
-
-
 from improved_random import algoritme1
 from tree import tree
 
 
 def main():
     """ Runs Rush Hour game with the algorithm """
+
+    # Creates board
+    board = Board("data/Rushhour6x6_1.csv")
     
+<<<<<<< HEAD
     board = Board("data/Rushhour6x6_2.csv")
     
     # Runs algorithm
@@ -35,6 +35,13 @@ def main():
     
     tree_depth = tree(nodes_list)
     # tree_breadth = tree(nodes)
+=======
+    # Runs algorithm
+    # move_count, time_elapsed = depth_first(board)
+    move_count, time_elapsed, nodes_list = depth_first(board)
+    print(move_count)
+    
+>>>>>>> 53c3ca9c0c8c0067b4e67c081f91b8caa28c564d
 
 if __name__ == "__main__":
     main()

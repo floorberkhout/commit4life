@@ -101,7 +101,7 @@ def algoritme1(board):
                                 horizontal_cars_to_move.add(row[option_1])
                         except IndexError: 
                             continue
-                   
+                            
         moveable_cars = cars_vertical.union(horizontal_cars_to_move)
         moveable_cars = list(moveable_cars)
         print(moveable_cars)
@@ -137,5 +137,6 @@ def algoritme1(board):
         
         # Checks if another car prevents the winning car from getting out
         board.game_won, time_elapsed = board.check_win(board.start)
+        print(board.game_won)
 
     return board.move_count, time_elapsed

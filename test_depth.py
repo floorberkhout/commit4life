@@ -49,8 +49,7 @@ def main():
     
 
 def print_results(nodes_list):
-    """ Prints figure of 1000 runs Random Algorithm Rush Hour, average, lower bound and upper bound """
-    
+    """ Prints tree graph of the depth and breadth search"""
     
     iris = load_iris()
 

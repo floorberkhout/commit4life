@@ -118,6 +118,7 @@ week 4 - slotstuk
 		uitleggen waarom greedy en hillclimber niet geschikt zijn
 		random, advanced random, breadth first en deep first vergelijken
 		betere uml
+		beaming past neit bij rush hour omdat nodes geen score kunnen dragen
 
 ###### donderdag 16-01-20
 	random
@@ -142,3 +143,32 @@ week 4 - slotstuk
 		grafiek van breadth first
 		12 proberen
 		1000 iteraties van random 
+
+
+###### maandag 20-01-20	
+	Voortgangsgesprek:
+		optimalisatie breadth first
+			beam search > langere oplossing zonder dat dat misschien nodig zou zijn
+			nodes met de meeste zetten
+
+		imshow() visualisatie van het bord
+		
+		Zo min mogelijk code presenteren	
+		Size() check size of object
+		
+		
+		random 
+			doet alles
+		
+		improved random
+			doet alles
+		
+		breadth first 
+			alles 6x6's
+			zo efficient mogelijkheid opslaan 
+		
+		depth first
+			testen
+			pruned op oplossingen 
+			
+		bord visualisatie & grafiekjes
