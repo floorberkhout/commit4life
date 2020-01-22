@@ -172,3 +172,14 @@ week 4 - slotstuk
 			pruned op oplossingen 
 			
 		bord visualisatie & grafiekjes
+
+###### dinsdag 21-01-20	
+		breadth first optimalisatie
+		depth first nog prunen op oplossingen als bart de nette versie klaar heeft
+		bord visualisatie afmaken met lijst vanuit breadth first
+		improved random af		
+
+		Hoe presenteren we alle verschillende data
+			alle algoritmes loslaten op 6x6_1
+			alle algoritmes loslaten op 12x12
+			move_count, time_elapsed en geheugen vergelijken

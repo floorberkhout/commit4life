@@ -1,3 +1,5 @@
+# https://towardsdatascience.com/spice-up-your-python-visualizations-with-matplotlib-animations-d437d7e98e67
+
 import os, sys
 directory = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.join(directory, "code"))
@@ -6,6 +8,7 @@ sys.path.append(os.path.join(directory, "code", "algoritmes"))
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import colors
+import matplotlib.animation as animation
 
 # importeer de gebruikte structuur
 from board import Board
@@ -26,7 +29,6 @@ def create_numpy(board, my_board):
 
 def visualize_board(steps):
     """ Animates rush hour game 6x6_1 """
-    
     count = 0
     cmap = colors.ListedColormap(['white', 'grey', 'green', 'blue', 'pink', 'orange', 'black','purple', 'brown', 'beige', 'yellow', 'turquoise', 'coral', 'red'])
     
@@ -36,23 +38,26 @@ def visualize_board(steps):
     # Creates begin state
     my_board = np.zeros((board.length, board.length))
     my_board = create_numpy(board, my_board)
-    
-    # Creates state created by each step
-    for step in steps:
+
+    # Visualizes numpy list
+    fig = plt.gcf()
+    im = plt.imshow(my_board, cmap=cmap, animated=True)              
+    # # Saves visualisation
+    # plt.savefig(fname=f'{count}Rush_hour6x6_1', dpi=150)
+    def animate(frame, board, my_board, steps, count):
+        step = steps[count]
         for car in board.cars.values():
             if car.name == step[0]:
                 request_car = car
                 board.move(request_car, step[1])
                 my_board = create_numpy(board, my_board)
-        
-        # Visualizes numpy list
         fig = plt.gcf()
-        im = plt.imshow(my_board, cmap=cmap, animated=True)              
-        
-        # Saves visualisation
-        plt.savefig(fname=f'{count}Rush_hour6x6_1', dpi=150)
-    
+        im = plt.imshow(my_board, cmap=cmap, animated=True)
         count += 1
+ 
+    anim = animation.FuncAnimation(fig, animate(count, board, my_board, steps, count), frames=len(steps), 
+                                       interval=2)
+    plt.show()
         
 if __name__ == "__main__":
     steps = [["A", -1], ["B", -1]]
