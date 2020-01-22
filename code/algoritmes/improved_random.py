@@ -16,25 +16,25 @@ def algoritme1(board):
         
         horizontal_cars_to_move = set()    
         
-        # Makes list from all rows instead of columns
-        for i in range(length_board):
-            for col in board.board:
-                horizontal_list.append(col[i])
-            horizontal_board.append(horizontal_list)
-            horizontal_list = []
-
-        # Loops over the board with al the horizontal rows
-        for row in horizontal_board:
-            horizontal_car = []
-            check_horizontal_car = []
-            index_list = []
-
-            if "." in row:
-                for i in range(length_board):
-                    if not row[i] in check_horizontal_car or row[i] == ".":
-                        check_horizontal_car.append(row[i])
-                    else:
-                        horizontal_car.append(row[i])
+        # # Makes list from all rows instead of columns
+ #        for i in range(length_board):
+ #            for col in board.board:
+ #                horizontal_list.append(col[i])
+ #            horizontal_board.append(horizontal_list)
+ #            horizontal_list = []
+ #
+ #        # Loops over the board with al the horizontal rows
+ #        for row in horizontal_board:
+ #            horizontal_car = []
+ #            check_horizontal_car = []
+ #            index_list = []
+ #
+ #            if "." in row:
+ #                for i in range(length_board):
+ #                    if not row[i] in check_horizontal_car or row[i] == ".":
+ #                        check_horizontal_car.append(row[i])
+ #                    else:
+ #                        horizontal_car.append(row[i])
 
         for col in board.board:
             check_car = []

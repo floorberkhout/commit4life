@@ -21,37 +21,37 @@ def main():
     """ Runs Rush Hour game with the algorithm """
 
     # Creates board
-    board = Board("data/Rushhour6x6_2.csv")
+    board = Board("data/Rushhour6x6_1.csv")
 
     # Runs algorithm
-    move_count, time_elapsed, nodes_list = depth_first(board)
+    # move_count, time_elapsed, nodes_list = depth_first(board)
 
     # Selectors choose between breath and deapth first and choose whether _memory_clearer = True or False
-    algorithm = "breath_first"
-    memory_clearer = True
+    # algorithm = "breath_first"
+ #    memory_clearer = True
 
 
-    # move_count, time_elapsed = algoritme1(board)
+    move_count, time_elapsed = algoritme1(board)
 
     # Prints results
     board.print_board()
     board.end_game(move_count, time_elapsed)
     
-    tree_depth = tree(nodes_list)
-    tree_breadth = tree(nodes)
+    # tree_depth = tree(nodes_list)
+ #    tree_breadth = tree(nodes)
 
     # prepare the selectors for the algorithm
-    x = algorithm[:-6]
-    if memory_clearer:
-        algorithm = algorithm + "_memory_clearer"
-
-    # Initializes the first node
-    first_node_name = (0,)
-    first_node = Node(board, first_node_name)
-
-    # setup and run the algorithm
-    x_first_algorithm = x_first(first_node, memory_clearer, x)
-    solution, time_elapsed, nodes_dict = x_first_algorithm.run()
+    # x = algorithm[:-6]
+#     if memory_clearer:
+#         algorithm = algorithm + "_memory_clearer"
+#
+#     # Initializes the first node
+#     first_node_name = (0,)
+#     first_node = Node(board, first_node_name)
+#
+#     # setup and run the algorithm
+#     x_first_algorithm = x_first(first_node, memory_clearer, x)
+#     solution, time_elapsed, nodes_dict = x_first_algorithm.run()
 
     
     # write the solution to a CSV file
