@@ -117,11 +117,7 @@ class x_first:
         while self.solved == False:
             next_node_name = self.get_next_node_name()
             self.build_children(next_node_name)
-<<<<<<< HEAD
+
         time_elapsed = time.time() -  self.start_time
-=======
-            time_elapsed = time.time() -  self.start_time
-            
->>>>>>> a22b4b605ba1d71c039dd74ec07c34260df9e7d6
 
         return self.solution, time_elapsed, self.nodes

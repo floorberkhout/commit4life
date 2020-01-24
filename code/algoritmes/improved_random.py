@@ -2,10 +2,17 @@ import random
 import time
 from board import Board
 
-def algoritme1(board):      
+def improved_random(board):      
+    
     length_board = board.length
     request_car = ""     
     request_move = ""
+    
+    # board_archive = {board.move_count: str(board)}
+    board_archive = {str(board): [request_car, request_move]}
+    solution = []
+    list_board = []
+    
 
     # Plays the game untill won    
     while board.game_won == False:
@@ -49,51 +56,8 @@ def algoritme1(board):
                                                             (check_car[index_car - 1] != "." and check_car[index_car + 1] != ".")):
                     continue
                 else:
-<<<<<<< HEAD
-                    cars_vertical.add(car)        
-        
-        horizontal_cars_to_move = set()
-
-        # Makes list from all rows instead of columns
-        for i in range(length_board):
-            for col in board.board:
-                horizontal_list.append(col[i])
-            horizontal_board.append(horizontal_list)
-            horizontal_list = []
-
-        # Loops over the board with al the horizontal rows
-        for row in horizontal_board:
-            horizontal_car = []
-            check_horizontal_car = []
-            index_list = []
-
-            if "." in row:
-                for i in range(length_board):
-                    if not row[i] in check_horizontal_car or row[i] == ".":
-                        check_horizontal_car.append(row[i])
-                        if row[i] == ".":
-                            index_list.append(i)
-                    else:
-                        horizontal_car.append(row[i])
-            
-                    for j in range(len(index_list)):
-                        option_1 = int(index_list[j]) + 1
-                        try:
-                            if int(index_list[j]) - 1 >= 0:
-                                option_2 = int(index_list[j]) - 1
-                                
-                                if row[option_2] in horizontal_car:
-                                    horizontal_cars_to_move.add(row[option_2])
-                            if row[option_1] in horizontal_car:
-                                horizontal_cars_to_move.add(row[option_1])
-                        except IndexError: 
-                            continue
-                            
-        moveable_cars = cars_vertical.union(horizontal_cars_to_move)
-        moveable_cars = list(moveable_cars)
-=======
                     cars_move.add(car_car)        
->>>>>>> a22b4b605ba1d71c039dd74ec07c34260df9e7d6
+
                
         move_cars_objects = []
         
@@ -120,14 +84,34 @@ def algoritme1(board):
         # If move creates new state of board (so no reversing of last move), perform move
         if make_move == "yes":
             board.move(request_car, request_move)
-<<<<<<< HEAD
-
-        # Checks if another car prevents the winning car from getting out
-        board.game_won, time_elapsed = board.check_win(board.start)
-=======
+            board_archive[str(board)] = [request_car, request_move]
+            
+            
                    
         # Checks if another car prevents the winning car from getting out
         board.game_won, time_elapsed = board.check_win(board.start)
-
->>>>>>> a22b4b605ba1d71c039dd74ec07c34260df9e7d6
+    
+    # https://stackoverflow.com/questions/52508696/check-if-repeating-key-or-value-exists-in-python-dictionary
+    
+    # print(len(step_archive))
+    # board_duplicates = {current_board: [(k) for (k) in board_archive if board_archive[(k)] == current_board] for current_board in set(board_archive.values())}
+    # for board_name, counts in board_duplicates.items():
+    #     for count in counts[1:]:
+    #         del board_archive[count]
+    # for key, value in step_archive.items():
+    #     if key in board_archive.keys():
+    #             solution_list.append(value)
+    # board.move_count = len(solution_list)
+    
+    print(len(board_archive))
+    print(board_archive.keys())
+    for archived_board, steps in board_archive.items():
+        if archived_board not in list_board:
+            list_board.append(archived_board)
+            solution.append(steps)
+    print(len(list_board))
+    
+            
+        
+    
     return board.move_count, time_elapsed

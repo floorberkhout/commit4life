@@ -183,3 +183,7 @@ week 4 - slotstuk
 			alle algoritmes loslaten op 6x6_1
 			alle algoritmes loslaten op 12x12
 			move_count, time_elapsed en geheugen vergelijken
+			
+###### vrijdag 24-01-20	
+		voor bart:
+			waarom -1 bij pop bij depth
