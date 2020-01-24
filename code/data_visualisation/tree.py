@@ -3,7 +3,15 @@ import plotly.graph_objects as go
 from igraph import Graph, EdgeSeq
 
 def tree(nodes_list):
+    edges = []
     amount_nodes = len(nodes_list)
+    for nodes in nodes_list.values():
+        print(nodes.name)
+        name = len(nodes.name) - 1
+        
+        # for nodes in nodes_list.values()[:1]:
+ #        name.index()
+         
     nr_vertices = amount_nodes
     v_label = list(map(str, range(nr_vertices)))
     G = Graph.Tree(nr_vertices, 2) # 2 stands for children number
@@ -46,16 +54,16 @@ def tree(nodes_list):
                       hoverinfo='text',
                       opacity=0.8
                       ))
-    for nodes in nodes_list.values():       
-        dict_nodes = nodes
-    if dict_nodes['solved'] == True:
-        fig.add_trace(go.Scatter(x=Xn,
-                          y=Yn,
-                          mode='markers',
-                          name='winning_node',
-                          marker=dict(symbol='circle-dot',
-                                        size=40,
-                                        color='#DC143C')))
+    # for nodes in nodes_list.values():
+           
+    # if dict_nodes['solved'] == True:
+#         fig.add_trace(go.Scatter(x=Xn,
+#                           y=Yn,
+#                           mode='markers',
+#                           name='winning_node',
+#                           marker=dict(symbol='circle-dot',
+#                                         size=40,
+#                                         color='#DC143C')))
                                                 
 
     axis = dict(showline=False, # hide axis line, grid, ticklabels and  title
@@ -64,7 +72,7 @@ def tree(nodes_list):
                 showticklabels=False,
                 )
 
-    fig.update_layout(title= 'Depth first algorithm 6x6_1 board',
+    fig.update_layout(title= 'Breadth first algorithm 6x6_1 board',
             
                   font_size=12,
                   xaxis=axis,

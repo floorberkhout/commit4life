@@ -5,7 +5,7 @@ import sys
 class x_first:
     def __init__(self, first_node, memory_clearer, x):
 
-        # create the firt node with name 0
+        # create the first node with name 0
         self.nodes = {first_node.name: first_node}
         self.start_node = first_node
         self.nodes_queue = [first_node.name]
@@ -122,5 +122,6 @@ class x_first:
             next_node_name = self.get_next_node_name()
             self.build_children(next_node_name)
             time_elapsed = time.time() -  self.start_time
+            
 
         return self.solution, time_elapsed, self.nodes

@@ -13,14 +13,12 @@ from csvwriter import CsvWriter
 from random_algo import random_algo
 from winning_row import winning_row
 from x_first import x_first
-from depth_first import depth_first
+# from depth_first import depth_first
 from improved_random import algoritme1
-<<<<<<< HEAD
 from board_visualisation import visualize_board
-# from tree import tree
-=======
 from tree import tree
->>>>>>> 9cd355d9411fd091344bbcd10e671ea7be72be06
+
+
 
 def main():
     """ Runs Rush Hour game with the algorithm """
@@ -31,12 +29,23 @@ def main():
     # Runs algorithm
     # move_count, time_elapsed, nodes_list = depth_first(board)
 
-    # Selectors choose between breath and deapth first and choose whether _memory_clearer = True or False
-    # algorithm = "breath_first"
- #    memory_clearer = True
+    # Selectors choose between breadth and depth first and choose whether _memory_clearer = True or False
+    algorithm = "depth_first"
+    memory_clearer = True
 
-<<<<<<< HEAD
-    # prepare the selectors for the algorithm
+
+    
+ 
+
+    # move_count, time_elapsed = algoritme1(board)
+    # move_count, time_elapsed = random_algo(board)
+
+    # Prints results
+    # board.print_board()
+#     board.end_game(move_count, time_elapsed)
+
+
+    # Prepare the selectors for the algorithm
     x = algorithm[:-6]
     if memory_clearer:
         algorithm = algorithm + "_memory_clearer"
@@ -48,41 +57,17 @@ def main():
     # setup and run the algorithm
     x_first_algorithm = x_first(first_node, memory_clearer, x)
     solution, time_elapsed, nodes_dict = x_first_algorithm.run()
-
-    # Prints results
-    time_elapsed = round(time_elapsed, 2)
     move_count = len(solution)
-    print(solution)
-    print("Move count:", move_count)
-    print("Time elapsed: ", time_elapsed)
-    
-    visualize_board(solution)
-=======
 
-    move_count, time_elapsed = algoritme1(board)
-
-    # Prints results
-    board.print_board()
+#     # visualize_board(solution)
+#
     board.end_game(move_count, time_elapsed)
-    
-    # tree_depth = tree(nodes_list)
- #    tree_breadth = tree(nodes)
->>>>>>> 9cd355d9411fd091344bbcd10e671ea7be72be06
-
-    # prepare the selectors for the algorithm
-    # x = algorithm[:-6]
-#     if memory_clearer:
-#         algorithm = algorithm + "_memory_clearer"
 #
-#     # Initializes the first node
-#     first_node_name = (0,)
-#     first_node = Node(board, first_node_name)
 #
-#     # setup and run the algorithm
-#     x_first_algorithm = x_first(first_node, memory_clearer, x)
-#     solution, time_elapsed, nodes_dict = x_first_algorithm.run()
-
+#     tree_depth = tree(nodes_dict)
+#
     
+
     # write the solution to a CSV file
     # writer = CsvWriter(algorithm, board.name)
 #     writer.write_to_csv(time_elapsed, board.name, algorithm, move_count, solution)
