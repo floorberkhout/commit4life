@@ -3,10 +3,9 @@ import time
 
 
 def random_algo(board):
-    
+
     # Plays the game untill won
-    while board.game_won  == False:
-        
+    while board.game_won == False:
         # Get random car and move
         request_car = random.choice(list(board.cars.values()))
         

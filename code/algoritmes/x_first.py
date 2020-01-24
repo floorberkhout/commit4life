@@ -1,8 +1,9 @@
 import copy
+import random
 import time
 import sys
 
-class x_first:
+class X_first:
     def __init__(self, first_node, memory_clearer, x):
 
         # create the first node with name 0
@@ -24,7 +25,7 @@ class x_first:
         Method that takes the next node from the queue in case of breath first fifo
         """
         if self.x_first == "depth":
-            return self.nodes_queue.pop(-1)
+            return self.nodes_queue.pop(random.randrange(len(self.nodes_queue)))
         else:
             return self.nodes_queue.pop(0)
 
@@ -66,7 +67,7 @@ class x_first:
                     self.states.add(str(new_node.board))
                     self.nodes_queue.append(new_node.name)
 
-                # check if the new node is a winnig state if so updat the status to solved
+                # check if the new node is a winnig state if so update the status to solved
                 if new_node.board.check_win(0)[0]:
                     finish_node = copy.deepcopy(new_node)
                     request_car = finish_node.board.cars[finish_node.board.xcar]
@@ -99,13 +100,9 @@ class x_first:
 
     def print_steps(self):
         board = copy.deepcopy(self.nodes[(0,)])
-        board.board.print_board()
         for car_id, request_move in self.solution.history:
             request_car = board.board.cars[car_id]
             board.board.move(request_car, request_move)
-            print(request_car, request_move)
-            board.board.print_board()
-            print("-------")
 
     def convert_car_id_to_char(self):
         solution = []
@@ -121,7 +118,7 @@ class x_first:
         while self.solved == False:
             next_node_name = self.get_next_node_name()
             self.build_children(next_node_name)
-            time_elapsed = time.time() -  self.start_time
-            
+
+        time_elapsed = time.time() -  self.start_time
 
         return self.solution, time_elapsed, self.nodes
