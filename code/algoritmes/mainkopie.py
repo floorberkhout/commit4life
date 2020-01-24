@@ -23,7 +23,7 @@ def main():
     """ Runs Rush Hour game with the algorithm """
 
     # # Creates board
-    board = Board("data/Rushhour9x9_5.csv")
+    board = Board("data/Rushhour6x6_1.csv")
 
     """
     Selectors choose between all the algorithms and depth first and choose whether _memory_clearer = True or False
@@ -54,7 +54,6 @@ def main():
     
     elif x == "improved_random":
         solution, time_elapsed = improved_random(board)
-
         
     board.end_game(move_count, time_elapsed)
 

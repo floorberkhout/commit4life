@@ -24,7 +24,7 @@ class X_first:
         """
         Method that takes the next node from the queue in case of breath first fifo
         """
-        if self.x_first == "depth":
+        if self.x_first == "depth_first":
             return self.nodes_queue.pop(random.randrange(len(self.nodes_queue)))
         else:
             return self.nodes_queue.pop(0)
@@ -79,7 +79,6 @@ class X_first:
                     self.solution = copy.deepcopy(finish_node)
                     self.print_steps()
                     self.convert_car_id_to_char()
-                    print("congrats you won")
                     break
                 child += 1
 

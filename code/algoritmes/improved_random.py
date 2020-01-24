@@ -79,15 +79,6 @@ def improved_random(board):
                      
 
         # If move creates new state of board (so no reversing of last move), perform move
-<<<<<<< HEAD
-        if make_move == "yes":
-            board.move(request_car, request_move)
-                   
-        # Checks if another car prevents the winning car from getting out
-        board.game_won, time_elapsed = board.check_win(board.start)
-
-    return board.move_count, time_elapsed
-=======
         board.move(request_car, request_move)
         board_archive[str(board)] = [request_car.name, request_move]
             
@@ -102,4 +93,4 @@ def improved_random(board):
         solution.append(str_steps)
         
     return solution, time_elapsed
->>>>>>> b7bd68f15e099baeb3efe14b7214ed5739ba0673
+

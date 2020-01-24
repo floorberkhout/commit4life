@@ -12,9 +12,11 @@ def random_algo(board):
         request_move = random.choice([-1, 1]) 
         
         board.move(request_car, request_move)
+        
+        solution = board.move_count
 
         # board.write_move(request_car, request_move, board.log)
         # Checks if another car prevents the winning car from getting out
         board.game_won, time_elapsed = board.check_win(board.start)
 
-    return board.move_count, time_elapsed
+    return solution, time_elapsed
