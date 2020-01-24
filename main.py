@@ -33,38 +33,38 @@ def main():
    
    
     
-    # # input
-    # board = Board("data/Rushhour6x6_1.csv")
-    # algorithm = "breath_first"
-    # memory_clearer = True
-    #
-    # # # prepare the selectors for the algorithm
-    # x = algorithm[:-6]
-    # if memory_clearer:
-    #     algorithm = algorithm + "_memory_clearer"
-    #
-    # # Initializes the first node
-    # first_node_name = (0,)
-    # first_node = Node(board, first_node_name)
-    #
-    # # setup and run the algorithm
-    # x_first_algorithm = x_first(first_node, memory_clearer, x)
-    # solution, time_elapsed, nodes_dict = x_first_algorithm.run()
-    #
-    # # Prints results
-    # time_elapsed = round(time_elapsed, 2)
-    # move_count = len(solution)
-    # print(solution)
-    # print("Move count:", move_count)
-    # print("Time elapsed: ", time_elapsed)
-    
-    # De-comment to generate images that visualize every step taken to win the game
-    # visualize_board(solution)
-    
+    # input
+    board = Board("data/Rushhour6x6_1.csv")
+    algorithm = "breath_first"
+    memory_clearer = True
 
-    # write the solution to a CSV file
-    # writer = CsvWriter(algorithm, board.name)
-#     writer.write_to_csv(time_elapsed, board.name, algorithm, move_count, solution)
+    # # prepare the selectors for the algorithm
+    x = algorithm[:-6]
+    if memory_clearer:
+        algorithm = algorithm + "_memory_clearer"
+
+    # Initializes the first node
+    first_node_name = (0,)
+    first_node = Node(board, first_node_name)
+
+    # setup and run the algorithm
+    x_first_algorithm = x_first(first_node, memory_clearer, x)
+    solution, time_elapsed, nodes_dict = x_first_algorithm.run()
+
+    # Prints results
+    time_elapsed = round(time_elapsed, 2)
+    move_count = len(solution)
+    print(solution)
+    print("Move count:", move_count)
+    print("Time elapsed: ", time_elapsed)
+
+    De-comment to generate images that visualize every step taken to win the game
+    visualize_board(solution)
+
+
+    write the solution to a CSV file
+    writer = CsvWriter(algorithm, board.name)
+    writer.write_to_csv(time_elapsed, board.name, algorithm, move_count, solution)
 
     
 if __name__ == "__main__":

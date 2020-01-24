@@ -8,10 +8,8 @@ def improved_random(board):
     request_car = ""     
     request_move = ""
     
-    # board_archive = {board.move_count: str(board)}
     board_archive = {str(board): [request_car, request_move]}
     solution = []
-    list_board = []
     
 
     # Plays the game untill won    
@@ -69,49 +67,29 @@ def improved_random(board):
             if objects.name in cars_move:
                 move_cars_objects.append(objects)
 
-        make_move = "yes"
         request_car = random.choice(list(move_cars_objects))
         request_move = random.choice([-1, 1])
         
                
         # Makes sure it doesn't reverse the last move
         if request_car == last_car:
-            if request_move != last_move:
-                make_move = "no"
-            else:
-                board.move_count -= 1
+            if request_move == last_move:
+                last_one = list(board_archive.keys())[-1]
+                board_archive.pop(last_one)
+                     
 
         # If move creates new state of board (so no reversing of last move), perform move
-        if make_move == "yes":
-            board.move(request_car, request_move)
-            board_archive[str(board)] = [request_car, request_move]
+        board.move(request_car, request_move)
+        board_archive[str(board)] = [request_car.name, request_move]
             
             
                    
         # Checks if another car prevents the winning car from getting out
-        board.game_won, time_elapsed = board.check_win(board.start)
+        board.game_won, time_elapsed = board.check_win(board.start)      
     
-    # https://stackoverflow.com/questions/52508696/check-if-repeating-key-or-value-exists-in-python-dictionary
-    
-    # print(len(step_archive))
-    # board_duplicates = {current_board: [(k) for (k) in board_archive if board_archive[(k)] == current_board] for current_board in set(board_archive.values())}
-    # for board_name, counts in board_duplicates.items():
-    #     for count in counts[1:]:
-    #         del board_archive[count]
-    # for key, value in step_archive.items():
-    #     if key in board_archive.keys():
-    #             solution_list.append(value)
-    # board.move_count = len(solution_list)
-    
-    print(len(board_archive))
-    print(board_archive.keys())
-    for archived_board, steps in board_archive.items():
-        if archived_board not in list_board:
-            list_board.append(archived_board)
-            solution.append(steps)
-    print(len(list_board))
-    
-            
+    for steps in board_archive.values():
+        s = [str(i) for i in steps] 
+        str_steps = ", ".join(s)
+        solution.append(str_steps)
         
-    
-    return board.move_count, time_elapsed
+    return solution, time_elapsed
