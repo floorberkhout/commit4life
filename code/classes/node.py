@@ -84,8 +84,18 @@ class Node():
         self.determine_possible_moves()
         self.set_name(name)
 
+<<<<<<< HEAD
     def __repr__(self):
         """
         Make sure that the object is printed properly if it is in a list/dict.
         """
+=======
+    def delete_board(self):
+        del self.board
+
+    # def __repr__(self):
+#         # """
+       #  Make sure that the object is printed properly if it is in a list/dict.
+       #  """
+>>>>>>> a22b4b605ba1d71c039dd74ec07c34260df9e7d6
         return self.name
