@@ -3,7 +3,8 @@ import time
 
 
 def random_algo(board):
-
+    solution = []
+    
     # Plays the game untill won
     while board.game_won == False:
         # Get random car and move
@@ -11,10 +12,11 @@ def random_algo(board):
         
         request_move = random.choice([-1, 1]) 
         
-        board.move(request_car, request_move)
+        moved = board.move(request_car, request_move)
+        if moved is not 0:
+            solution.append(", ".join([request_car.name, str(request_move)]))
 
-        # board.write_move(request_car, request_move, board.log)
         # Checks if another car prevents the winning car from getting out
         board.game_won, time_elapsed = board.check_win(board.start)
-
-    return board.move_count, time_elapsed
+        
+    return solution, time_elapsed

@@ -215,7 +215,6 @@ class Board:
             request_car.coordinates[1] = int(y+request_move)
             # write a move to the log
 
-        self.move_count += 1
         return self.board
 
     def write_move(self, request_car, request_move, log):
@@ -224,11 +223,11 @@ class Board:
         log_row = request_car.name + ',' + str(request_move) + '\n'
         log.write(log_row)
 
-    def end_game(self, move_count, time_elapsed):
+    def end_game(self, solution, time_elapsed):
         """ Prints end state """
 
         print("Congratulations you've won the game!")
-        print("Move count: ", move_count)
+        print("Move count: ", len(solution))
         print("Time elapsed: ", round(time_elapsed, 2))
 
 
