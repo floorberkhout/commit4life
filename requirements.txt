@@ -1,1 +1,6 @@
-igraph
+matplotlib
+numpy
+random
+time
+copy
+sys

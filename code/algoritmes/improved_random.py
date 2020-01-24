@@ -3,11 +3,10 @@ import time
 from board import Board
 
 def algoritme1(board):      
-    
     length_board = board.length
     request_car = ""     
     request_move = ""
-    
+
     # Plays the game untill won    
     while board.game_won == False:
         cars_vertical = set()
@@ -104,8 +103,6 @@ def algoritme1(board):
                             
         moveable_cars = cars_vertical.union(horizontal_cars_to_move)
         moveable_cars = list(moveable_cars)
-        print(moveable_cars)
-        board.print_board()
                
         move_cars_objects = []
         
@@ -133,10 +130,7 @@ def algoritme1(board):
         # If move creates new state of board (so no reversing of last move), perfom move
         if make_move == "yes":
             board.move(request_car, request_move)
-            
-        
+
         # Checks if another car prevents the winning car from getting out
         board.game_won, time_elapsed = board.check_win(board.start)
-        print(board.game_won)
-
     return board.move_count, time_elapsed

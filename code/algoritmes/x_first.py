@@ -99,13 +99,9 @@ class x_first:
 
     def print_steps(self):
         board = copy.deepcopy(self.nodes[(0,)])
-        board.board.print_board()
         for car_id, request_move in self.solution.history:
             request_car = board.board.cars[car_id]
             board.board.move(request_car, request_move)
-            print(request_car, request_move)
-            board.board.print_board()
-            print("-------")
 
     def convert_car_id_to_char(self):
         solution = []
@@ -121,6 +117,6 @@ class x_first:
         while self.solved == False:
             next_node_name = self.get_next_node_name()
             self.build_children(next_node_name)
-            time_elapsed = time.time() -  self.start_time
+        time_elapsed = time.time() -  self.start_time
 
         return self.solution, time_elapsed, self.nodes

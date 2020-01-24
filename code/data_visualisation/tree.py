@@ -1,3 +1,8 @@
+##########################################################################
+#   test_random.py
+#   Let's you test the depth and breadth algorithms in range(x) and plots a graph
+##########################################################################
+
 import igraph
 import plotly.graph_objects as go
 from igraph import Graph, EdgeSeq
