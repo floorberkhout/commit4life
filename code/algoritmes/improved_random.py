@@ -7,6 +7,10 @@ def improved_random(board):
     length_board = board.length
     request_car = ""     
     request_move = ""
+    
+    board_archive = {str(board): [request_car, request_move]}
+    solution = []
+    
 
     # Plays the game untill won    
     while board.game_won == False:
@@ -63,19 +67,19 @@ def improved_random(board):
             if objects.name in cars_move:
                 move_cars_objects.append(objects)
 
-        make_move = "yes"
         request_car = random.choice(list(move_cars_objects))
         request_move = random.choice([-1, 1])
         
                
         # Makes sure it doesn't reverse the last move
         if request_car == last_car:
-            if request_move != last_move:
-                make_move = "no"
-            else:
-                board.move_count -= 1
+            if request_move == last_move:
+                last_one = list(board_archive.keys())[-1]
+                board_archive.pop(last_one)
+                     
 
         # If move creates new state of board (so no reversing of last move), perform move
+<<<<<<< HEAD
         if make_move == "yes":
             board.move(request_car, request_move)
                    
@@ -83,3 +87,19 @@ def improved_random(board):
         board.game_won, time_elapsed = board.check_win(board.start)
 
     return board.move_count, time_elapsed
+=======
+        board.move(request_car, request_move)
+        board_archive[str(board)] = [request_car.name, request_move]
+            
+            
+                   
+        # Checks if another car prevents the winning car from getting out
+        board.game_won, time_elapsed = board.check_win(board.start)      
+    
+    for steps in board_archive.values():
+        s = [str(i) for i in steps] 
+        str_steps = ", ".join(s)
+        solution.append(str_steps)
+        
+    return solution, time_elapsed
+>>>>>>> b7bd68f15e099baeb3efe14b7214ed5739ba0673
