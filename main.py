@@ -14,7 +14,7 @@ from random_algo import random_algo
 from winning_row import winning_row
 from x_first import x_first
 # from depth_first import depth_first
-from improved_random import algoritme1
+from improved_random import improved_random
 from board_visualisation import visualize_board
 from tree import tree
 

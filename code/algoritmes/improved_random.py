@@ -2,7 +2,7 @@ import random
 import time
 from board import Board
 
-def algoritme1(board):      
+def improved_random(board):      
     
     length_board = board.length
     request_car = ""     
