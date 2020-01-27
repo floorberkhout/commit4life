@@ -11,10 +11,9 @@ from board import Board
 from node import Node
 from csvwriter import CsvWriter
 from randomize import randomize
-from x_first import X_first
 from improved_random import improved_random
+from x_first import X_first
 from board_visualisation import visualize_board
-
 
 
 def main(algorithm, board_number):
