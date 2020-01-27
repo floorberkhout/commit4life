@@ -2,7 +2,7 @@ import os, sys
 directory = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.join(directory, "code"))
 sys.path.append(os.path.join(directory, "code", "classes"))
-sys.path.append(os.path.join(directory, "code", "algoritmes"))
+sys.path.append(os.path.join(directory, "code", "algorithms"))
 sys.path.append(os.path.join(directory, "code", "data_visualisation"))
 import numpy as np
 
@@ -26,10 +26,10 @@ def main():
 
     # Choose between all the algorithms and depth first and choose whether _memory_clearer = True or False 
     
-    algorithm = "random_algo"
+    # algorithm = "random_algo"
     # algorithm = "improved_random"
     # algorithm = "breadth_first"
-    # algorithm = "depth_first"
+    algorithm = "depth_first"
     
     memory_clearer = False
 
