@@ -1,4 +1,16 @@
+<<<<<<< HEAD:results/improved_random_Rushhour6x6_1
 5.434988021850586
+=======
+<<<<<<< HEAD
+0.591630220413208
+Rushhour6x6_1
+improved_random
+0
+
+car,move
+=======
+1.0376598834991455
+>>>>>>> 9e5f2ee78366537ba5105671e180fec7f477733f:resultaten/improved_random_Rushhour6x6_1
 Rushhour6x6_1
 improved_random
 380
@@ -384,3 +396,4 @@ D,1
 H,1
 F,1
 I,-1
+>>>>>>> c2986556ef86ada66f20856450e989f5e12c114a
