@@ -5,8 +5,11 @@ import sys
 
 class X_first:
     def __init__(self, first_node, memory_clearer, x):
+        """ 
+        Initializes a node 
+        """
 
-        # create the first node with name 0
+        # Creates the first node with name 0
         self.nodes = {first_node.name: first_node}
         self.start_node = first_node
         self.nodes_queue = [first_node.name]
@@ -22,8 +25,9 @@ class X_first:
 
     def get_next_node_name(self):
         """
-        Method that takes the next node from the queue in case of breath first fifo
+        Takes the next node from the queue in case of breadth first, fifo
         """
+        
         if self.x_first == "depth_first":
             return self.nodes_queue.pop(random.randrange(len(self.nodes_queue)))
         else:
@@ -35,11 +39,13 @@ class X_first:
         """
 
         if self.memory_clearer == False:
-            # Retrieve the node
+            
+            # Retrieves the node
             current_node = self.nodes[current_node_name]
 
         else:
-            # recreate the board state by performing the move history
+            
+            # Recreates the board state by performing the move history
             if current_node_name != (0,):
                 # start_node = self.nodes[(0,)]
                 current_node = copy.deepcopy(self.start_node)
@@ -50,24 +56,25 @@ class X_first:
 
         child = 0
 
-        # Create the corresponding next nodes
+        # Creates the corresponding next nodes
         for movable_car in current_node.possible_moves:
             for request_move in current_node.possible_moves[movable_car]:
                 new_node = copy.deepcopy(current_node)
                 request_car = new_node.board.cars[movable_car]
-                # update the new node
+                
+                # Updates the new node
                 new_node.update_node(child, request_car, request_move)
                 self.printlevel(len(new_node.name))
 
                 if not self.memory_clearer:
                     self.nodes[new_node.name] = new_node
 
-                # check if node is a new state if so add to the nodes_queue and the set
+                # Checks if node is a new state if so add to the nodes_queue and the set
                 if str(new_node.board) not in self.states:
                     self.states.add(str(new_node.board))
                     self.nodes_queue.append(new_node.name)
 
-                # check if the new node is a winnig state if so update the status to solved
+                # Checks if the new node is a winnig state if so update the status to solved
                 if new_node.board.check_win(0)[0]:
                     finish_node = copy.deepcopy(new_node)
                     request_car = finish_node.board.cars[finish_node.board.xcar]
@@ -82,10 +89,10 @@ class X_first:
                     break
                 child += 1
 
-                # write the data to the nodes_archive
+                # Writes the data to the nodes_archive
                 self.nodes_archive[new_node.name] = new_node.history
 
-                # delete the nodes to save memory if memory_clearer is on
+                # Deletes the nodes to save memory if memory_clearer is on
                 if self.memory_clearer:
                     del new_node
 
@@ -93,17 +100,29 @@ class X_first:
             del current_node
 
     def printlevel(self, level):
+        """
+        Prints level so during tests the state of process is visible
+        """
+        
         if level > self.level:
             self.level = level
             print(str(level-1) + " levels deep")
 
     def print_steps(self):
+        """
+        ?
+        """
+        
         board = copy.deepcopy(self.nodes[(0,)])
         for car_id, request_move in self.solution.history:
             request_car = board.board.cars[car_id]
             board.board.move(request_car, request_move)
 
     def convert_car_id_to_char(self):
+        """
+        Converts car id to char to save memory
+        """
+        
         solution = []
         for car_id, request_move in self.solution.history:
             request_car = self.start_node.board.cars[car_id]
@@ -114,6 +133,7 @@ class X_first:
         """
         Runs the algorithm untill all possible states are visited.
         """
+        
         while self.solved == False:
             next_node_name = self.get_next_node_name()
             self.build_children(next_node_name)

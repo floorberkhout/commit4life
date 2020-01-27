@@ -87,6 +87,11 @@ class Node():
     def __repr__(self):
         """
         Make sure that the object is printed properly if it is in a list/dict.
+<<<<<<< HEAD
 
         """    
+=======
+        """    
+
+>>>>>>> c2986556ef86ada66f20856450e989f5e12c114a
         return self.name
