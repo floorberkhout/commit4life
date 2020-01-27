@@ -15,7 +15,7 @@ def improved_random(board):
         board.moveable_cars()
         
         # Function that seeks the objects from the corresponding moveable car
-        board.get_objects()
+        board.get_car_objects()
 
         request_car = random.choice(list(board.move_cars_objects))
         request_move = random.choice([-1, 1])

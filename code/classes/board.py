@@ -258,7 +258,7 @@ class Board:
         
         return self.cars_move
     
-    def get_objects(self):
+    def get_car_objects(self):
         """
         Seeks the objects from the corresponding moveable car
         """
