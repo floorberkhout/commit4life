@@ -11,10 +11,8 @@ from board import Board
 from node import Node
 from csvwriter import CsvWriter
 from random_algo import random_algo
-from winning_row import winning_row
 from x_first import X_first
 from improved_random import improved_random
-from board_visualisation import visualize_board
 from board_visualisation import visualize_board
 
 
@@ -22,25 +20,16 @@ from board_visualisation import visualize_board
 def main():
     """ Runs Rush Hour game with the algorithm """
 
-<<<<<<< HEAD
-    # # Creates board
-    board = Board("data/Rushhour6x6_1.csv")
-
-  
-    # Selectors choose between all the algorithms and depth first and choose whether _memory_clearer = True or False
-   
-=======
     # Creates board
-    board = Board("data/Rushhour12x12_7.csv")
+    board = Board("data/Rushhour6x6_1.csv")
 
 
     # Choose between all the algorithms and depth first and choose whether _memory_clearer = True or False 
     
->>>>>>> a1c2889c0eec15ef6ebf268516e541317d9f54d4
-    # algorithm = "random_algo"
+    algorithm = "random_algo"
     # algorithm = "improved_random"
     # algorithm = "breadth_first"
-    algorithm = "depth_first"
+    # algorithm = "depth_first"
     
     memory_clearer = False
 
@@ -61,17 +50,11 @@ def main():
     elif x == "random_algo":
         solution, time_elapsed = random_algo(board)
     
-<<<<<<< HEAD
-    board.end_game(solution, time_elapsed)
- 
- 
-=======
     elif x == "improved_random":
         solution, time_elapsed = improved_random(board)
         
     board.end_game(solution, time_elapsed)
 
->>>>>>> a1c2889c0eec15ef6ebf268516e541317d9f54d4
     # Writes the solution to a CSV file
     writer = CsvWriter(algorithm, board.name)
     writer.write_to_csv(time_elapsed, board.name, algorithm, solution)
