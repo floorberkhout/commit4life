@@ -229,5 +229,13 @@ week 4 - slotstuk
     	- Een laatste blik werpen op jullie Git repository en code.
     	- Laatste vragen die jullie hebben beantwoorden.
 		
+	Exploratie:
+	- We denken 4, omdat we de algoritmes van college hebben gebruikt en een beetje geoptimaleseerd. 
+	- Breadth first, geheugenoptimalisatie
+	- Depth first kiest een random beginnode, ipv altijd de eerste node. 
+	- Randomalgoritme
+	- Improved random, waarbij je random kiest voor de mogelijke auto's. En hij knipt de moves van het bord die overbodig waren.
+	- Heuristiek: als er geen auto's meer tussen de rode auto en de uitgang staan, ziet hij dat hij gewonnen heeft. 
+		
 		
 		
