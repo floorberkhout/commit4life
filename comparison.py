@@ -14,9 +14,9 @@ sys.path.append(os.path.join(directory, "code", "algorithms"))
 
 from board import Board
 from node import Node
-from random_algo import random_algo
-from x_first import x_first
-from improved_random import algoritme1
+from randomize import randomize
+from x_first import X_first
+from improved_random import improved_random
 
 
 def main():
@@ -25,18 +25,17 @@ def main():
     move_count1, time_elapsed1, move_count2, time_elapsed2, move_count3, time_elapsed3, move_count4, time_elapsed4 = 0, 0, 0, 0, 0, 0, 0, 0
     
     for iteration in range(4):
-        # Creates board
-        board = Board("data/Rushhour6x6_1.csv")
     
         # Runs random algorithm
         if iteration == 0:
             test_results = {}
             move_counts = []
             time_elapses = []
-            for iteration in range(1000):
-                board = Board("data/Rushhour6x6_1.csv")
+            for iteration in range(100):
+                board = Board("data/Rushhour6x6_2.csv")
                 board.game_won = False
-                move_count1, time_elapsed1 = random_algo(board)
+                move_count1, time_elapsed1 = randomize(board)
+                move_count1 = len(move_count1)
                 test_results[iteration] = [move_count1, time_elapsed1]
              
             for state in test_results.values():
@@ -51,10 +50,11 @@ def main():
         if iteration == 1:
             move_counts = []
             time_elapses = []
-            for iteration in range(1000):
+            for iteration in range(100):
                 board.game_won = False
-                board = Board("data/Rushhour6x6_1.csv")
-                move_count2, time_elapsed2 = algoritme1(board)               
+                board = Board("data/Rushhour6x6_2.csv")
+                move_count2, time_elapsed2 = improved_random(board) 
+                move_count2 = len(move_count2)              
                 test_results[iteration] = [move_count2, time_elapsed2]
                 
     
@@ -68,12 +68,12 @@ def main():
         
         # Runs breadth-first
         if iteration == 2:
-    
-            algorithm = "breath_first"
+            board = Board("data/Rushhour6x6_2.csv")
+            algorithm = "breadth_first"
             memory_clearer = True
     
             # # prepare the selectors for the algorithm
-            x = algorithm[:-6]
+            x = algorithm
             if memory_clearer:
                 algorithm = algorithm + "_memory_clearer"
 
@@ -82,7 +82,7 @@ def main():
             first_node = Node(board, first_node_name)
 
             # setup and run the algorithm
-            x_first_algorithm = x_first(first_node, memory_clearer, x)
+            x_first_algorithm = X_first(first_node, memory_clearer, x)
             solution, time_elapsed3, nodes_dict = x_first_algorithm.run()
 
             # Prints results
@@ -91,27 +91,43 @@ def main():
         
         # Runs depth-first
         if iteration == 3:
+            move_counts = []
+            time_elapses = []
+            for iteration in range(100):
+                board.game_won = False
+                board = Board("data/Rushhour6x6_2.csv")
+                algorithm = "depth_first"
+                memory_clearer = True
     
-            algorithm = "depth_first"
-            memory_clearer = True
-    
-            # # prepare the selectors for the algorithm
-            x = algorithm[:-6]
-            if memory_clearer:
-                algorithm = algorithm + "_memory_clearer"
+                # # prepare the selectors for the algorithm
+                x = algorithm
+                if memory_clearer:
+                    algorithm = algorithm + "_memory_clearer"
 
-            # Initializes the first node
-            first_node_name = (0,)
-            first_node = Node(board, first_node_name)
+                # Initializes the first node
+                first_node_name = (0,)
+                first_node = Node(board, first_node_name)
 
-            # setup and run the algorithm
-            x_first_algorithm = x_first(first_node, memory_clearer, x)
-            solution, time_elapsed, nodes_dict = x_first_algorithm.run()
+                # setup and run the algorithm
+                x_first_algorithm = X_first(first_node, memory_clearer, x)
+                move_count4, time_elapsed4, nodes_dict = x_first_algorithm.run()
+                
+                move_count4 = len(move_count4)              
+                test_results[iteration] = [move_count4, time_elapsed4]
+            
 
-            # Prints results
-            time_elapsed4 = round(time_elapsed, 3)
-            move_count4 = len(solution)
+            for state in test_results.values():
+                move_counts.append(state[0])
+                time_elapses.append(state[1])
 
+            time_elapsed4 = sum(time_elapses) / len(time_elapses) 
+            time_elapsed4 = round(time_elapsed2, 3)
+            move_count4 = sum(move_counts) / len(move_counts)
+    print("Compare randomize, improved_random, breadth-first and depth-first on 6x6 2")
+    print(f"Randomize average > move count: {move_count1}, time elapsed: {time_elapsed1}")
+    print(f"Improved random average > move count: {move_count2}, time elapsed: {time_elapsed2}")
+    print(f"breadth-first > move count: {move_count3}, time elapsed: {time_elapsed3}")
+    print(f"depth-first > move count: {move_count4}, time elapsed: {time_elapsed4}")
     print_results(move_count1, time_elapsed1, move_count2, time_elapsed2, move_count3, time_elapsed3, move_count4, time_elapsed4)
 
 def print_results(move_count1, time_elapsed1, move_count2, time_elapsed2, move_count3, time_elapsed3, move_count4, time_elapsed4):
@@ -154,7 +170,7 @@ def print_results(move_count1, time_elapsed1, move_count2, time_elapsed2, move_c
     # Plots labels
     plt.ylabel('Amount moves')
     plt.xlabel('Runtimes in seconds')
-    plt.title('Compares algorithms by runtime and amount moves, 6x6_1')
+    plt.title('Compares algorithms by runtime and amount moves, 6x6_2, takes average of 100x randoms and depth-first')
     plt.legend(('Random', 'Random advanced', 'Breadth_first', 'Depth_first'),
                shadow=False, loc=(0.01, 0.4), handlelength=1.5, fontsize=9)
                

@@ -10,11 +10,7 @@ import numpy as np
 from board import Board
 from node import Node
 from csvwriter import CsvWriter
-<<<<<<< HEAD
 from randomize import randomize
-=======
-from random_algo import random_algo
->>>>>>> c2986556ef86ada66f20856450e989f5e12c114a
 from x_first import X_first
 from improved_random import improved_random
 from board_visualisation import visualize_board
@@ -24,29 +20,15 @@ from board_visualisation import visualize_board
 def main():
     """ Runs Rush Hour game with the algorithm """
 
-<<<<<<< HEAD
-    # # Creates board
-    board = Board("data/Rushhour6x6_1.csv")
-
-    # Choose between all the algorithms and depth first and choose whether _memory_clearer = True or False 
-    
-    algorithm = "randomize"
-=======
     # Creates board
     board = Board("data/Rushhour6x6_1.csv")
 
-
     # Choose between all the algorithms and depth first and choose whether _memory_clearer = True or False 
-    
-<<<<<<< HEAD
+
     # algorithm = "random_algo"
-=======
-    algorithm = "random_algo"
->>>>>>> c2986556ef86ada66f20856450e989f5e12c114a
->>>>>>> 9e5f2ee78366537ba5105671e180fec7f477733f
-    # algorithm = "improved_random"
+    algorithm = "improved_random"
     # algorithm = "breadth_first"
-    algorithm = "depth_first"
+    # algorithm = "depth_first"
     
     memory_clearer = False
 
