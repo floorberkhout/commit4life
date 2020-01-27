@@ -230,10 +230,13 @@ week 4 - slotstuk
 	
 	- hoe werkt het met de laatste merge conflicten? 
 
-	Doen in het voortgangsgesprek:
-    	- Een motivatie schrijven voor het cijferdeel “Exploratie van de case” adhv de studiewijzer.
-    	- Een laatste blik werpen op jullie Git repository en code.
-    	- Laatste vragen die jullie hebben beantwoorden.
+##### Exploratie:
+	- We denken 4, omdat we veel algoritmes van college hebben gebruikt en die beetje hebben geoptimaliseerd, namelijk: 
+		- Breadth first met geheugenoptimalisatie
+		- Depth first kiest een random begin-node, ipv altijd de eerste node branch. 
+		- Randomalgoritme
+		- Improved random, waarbij random auto wordt gekozen, binnen de mogelijke auto's. Als het algoritme een uitkomst heeft, knipt hij de zetten van het bord die overbodig waren, waardoor het aantal zetten sterk wordt geoptimaliseerd.
+		- Heuristiek: als er geen auto's meer tussen de rode auto en de uitgang staan, ziet hij dat hij gewonnen heeft. 
 		
 		- tabel met alle borden in kolommen, alle algo's in de rijen en dan de gemiddelde stappen
 		- screenshots eruit

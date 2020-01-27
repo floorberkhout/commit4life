@@ -26,7 +26,6 @@ class Board:
         self.name = car_file[5:-4]
         print(self.name)
 
-
         # Variables that are required for all the algorithms
         self.start_algo()
 
@@ -165,12 +164,6 @@ class Board:
         self.game_won = False
         self.start = time.time()
 
-        # log_file = "resultaten/log.csv"
-        # self.log = open(log_file, "w")
-        # self.log.truncate()
-        # header = "car" + ',' + "move" + '\n'
-        # self.log.write(header)
-
     def move(self, request_car, request_move):
         """ Moves car on the board """
 
@@ -216,6 +209,54 @@ class Board:
             # write a move to the log
 
         return self.board
+        
+    def moveable_cars(self):
+        """ Finds moveable cars """
+        self.cars_move = set()
+        cars_board = []
+        horizontal_list = []   
+        
+        # Makes lists from all rows instead of columns and adds the list of columns to the same big list, cars_board
+        for i in range(self.length):
+            for col in self.board:
+                horizontal_list.append(col[i])
+                cars_board.append(col)
+            cars_board.append(horizontal_list)
+            horizontal_list = []
+
+        for row_col in cars_board:
+            check_car = []
+            car = []    
+            
+            for letter in row_col:   
+                if not letter in check_car or letter == ".":                   
+                    
+                    # Appends all letters that are not double to a list
+                    check_car.append(letter)
+                else:                  
+                    
+                    # Cars in row or column get saved in a list 
+                    car.append(letter)
+                        
+            length_car_list = len(car)
+            length_check_cars = len(check_car)
+            
+            # Checks for moveable cars
+            while car != []:
+                car_car = car[0]
+                
+                # Checks index of car to see where it is in the list
+                index_car = check_car.index(car_car)
+                car.remove(car_car)
+            
+                # If the car can not move, the loop goes on, otherwise, the car gets saved in another list
+                if ((length_check_cars - 1 == index_car and check_car[index_car - 1] != ".") or (index_car == 0 and check_car[index_car + 1] != ".") or 
+                    (check_car[index_car - 1] != "." and check_car[index_car + 1] != ".")):
+                    continue
+                else:
+                    self.cars_move.add(car_car)        
+        
+        return self.cars_move    
 
     def write_move(self, request_car, request_move, log):
         """ Writes every move to a csv file """
