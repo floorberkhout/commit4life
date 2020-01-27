@@ -235,5 +235,8 @@ week 4 - slotstuk
     	- Een laatste blik werpen op jullie Git repository en code.
     	- Laatste vragen die jullie hebben beantwoorden.
 		
+		- tabel met alle borden in kolommen, alle algo's in de rijen en dan de gemiddelde stappen
+		- screenshots eruit
+		- verwijder resultaten
 		
 		
