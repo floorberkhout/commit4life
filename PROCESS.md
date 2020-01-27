@@ -189,9 +189,13 @@ week 4 - slotstuk
 		main.py is compatible met alle algortimes
 
 ###### maandag 27-01-20	
+	code:
 		- Bart verder met random bord genereren 
 		- repo cleanen
 		- code cleanen en commenten
+		- moveable cars naar board.py halen
+		
+		
 
 		Benodigdheden:
 		> Uitermate goed gestructureerde code en repository, met uitgebreide uitleg over implementatiedetails en de structuur van de code
@@ -211,13 +215,19 @@ week 4 - slotstuk
 		    - Code heeft duidelijke control flow; e.g. geen ellenlange if-statements midden in al grote functies.
 		    - De code is duidelijk in functionaliteit; docstrings, comments en variabelenamen zijn nuttig/beschrijven wat functies doen.
 		    - De code is intuitief en direct te gebruiken voor soortgelijke projecten.
+			
+	presentatie:
+		> Depth first random uitleggen
+		> minder tekst in ppt
+		
+	vragen voor voortgangsgesprek:
+	- wat is een nette hoeveelheid commits?
+	- data visualisatie code nodig in repo?
 
-		vragen voor voortgangsgesprek:
-		- wat is een nette hoeveelheid commits?
-		- data visualisatie code nodig in repo?
-
-		Doen in het voortgangsgesprek:
-	    	- Een motivatie schrijven voor het cijferdeel “Exploratie van de case” adhv de studiewijzer.
-	    	- Een laatste blik werpen op jullie Git repository en code.
-	    	- Laatste vragen die jullie hebben beantwoorden.
+	Doen in het voortgangsgesprek:
+    	- Een motivatie schrijven voor het cijferdeel “Exploratie van de case” adhv de studiewijzer.
+    	- Een laatste blik werpen op jullie Git repository en code.
+    	- Laatste vragen die jullie hebben beantwoorden.
+		
+		
 		

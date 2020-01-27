@@ -70,24 +70,24 @@ def improved_random(board):
 
         request_car = random.choice(list(move_cars_objects))
         request_move = random.choice([-1, 1])
-        
-               
-        # Makes sure it doesn't reverse the last move
-        if request_car == last_car:
-            if request_move == last_move:
-                last_one = list(board_archive.keys())[-1]
-                board_archive.pop(last_one)
 
         # If move creates new state of board (so no reversing of last move), perform move
         moved = board.move(request_car, request_move)
         if moved is not 0:
             count += 1
             board_archive[count] = str(board)
+<<<<<<< HEAD
+            step_archive[count] = [request_car, request_move]        
+                   
+        # Checks if another car prevents the winning car from getting out
+        board.game_won, time_elapsed = board.check_win(board.start)
+=======
             step_archive[count] = [request_car, request_move]
         
         # Checks if another car prevents the winning car from getting out
         board.game_won, time_elapsed = board.check_win(board.start)
     
+>>>>>>> 9250b0ac4d1ee4d81161f9a551cde9fd20efd117
 
     # https://stackoverflow.com/questions/52508696/check-if-repeating-key-or-value-exists-in-python-dictionary
     
