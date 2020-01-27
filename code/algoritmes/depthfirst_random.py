@@ -1,9 +1,9 @@
 import copy
-import random
 import time
 import sys
+import random
 
-class X_first:
+class Depth_first:
     def __init__(self, first_node, memory_clearer, x):
 
         # create the first node with name 0
