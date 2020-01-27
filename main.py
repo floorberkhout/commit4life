@@ -6,45 +6,22 @@ sys.path.append(os.path.join(directory, "code", "algoritmes"))
 sys.path.append(os.path.join(directory, "code", "data_visualisation"))
 import numpy as np
 
-# importeer de gebruikte structuur
+# Imports the used structure
 from board import Board
 from node import Node
 from csvwriter import CsvWriter
-<<<<<<< HEAD
 from randomize import randomize
-=======
-from random_algo import random_algo
->>>>>>> c2986556ef86ada66f20856450e989f5e12c114a
 from x_first import X_first
 from improved_random import improved_random
 from board_visualisation import visualize_board
 
 
 
-def main():
+def main(algorithm, board_number):
     """ Runs Rush Hour game with the algorithm """
 
-<<<<<<< HEAD
     # # Creates board
-    board = Board("data/Rushhour6x6_1.csv")
-
-    # Choose between all the algorithms and depth first and choose whether _memory_clearer = True or False 
-    
-    algorithm = "randomize"
-=======
-    # Creates board
-    board = Board("data/Rushhour6x6_1.csv")
-
-
-    # Choose between all the algorithms and depth first and choose whether _memory_clearer = True or False 
-    
-    algorithm = "random_algo"
->>>>>>> c2986556ef86ada66f20856450e989f5e12c114a
-    # algorithm = "improved_random"
-    # algorithm = "breadth_first"
-    # algorithm = "depth_first"
-    
-    memory_clearer = False
+    board = Board(f"data/Rushhour{sys.argv[2]}.csv")
 
     x = algorithm
     if memory_clearer:
@@ -75,4 +52,28 @@ def main():
 
     
 if __name__ == "__main__":
-    main()
+    try:
+        # Checks for the right input
+        if sys.argv[1] != 'randomize' and sys.argv[1] != 'improved_random' and sys.argv[1] != 'breadth_first' and sys.argv[1] != 'depth_first':
+            print("Wrong algorithm! Choose: randomize, improved_random, breadth_first, or depth_first.")
+            sys.exit()
+        
+        if (sys.argv[2] != "6x6_1" and sys.argv[2] != "6x6_2" and sys.argv[2] != "6x6_3" and 
+                    sys.argv[2] != "9x9_4" and sys.argv[2] != "9x9_5" and sys.argv[2] != "9x9_6" and sys.argv[2] != "12x12_7"):
+            print("Board does not exist, choose '6x6_1' - '6x6_3', '9x9_4' - '9x9_6' or '12x12_7'")
+            sys.exit()
+        
+        # Default mode            
+        memory_clearer = False
+        
+        # Asks for memory clearer 
+        if sys.argv[1] == 'breadth_first' or sys.argv[1] == 'depth_first':
+            memory = input("Memory clearer on or off: ")
+        
+            if memory == "on":
+                memory_clearer = True
+        
+        main(sys.argv[1], sys.argv[2])
+    
+    except IndexError:
+        print("Choose one from the four algorithms: randomize, improved_random, breadth_first, or depth_first and choose a board.")
