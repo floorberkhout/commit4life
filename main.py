@@ -2,7 +2,7 @@ import os, sys
 directory = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.join(directory, "code"))
 sys.path.append(os.path.join(directory, "code", "classes"))
-sys.path.append(os.path.join(directory, "code", "algoritmes"))
+sys.path.append(os.path.join(directory, "code", "algorithms"))
 sys.path.append(os.path.join(directory, "code", "data_visualisation"))
 import numpy as np
 
@@ -20,22 +20,8 @@ from board_visualisation import visualize_board
 def main(algorithm, board_number):
     """ Runs Rush Hour game with the algorithm """
 
-<<<<<<< HEAD
     # Creates board
-    board = Board("data/Rushhour6x6_1.csv")
-
-    # Choose between all the algorithms and depth first and choose whether _memory_clearer = True or False 
-
-    # algorithm = "random_algo"
-    algorithm = "improved_random"
-    # algorithm = "breadth_first"
-    # algorithm = "depth_first"
-    
-    memory_clearer = False
-=======
-    # # Creates board
     board = Board(f"data/Rushhour{sys.argv[2]}.csv")
->>>>>>> 9250b0ac4d1ee4d81161f9a551cde9fd20efd117
 
     x = algorithm
     if memory_clearer:
