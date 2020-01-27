@@ -2,7 +2,7 @@ import random
 import time
 
 
-def random_algo(board):
+def randomize(board):
     solution = []
     
     # Plays the game untill won
@@ -12,10 +12,7 @@ def random_algo(board):
         request_car = random.choice(list(board.cars.values()))  
         request_move = random.choice([-1, 1]) 
         
-<<<<<<< HEAD
-=======
         # Moves car and if moved adds step to solution
->>>>>>> a1c2889c0eec15ef6ebf268516e541317d9f54d4
         moved = board.move(request_car, request_move)
         if moved is not 0:
             solution.append(", ".join([request_car.name, str(request_move)]))
