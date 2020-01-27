@@ -2,7 +2,7 @@ import os, sys
 directory = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.join(directory, "code"))
 sys.path.append(os.path.join(directory, "code", "classes"))
-sys.path.append(os.path.join(directory, "code", "algoritmes"))
+sys.path.append(os.path.join(directory, "code", "algorithms"))
 sys.path.append(os.path.join(directory, "code", "data_visualisation"))
 import numpy as np
 
@@ -11,10 +11,9 @@ from board import Board
 from node import Node
 from csvwriter import CsvWriter
 from randomize import randomize
-from x_first import X_first
 from improved_random import improved_random
+from x_first import X_first
 from board_visualisation import visualize_board
-
 
 
 def main(algorithm, board_number):
