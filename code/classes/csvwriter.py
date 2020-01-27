@@ -10,7 +10,7 @@ class CsvWriter(object):
 
 
 
-    def write_to_csv(self, time, board, algorithm, move_count, solution):
+    def write_to_csv(self, time, board, algorithm, solution):
 
         self.log.write(str(time) + '\n')
         self.log.write(board + '\n')
