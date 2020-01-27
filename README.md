@@ -19,7 +19,6 @@ pip install -r requirements.txt
 ##### Structure
 Files:
 	main.py
-		> 
 Folders:
 	code
 		> In this folder all the python scripts are found <

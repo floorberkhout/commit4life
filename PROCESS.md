@@ -223,6 +223,9 @@ week 4 - slotstuk
 	vragen voor voortgangsgesprek:
 	- wat is een nette hoeveelheid commits?
 	- data visualisatie code nodig in repo?
+	- gitignore?
+	- ppt in repo?
+	- screenshots in repo?
 
 	Doen in het voortgangsgesprek:
     	- Een motivatie schrijven voor het cijferdeel “Exploratie van de case” adhv de studiewijzer.
