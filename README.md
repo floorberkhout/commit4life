@@ -34,7 +34,7 @@ pip install -r requirements.txt
 			csvwriter.py
 			node.py
 		data_visualisation
-			> In this folder all the code that tests the algorithms is found, it also contains the < matplotlib visualisation code
+			> In this folder all the code that tests the algorithms is found, it also contains the matplotlib visualisation code <
 			- board_visualisation.py
 			- comparison.py
 			- test_random.py

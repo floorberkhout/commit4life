@@ -238,5 +238,8 @@ week 4 - slotstuk
 		- Improved random, waarbij random auto wordt gekozen, binnen de mogelijke auto's. Als het algoritme een uitkomst heeft, knipt hij de zetten van het bord die overbodig waren, waardoor het aantal zetten sterk wordt geoptimaliseerd.
 		- Heuristiek: als er geen auto's meer tussen de rode auto en de uitgang staan, ziet hij dat hij gewonnen heeft. 
 		
+		- tabel met alle borden in kolommen, alle algo's in de rijen en dan de gemiddelde stappen
+		- screenshots eruit
+		- verwijder resultaten
 		
 		
