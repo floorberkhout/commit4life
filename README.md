@@ -59,8 +59,10 @@ Folders:
 	screenshots
 		> This folder contains the screenshot of the game stated in the name, but visualized with matplotlib <
 
+##### Algorithms
 
 ##### Testing
+!!! main.py uitleggen, hoe reproduceer je resultaten (uitleggen wat er in de commandline moet staan) !!!
 To run the code with the standard configuration use the command:
 
 python main.py

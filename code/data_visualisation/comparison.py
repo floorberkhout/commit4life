@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 directory = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.join(directory, "code"))
 sys.path.append(os.path.join(directory, "code", "classes"))
-sys.path.append(os.path.join(directory, "code", "algoritmes"))
+sys.path.append(os.path.join(directory, "code", "algorithms"))
 
 from board import Board
 from node import Node

@@ -2,7 +2,7 @@ import os, sys
 directory = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.join(directory, "code"))
 sys.path.append(os.path.join(directory, "code", "classes"))
-sys.path.append(os.path.join(directory, "code", "algoritmes"))
+sys.path.append(os.path.join(directory, "code", "algorithms"))
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import colors
