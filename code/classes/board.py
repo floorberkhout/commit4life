@@ -26,7 +26,6 @@ class Board:
         self.name = car_file[5:-4]
         print(self.name)
 
-
         # Variables that are required for all the algorithms
         self.start_algo()
 
@@ -164,12 +163,6 @@ class Board:
         self.move_count = 0
         self.game_won = False
         self.start = time.time()
-
-        # log_file = "resultaten/log.csv"
-        # self.log = open(log_file, "w")
-        # self.log.truncate()
-        # header = "car" + ',' + "move" + '\n'
-        # self.log.write(header)
 
     def move(self, request_car, request_move):
         """ Moves car on the board """
