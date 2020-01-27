@@ -17,10 +17,9 @@ This code is completely written in Python3.6.3. In requirements.txt are all the 
 pip install -r requirements.txt
 
 ##### Structure
-Files:
+###### Files:
 	main.py
-		> 
-Folders:
+###### Folders:
 	code
 		> In this folder all the python scripts are found <
 		algoritmes
