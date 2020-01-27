@@ -15,7 +15,7 @@ class CsvWriter(object):
         self.log.write(str(time) + '\n')
         self.log.write(board + '\n')
         self.log.write(algorithm + '\n')
-        self.log.write(str(move_count) + '\n')
+        self.log.write(str(len(solution)) + '\n')
         self.log.write('\n')
         header = "car" + ',' + "move" + '\n'
         self.log.write(header)

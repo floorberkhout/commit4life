@@ -83,12 +83,19 @@ def improved_random(board):
         if moved is not 0:
             count += 1
             board_archive[count] = str(board)
+<<<<<<< HEAD
             step_archive[count] = [request_car, request_move]
+=======
+            step_archive[count] = [request_car, request_move]        
+>>>>>>> a1c2889c0eec15ef6ebf268516e541317d9f54d4
                    
         # Checks if another car prevents the winning car from getting out
         board.game_won, time_elapsed = board.check_win(board.start)
     
+<<<<<<< HEAD
 
+=======
+>>>>>>> a1c2889c0eec15ef6ebf268516e541317d9f54d4
     # https://stackoverflow.com/questions/52508696/check-if-repeating-key-or-value-exists-in-python-dictionary
     
     solution = []
@@ -101,4 +108,7 @@ def improved_random(board):
                 solution.append(value)
 
     return solution, time_elapsed
+<<<<<<< HEAD
 
+=======
+>>>>>>> a1c2889c0eec15ef6ebf268516e541317d9f54d4
