@@ -109,10 +109,13 @@ Folders:
 
 
 ##### Testing
-!!! main.py uitleggen, hoe reproduceer je resultaten (uitleggen wat er in de commandline moet staan) !!!
-To run the code with the standard configuration use the command:
+To run the code with the standard configuration use the command: python main.py [algorithm] [board]
+algorithm = "randomize" or "improved_random" or "breadth_first" or "depth_first"
+board = "6x6_1" or "6x6_2" or "6x6_3" or "9x9_4" or "9x9_5" or "9x9_6" or "12x12_7"
 
-python main.py
+When user chooses depth_first or breadt_first, user gets the question whether they want memory_clearer on or off.
+Type: "on" or "off"
+
 
 ##### Authors
 Paloma van Moerkerken

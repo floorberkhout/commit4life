@@ -80,10 +80,13 @@ def improved_random(board):
                    
         # Checks if another car prevents the winning car from getting out
         board.game_won, time_elapsed = board.check_win(board.start)
+<<<<<<< HEAD
+=======
         
         # Checks if another car prevents the winning car from getting out
         board.game_won, time_elapsed = board.check_win(board.start)
     
+>>>>>>> 7ab979cd9f7bca31f23405911c6357e72e11af29
 
     # https://stackoverflow.com/questions/52508696/check-if-repeating-key-or-value-exists-in-python-dictionary
     
