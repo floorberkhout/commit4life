@@ -2,3 +2,5 @@ __pycache__
 debug.log
 .DS_Store
 code/__pycache__
+*.pyc
+*.pyc
