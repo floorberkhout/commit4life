@@ -36,7 +36,7 @@ class Node():
         self.possible_moves = possible_moves
 
     def possible_moves_car(self, request_car):
-        """ Gets the possible moves from all the cars """
+        """ Gets the possible moves from the given car """
         
         n = self.board.length
         moves = []
@@ -76,7 +76,7 @@ class Node():
 
     
     def update_history(self, request_car, request_move):
-        """ Makes a list with all cars and moves that were saved """
+        """ Adds a move to the move history """
         
         self.history.append([request_car, request_move])
 
@@ -88,18 +88,14 @@ class Node():
         new_name.append(child)
         self.name = tuple(new_name)
 
-    def set_name(self, name):
-        """ Set name for self.name """
-        
-        self.name = tuple(name)
-
+  
     def recreate(self, name):
-        """ If memory clearer in on, he reads the steps to make a new board """
+        """ If memory clearer in on, he reads the steps to recreate the board by performing all the steps in the history """
         
         for step in self.history:
             request_car = self.board.cars[step[0]]
             request_move = step[1]
             self.board.move(request_car, request_move)
         self.determine_possible_moves()
-        self.set_name(name)
+        self.name = tuple(name)
 
