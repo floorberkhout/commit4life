@@ -14,10 +14,12 @@ Example board:
 
 ### Getting Started
 
+
 #### Prerequisites
 This code is completely written in Python3.6.3. In requirements.txt are all the required packages to run this code succesfully. You can install these easily via pip, by running the next command:
 
 pip install -r requirements.txt
+
 
 #### Structure
 ##### Files:
@@ -66,7 +68,6 @@ pip install -r requirements.txt
 
 
 #### Algorithms
-
 ##### Randomize
 This algorithm makes use of car.py (car objects) and board.py (board object). 
 1. main.py loads car objects 
@@ -116,7 +117,6 @@ These algorithms make use of car.py (car objects), board.py (board object) and n
 	8. It shut of nodes that represent a board state that was achieved before and repeats if it isn't won
 
 
-
 #### Testing
 To run the code with the standard configuration use the command: python main.py [algorithm] [board]. 
 
@@ -127,11 +127,19 @@ Board = "6x6_1" or "6x6_2" or "6x6_3" or "9x9_4" or "9x9_5" or "9x9_6" or "12x12
 When user chooses depth_first or breadth_first, user gets the question whether they want memory_clearer on or off.
 Type: "on" or "off". Put the memory clearer on to save objects as strings in order to save memory.  
 
+The output of running each algorithm has the following format:
+>> {begin board}
+>> {end board}
+>> Congratulations you've won the game!
+>> Move count
+>> Time elapsed
+
 
 #### Authors
 Paloma van Moerkerken
 Bart Zeeuw van der Laan
 Floor Berkhout
+
 
 #### Acknowledgments
 StackOverflow

@@ -104,7 +104,7 @@ class X_first:
             print(str(level-1) + " levels deep")
 
     def print_steps(self):
-        """ Prints the amount of levels that the algorithm is deep """
+        """ Prints correct visualisation of board object within node """
         
         board = copy.deepcopy(self.nodes[(0,)])
         for car_id, request_move in self.solution:
