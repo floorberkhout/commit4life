@@ -1,5 +1,6 @@
-# Commit4life - Rush Hour
-Programmeertheorie
+# Programmeertheorie - Rush Hour
+###### Commit4life
+###### Bart Zeeuw van der Laan, Paloma Moerkerken, Floor Berkhout
 
 Rush hour is a sliding block logic game. You have to battle the gridlock as you slide the blocking vehicles out of the way for the red car to exit. In this repository you'll find 4 algorithms that will generate a solution for this game. 
 Our goal was to solve 7 boards using different sorts of algorithms to come as near as possible to an optimal solution in which we take the amount of moves, runtime of the algorithm and memory use in account. 
@@ -8,6 +9,7 @@ The advanced assignment, which is optional, reads as follows: generate a random 
 
 Example board:
 <img src="doc/Rushhour6x6_1.jpg" width="50%">
+![Example board](doc/Rushhour6x6_1.jpg =100x20)
 
 ### Getting Started
 
