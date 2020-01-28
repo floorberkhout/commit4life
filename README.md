@@ -64,13 +64,13 @@ pip install -r requirements.txt
 	
 	- Randomize
 			Image!?
-		3. It chooses random car object
+		3. It chooses random car object from all the car objects on the board
 		4. It chooses random move [1, -1]
 		5. It sees if making the move is possible 
 			> It makes the move if it is possible
 		6. It checks if the winning(red/ X) car is in front of the exit, this means it has won
 		   If this is not the case
-		7. repeat
+				7. repeat
 
 	- Improved random
 			 Image?!
@@ -80,32 +80,32 @@ pip install -r requirements.txt
 			> It makes the move if it is possible
 		6. It checks if another car is preventing the winning(red/ X) car from getting out, this means it has won
 		   If this is not the case
-		7. repeat
+				7. repeat
 		   If this is the case
-		7. It iterates over the solution and prunes all the duplicated boards to find the fastest way to the winning board within this solution
+				7. It iterates over the solution and prunes all the duplicated boards to find the fastest way to the winning board within this solution
 
 	- x_first
+		Depth and breadth first look in many ways like eachother. Therefore we created the file "x_first". The file sees whether the command line stated depth or breadth first and will use this
+		information to either pick a random node from the queue (Depth-first) or a node that is in the front of the queue (Breadth-first), this determines the path to the solution.
 		> Depth-first 
-			3. It takes the node that was last put in the queue (Last In, First Out)
-			
+			3. It takes a random node from the queue (Random pick of branch)	
 			4. It identifies a possible move
 			5. It creates the corresponding node
 			6. It compares the new node with nodes earlier up the tree
 			7. It checks if another car is preventing the winning(red/ X) car from getting out, this means it has won
 			   If this is not the case
-			8. It shut of nodes that represent a board state that was achieved before
-			9. repeat
+					8. It shut of nodes that represent a board state that was achieved before
+					9. repeat
 			   
 		> Breadth-first
-			3. It takes the node that is in front of the queue (First In, First Out)
-			
+			3. It takes the node that is in the front of the queue (First In, First Out)		
 			4. It identifies all possible moves
 			5. It creates the corresponding nodes
 			6. It compares the new nodes with nodes earlier up the tree
 			7. It checks if another car is preventing the winning(red/ X) car from getting out, this means it has won
 			   If this is not the case
-			8. It shut of nodes that represent a board state that was achieved before
-			9. repeat
+					8. It shut of nodes that represent a board state that was achieved before
+					9. repeat
 
 
 ##### Testing
@@ -113,8 +113,8 @@ To run the code with the standard configuration use the command: python main.py 
 algorithm = "randomize" or "improved_random" or "breadth_first" or "depth_first"
 board = "6x6_1" or "6x6_2" or "6x6_3" or "9x9_4" or "9x9_5" or "9x9_6" or "12x12_7"
 
-When user chooses depth_first or breadt_first, user gets the question whether they want memory_clearer on or off.
-Type: "on" or "off"
+When user chooses depth_first or breadth_first, user gets the question whether they want memory_clearer on or off.
+Type: "on" or "off". Put the memory clearer on to save objects as strings in order to save memory.  
 
 
 ##### Authors

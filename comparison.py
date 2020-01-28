@@ -27,35 +27,38 @@ def main():
     for iteration in range(4):
     
         # Runs random algorithm
-        if iteration == 0:
+        if iteration == 3:
+            print("hir")
             test_results = {}
             move_counts = []
             time_elapses = []
             for iteration in range(100):
-                board = Board("data/Rushhour6x6_3.csv")
+                board = Board("data/Rushhour9x9_4.csv")
                 board.game_won = False
                 move_count1, time_elapsed1 = randomize(board)
                 move_count1 = len(move_count1)
                 test_results[iteration] = [move_count1, time_elapsed1]
-             
+
             for state in test_results.values():
                 move_counts.append(state[0])
                 time_elapses.append(state[1])
-        
-            time_elapsed1 = sum(time_elapses) / len(time_elapses) 
+
+            time_elapsed1 = sum(time_elapses) / len(time_elapses)
             time_elapsed1 = round(time_elapsed1, 3)
-            move_count1 = sum(move_counts) / len(move_counts) 
+            move_count1 = sum(move_counts) / len(move_counts)
             move_count1 = round(move_count1, 0)
             print(f"Randomize average > move count: {move_count1}, time elapsed: {time_elapsed1}")
         
         # Runs advanced random algorithm
         if iteration == 1:
+            test_results = {}
             move_counts = []
             time_elapses = []
             for iteration in range(100):
+                board = Board("data/Rushhour9x9_4.csv")
                 board.game_won = False
-                board = Board("data/Rushhour6x6_3.csv")
                 move_count2, time_elapsed2 = improved_random(board) 
+                print("hoi")
                 move_count2 = len(move_count2)              
                 test_results[iteration] = [move_count2, time_elapsed2]
                 
@@ -72,7 +75,7 @@ def main():
             
         # Runs breadth-first
         if iteration == 2:
-            board = Board("data/Rushhour6x6_3.csv")
+            board = Board("data/Rushhour9x9_4.csv")
             algorithm = "breadth_first"
             memory_clearer = True
     
@@ -96,12 +99,13 @@ def main():
             print(f"breadth-first > move count: {move_count3}, time elapsed: {time_elapsed3}")
         
         # Runs depth-first
-        if iteration == 3:
+        if iteration == 0:
+            test_results = {}
             move_counts = []
             time_elapses = []
-            for iteration in range(100):
+            for iteration in range(10):
+                board = Board("data/Rushhour9x9_4.csv")
                 board.game_won = False
-                board = Board("data/Rushhour6x6_3.csv")
                 algorithm = "depth_first"
                 memory_clearer = True
     
@@ -132,7 +136,7 @@ def main():
             move_count4 = round(move_count4, 0)
             print(f"depth-first > move count: {move_count4}, time elapsed: {time_elapsed4}")
             
-    print("Compare randomize, improved_random, breadth-first and depth-first on 6x6 3")
+    print("Compare randomize, improved_random, breadth-first and depth-first on 9x9 4")
     print_results(move_count1, time_elapsed1, move_count2, time_elapsed2, move_count3, time_elapsed3, move_count4, time_elapsed4)
 
 def print_results(move_count1, time_elapsed1, move_count2, time_elapsed2, move_count3, time_elapsed3, move_count4, time_elapsed4):
@@ -175,7 +179,7 @@ def print_results(move_count1, time_elapsed1, move_count2, time_elapsed2, move_c
     # Plots labels
     plt.ylabel('Amount moves')
     plt.xlabel('Runtimes in seconds')
-    plt.title('Compares algorithms by runtime and amount moves, 6x6_3, takes average of 100x randoms and depth-first')
+    plt.title('Compares algorithms by runtime and amount moves, 9x9 4, takes average of 100x randoms and depth-first')
     plt.legend(('Random', 'Random advanced', 'Breadth_first', 'Depth_first'),
                shadow=False, loc=(0.01, 0.4), handlelength=1.5, fontsize=9)
                

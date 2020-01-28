@@ -4,8 +4,6 @@ from board import Board
 
 def improved_random(board):      
     
-    request_car = ""     
-    request_move = ""
     count = 0
     
     board_archive = {count: str(board)}
@@ -18,9 +16,6 @@ def improved_random(board):
         
         # Function that gets the moveable cars        
         move_cars_objects = []
-        
-        last_car = request_car
-        last_move = request_move
 
         # Seeks the objects from the corresponding moveable car
         for objects in board.cars.values():
@@ -42,10 +37,17 @@ def improved_random(board):
 
     # https://stackoverflow.com/questions/52508696/check-if-repeating-key-or-value-exists-in-python-dictionary
     solution = []
+    
+    # Checks how many keys contain the same board state by creating a set of the board_archive dictionary 
+    # and checking how many times every unique board from the set appears in the dictionary and with which key
     board_duplicates = {current_board: [(k) for (k) in board_archive if board_archive[(k)] == current_board] for current_board in set(board_archive.values())}
+    
+    # Deletes the duplicated boards from the archive but never the one that appeared first
     for board_name, counts in board_duplicates.items():
         for count in counts[1:]:
             del board_archive[count]
+    
+    # Adds the steps to solution that correspond with the boards that are left after deleting the duplicated boards
     for key, value in step_archive.items():
         if key in board_archive.keys():
                 solution.append(value)
