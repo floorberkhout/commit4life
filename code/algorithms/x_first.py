@@ -63,6 +63,7 @@ class X_first:
                 
                 # Updates the new node
                 new_node.update_node(child, request_car, request_move)
+                self.printlevel(len(new_node.name))
 
                 if not self.memory_clearer:
                     self.nodes[new_node.name] = new_node
