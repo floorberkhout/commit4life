@@ -2,42 +2,27 @@ import os, sys
 directory = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.join(directory, "code"))
 sys.path.append(os.path.join(directory, "code", "classes"))
-sys.path.append(os.path.join(directory, "code", "algoritmes"))
+sys.path.append(os.path.join(directory, "code", "algorithms"))
 sys.path.append(os.path.join(directory, "code", "data_visualisation"))
 import numpy as np
 
-# importeer de gebruikte structuur
+# Imports the used structure
 from board import Board
 from node import Node
 from csvwriter import CsvWriter
-# from random_algo import random_algo
-from winning_row import winning_row
-from x_first import x_first
-from depth_first import depth_first
-from improved_random import algoritme1
-from boardcreator import BoardCreator
-# from tree import tree
+from randomize import randomize
+from improved_random import improved_random
+from x_first import X_first
+from board_visualisation import visualize_board
 
-def main():
+
+def main(algorithm, board_number):
     """ Runs Rush Hour game with the algorithm """
 
-
-    length = 6
-    number_of_cars = 14
-    new_board = BoardCreator(length, number_of_cars)
-
     # Creates board
-    board = Board("data/Rushhour6x6_new.csv")
+    board = Board(f"data/Rushhour{sys.argv[2]}.csv")
 
-    # Runs algorithm
-    # move_count, time_elapsed, nodes_list = depth_first(board)
-
-    # Selectors choose between breath and deapth first and choose whether _memory_clearer = True or False
-    algorithm = "breath_first"
-    memory_clearer = False
-
-    # prepare the selectors for the algorithm
-    x = algorithm[:-6]
+    x = algorithm
     if memory_clearer:
         algorithm = algorithm + "_memory_clearer"
 
@@ -45,26 +30,49 @@ def main():
     first_node_name = (0,)
     first_node = Node(board, first_node_name)
 
-    # setup and run the algorithm
-    x_first_algorithm = x_first(first_node, memory_clearer, x)
-    # try:
-    solution, time_elapsed, nodes_dict = x_first_algorithm.run()
-    # except IndexError:
-    #     reset()
+    # Sets and runs the algorithm
+    x_first_algorithm = X_first(first_node, memory_clearer, x)
 
-    # Prints results
-    time_elapsed = round(time_elapsed, 2)
-    move_count = len(solution)
-    print(solution)
-    print("Move count:", move_count)
-    print("Time elapsed: ", time_elapsed)
+    if x == "depth_first" or x == "breadth_first":
+        solution, time_elapsed, nodes_dict = x_first_algorithm.run()
 
-    # write the solution to a CSV file
+    elif x == "randomize":
+        solution, time_elapsed = randomize(board)
+
+    elif x == "improved_random":
+        solution, time_elapsed = improved_random(board)
+
+    board.end_game(solution, time_elapsed)
+
+    # Writes the solution to a CSV file
     writer = CsvWriter(algorithm, board.name)
-    writer.write_to_csv(time_elapsed, board.name, algorithm, move_count, solution)
+    writer.write_to_csv(time_elapsed, board.name, algorithm, solution)
 
-def reset():
-    main()
+
 
 if __name__ == "__main__":
-    main()
+    try:
+        # Checks for the right input
+        if sys.argv[1] != 'randomize' and sys.argv[1] != 'improved_random' and sys.argv[1] != 'breadth_first' and sys.argv[1] != 'depth_first':
+            print("Wrong algorithm! Choose: randomize, improved_random, breadth_first, or depth_first.")
+            sys.exit()
+
+        if (sys.argv[2] != "6x6_1" and sys.argv[2] != "6x6_2" and sys.argv[2] != "6x6_3" and
+                    sys.argv[2] != "9x9_4" and sys.argv[2] != "9x9_5" and sys.argv[2] != "9x9_6" and sys.argv[2] != "12x12_7" and sys.argv[2] != "6x6_new_19_steps_15_cars"):
+            print("Board does not exist, choose '6x6_1' - '6x6_3', '9x9_4' - '9x9_6' or '12x12_7'")
+            sys.exit()
+
+        # Default mode
+        memory_clearer = False
+
+        # Asks for memory clearer
+        if sys.argv[1] == 'breadth_first' or sys.argv[1] == 'depth_first':
+            memory = input("Memory clearer on or off: ")
+
+            if memory == "on":
+                memory_clearer = True
+
+        main(sys.argv[1], sys.argv[2])
+
+    except IndexError:
+        print("Choose one from the four algorithms: randomize, improved_random, breadth_first, or depth_first and choose a board.")

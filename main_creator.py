@@ -2,55 +2,60 @@ import os, sys
 directory = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.join(directory, "code"))
 sys.path.append(os.path.join(directory, "code", "classes"))
-sys.path.append(os.path.join(directory, "code", "algoritmes"))
+sys.path.append(os.path.join(directory, "code", "algorithms"))
 sys.path.append(os.path.join(directory, "code", "data_visualisation"))
 import numpy as np
+import copy
 
-# importeer de gebruikte structuur
+
+# Imports the used structure
 from board import Board
 from node import Node
-from csvwriter import CsvWriter
-# from random_algo import random_algo
-from winning_row import winning_row
-from x_first import x_first
-from depth_first import depth_first
-from improved_random import algoritme1
+from randomize import randomize
+from improved_random import improved_random
+from x_first import X_first
+from board_visualisation import visualize_board
 from boardcreator import BoardCreator
-# from tree import tree
 
 def main():
     """ Runs Rush Hour game with the algorithm """
 
+    proper_board = False
 
-    length = 6
-    number_of_cars = 14
-    new_board = BoardCreator(length, number_of_cars)
+    while proper_board == False:
+        # creates a new board
+        length = 9
+        number_of_cars = 25
+        new_board = BoardCreator(length, number_of_cars)
+        print("new attempt")
 
-    # Creates board
-    board = Board("data/Rushhour6x6_new.csv")
+        # Reads the newly created board
+        board = Board("data/Rushhour9x9_new.csv")
 
-    # Runs algorithm
-    # move_count, time_elapsed, nodes_list = depth_first(board)
+        board2 = copy.deepcopy(board)
 
-    # Selectors choose between breath and deapth first and choose whether _memory_clearer = True or False
-    algorithm = "breath_first"
-    memory_clearer = False
+        # Check if a random algorithm can solve the newly created board
+        solution, time_elapsed = randomize(board)
+        if solution == False:
+            continue
 
-    # prepare the selectors for the algorithm
-    x = algorithm[:-6]
-    if memory_clearer:
-        algorithm = algorithm + "_memory_clearer"
 
-    # Initializes the first node
-    first_node_name = (0,)
-    first_node = Node(board, first_node_name)
+        # If the new board can be solved random, determine the optimal solution breath_first
 
-    # setup and run the algorithm
-    x_first_algorithm = x_first(first_node, memory_clearer, x)
-    # try:
-    solution, time_elapsed, nodes_dict = x_first_algorithm.run()
-    # except IndexError:
-    #     reset()
+        # Initializes the first node
+        first_node_name = (0,)
+        first_node = Node(board2, first_node_name)
+        x = "breadth_first"
+
+        x_first_algorithm = X_first(first_node, True, x)
+        solution, time_elapsed, nodes_dict = x_first_algorithm.run()
+
+        # if the optimal solution is more than X save the board as a good option
+        if len(solution) > 15:
+            proper_board = True
+
+
+    board.end_game(solution, time_elapsed)
 
     # Prints results
     time_elapsed = round(time_elapsed, 2)
@@ -58,13 +63,6 @@ def main():
     print(solution)
     print("Move count:", move_count)
     print("Time elapsed: ", time_elapsed)
-
-    # write the solution to a CSV file
-    writer = CsvWriter(algorithm, board.name)
-    writer.write_to_csv(time_elapsed, board.name, algorithm, move_count, solution)
-
-def reset():
-    main()
 
 if __name__ == "__main__":
     main()
