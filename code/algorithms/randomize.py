@@ -8,6 +8,7 @@ import time
 
 
 def randomize(board):
+    """ Makes random algorithm to solve Rush Hour """
     solution = []
     
     # Plays the game untill won
@@ -24,5 +25,4 @@ def randomize(board):
 
         # Checks if another car prevents the winning car from getting out
         board.game_won, time_elapsed = board.check_win(board.start)
-
     return solution, time_elapsed
