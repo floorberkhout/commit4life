@@ -88,24 +88,24 @@ main.py
 ##### x_first
 Depth and breadth first look in many ways like eachother. Therefore we created the file "x_first". The file sees whether the command line stated depth or breadth first and will use this
 information to either pick a random node from the queue (Depth-first) or a node that is in the front of the queue (Breadth-first), this determines the path to the solution.
-	- Depth-first 
-		1. main.py loads car objects 
-		2. main.py loads board object
-		3. It takes a random node from the queue (Random pick of branch)	
-		4. It identifies a possible move
-		5. It creates the corresponding node
-		6. It compares the new node with nodes earlier up the tree
-		7. It checks if another car is preventing the winning(red/ X) car from getting out, this means it has won
-		8. It shut of nodes that represent a board state that was achieved before and repeats if it isn't won
-	- Breadth-first
-		1. main.py loads car objects 
-		2. main.py loads board object
-		3. It takes the node that is in the front of the queue (First In, First Out)		
-		4. It identifies all possible moves
-		5. It creates the corresponding nodes
-		6. It compares the new nodes with nodes earlier up the tree
-		7. It checks if another car is preventing the winning(red/ X) car from getting out, this means it has won
-		8. It shut of nodes that represent a board state that was achieved before and repeats if it isn't won
+- Depth-first 
+	1. main.py loads car objects 
+	2. main.py loads board object
+	3. It takes a random node from the queue (Random pick of branch)	
+	4. It identifies a possible move
+	5. It creates the corresponding node
+	6. It compares the new node with nodes earlier up the tree
+	7. It checks if another car is preventing the winning(red/ X) car from getting out, this means it has won
+	8. It shut of nodes that represent a board state that was achieved before and repeats if it isn't won
+- Breadth-first
+	1. main.py loads car objects 
+	2. main.py loads board object
+	3. It takes the node that is in the front of the queue (First In, First Out)		
+	4. It identifies all possible moves
+	5. It creates the corresponding nodes
+	6. It compares the new nodes with nodes earlier up the tree
+	7. It checks if another car is preventing the winning(red/ X) car from getting out, this means it has won
+	8. It shut of nodes that represent a board state that was achieved before and repeats if it isn't won
 
 
 
