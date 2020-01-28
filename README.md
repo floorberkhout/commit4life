@@ -23,28 +23,29 @@ pip install -r requirements.txt
 ###### Files:
 main.py
 ###### Folders:
-code
-	> In this folder all the python scripts are found <
-	algoritmes
-		> In this folder three python files are found which contain our algorithms <
-		X_first.py
-		random_algo.py
-		improved_random.py
-	classes
-		> In this folder all of our classes to set up the game and run the algorithms are found <
+- code
+	> In this folder all the python scripts are found
+	- algoritmes
+		> In this folder three python files are found which contain our 	
+		- algorithms
+			X_first.py
+			random_algo.py
+			improved_random.py
+	- classes
+		> In this folder all of our classes to set up the game and run the 	algorithms are found
 		board.py
 		car.py
 		csvwriter.py
 		node.py
-	data_visualisation
-		> In this folder all the code that tests the algorithms is found, it also contains the matplotlib visualisation code <
-		- board_visualisation.py
-		- comparison.py
-		- test_random.py
-		- tree.py
-		- treetest.py
-data
-	> This folder contains the boards and their information to set up each individual game <
+	- data_visualisation
+		> In this folder all the code that tests the algorithms is found, it also contains the matplotlib visualisation code
+		board_visualisation.py
+		comparison.py
+		test_random.py
+		tree.py
+		treetest.py
+- data
+	> This folder contains the boards and their information to set up each individual game
 	Rushhour6x6_1.csv
 	Rushhour6x6_2.csv
 	Rushhour6x6_3.csv
@@ -52,14 +53,13 @@ data
 	Rushhour9x9_5.csv
 	Rushhour9x9_6.csv
 	Rushhour12x12_7.csv
-doc
-	> This folder contains all images needed for the README.md and PROCESS.md <
-ppt
-	> This folder contains the powerpoint for our presentation about this case <
-resultaten
-	> This folder contains the csv files in which the solution of the game stated in the name can be found <
-screenshots
-	> This folder contains the screenshot of the game stated in the name, but visualized with matplotlib <
+- doc
+	> This folder contains all images needed for the README.md and PROCESS.md
+- ppt
+	> This folder contains the powerpoint for our presentation about this case
+- results
+	> This folder contains the csv files in which the solution of the game stated in the name can be found 
+
 
 #### Algorithms
 1. main.py loads car objects 
