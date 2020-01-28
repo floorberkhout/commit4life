@@ -28,31 +28,31 @@ main.py
 	- algoritmes
 		> In this folder three python files are found which contain our 	
 		- algorithms
-			X_first.py
-			random_algo.py
-			improved_random.py
+		- X_first.py
+		- random_algo.py
+		- improved_random.py
 	- classes
 		> In this folder all of our classes to set up the game and run the 	algorithms are found
-		board.py
-		car.py
-		csvwriter.py
-		node.py
+		- board.py
+		- car.py
+		- csvwriter.py
+		- node.py
 	- data_visualisation
 		> In this folder all the code that tests the algorithms is found, it also contains the matplotlib visualisation code
-		board_visualisation.py
-		comparison.py
-		test_random.py
-		tree.py
-		treetest.py
+		- board_visualisation.py
+		- comparison.py
+		- test_random.py
+		- tree.py
+		- treetest.py
 - data
 	> This folder contains the boards and their information to set up each individual game
-	Rushhour6x6_1.csv
-	Rushhour6x6_2.csv
-	Rushhour6x6_3.csv
-	Rushhour9x9_4.csv
-	Rushhour9x9_5.csv
-	Rushhour9x9_6.csv
-	Rushhour12x12_7.csv
+	- Rushhour6x6_1.csv
+	- Rushhour6x6_2.csv
+	- Rushhour6x6_3.csv
+	- Rushhour9x9_4.csv
+	- Rushhour9x9_5.csv
+	- Rushhour9x9_6.csv
+	- Rushhour12x12_7.csv
 - doc
 	> This folder contains all images needed for the README.md and PROCESS.md
 - ppt
