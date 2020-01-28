@@ -71,42 +71,42 @@ Randomize
 5. It sees if making the move is possible 
 	 - It makes the move if it is possible
 6. It checks if the winning(red/ X) car is in front of the exit, this means it has won.
-7 It repeats this if it isn't won
+7. It repeats this if it isn't won
 
-- Improved random
-		 Image?!
-	3. It chooses random car object from the moveable cars
-	4. It chooses random move [1, -1]
-	5. It sees if making the move is possible 
-		> It makes the move if it is possible
-	6. It checks if another car is preventing the winning(red/ X) car from getting out, this means it has won
-	   If this is not the case
-			7. repeat
-	   If this is the case
-			7. It iterates over the solution and prunes all the duplicated boards to find the fastest way to the winning board within this solution
+Improved random
+1. main.py loads car objects 
+2. main.py loads board object
+3. It chooses random car object from the moveable cars
+4. It chooses random move [1, -1]
+5. It sees if making the move is possible 
+	 - It makes the move if it is possible
+6. It checks if another car is preventing the winning(red/ X) car from getting out, this means it has won
+7. It repeats this if it isn't won
+/ 
+7. It iterates over the solution and prunes all the duplicated boards to find the fastest way to the winning board within this solution if it is won
 
-- x_first
-	Depth and breadth first look in many ways like eachother. Therefore we created the file "x_first". The file sees whether the command line stated depth or breadth first and will use this
-	information to either pick a random node from the queue (Depth-first) or a node that is in the front of the queue (Breadth-first), this determines the path to the solution.
-	> Depth-first 
+x_first
+Depth and breadth first look in many ways like eachother. Therefore we created the file "x_first". The file sees whether the command line stated depth or breadth first and will use this
+information to either pick a random node from the queue (Depth-first) or a node that is in the front of the queue (Breadth-first), this determines the path to the solution.
+	- Depth-first 
+		1. main.py loads car objects 
+		2. main.py loads board object
 		3. It takes a random node from the queue (Random pick of branch)	
 		4. It identifies a possible move
 		5. It creates the corresponding node
 		6. It compares the new node with nodes earlier up the tree
 		7. It checks if another car is preventing the winning(red/ X) car from getting out, this means it has won
-		   If this is not the case
-				8. It shut of nodes that represent a board state that was achieved before
-				9. repeat
-		   
-	> Breadth-first
+		8. It shut of nodes that represent a board state that was achieved before and repeats if it isn't won
+	- Breadth-first
+		1. main.py loads car objects 
+		2. main.py loads board object
 		3. It takes the node that is in the front of the queue (First In, First Out)		
 		4. It identifies all possible moves
 		5. It creates the corresponding nodes
 		6. It compares the new nodes with nodes earlier up the tree
 		7. It checks if another car is preventing the winning(red/ X) car from getting out, this means it has won
-		   If this is not the case
-				8. It shut of nodes that represent a board state that was achieved before
-				9. repeat
+		8. It shut of nodes that represent a board state that was achieved before and repeats if it isn't won
+
 
 
 #### Testing
