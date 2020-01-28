@@ -2,6 +2,8 @@
 #   main.py
 #   Implements the game of Rush Hour
 ############################################
+import os, sys
+import numpy as np
 
 import os, sys
 import numpy as np
@@ -39,7 +41,7 @@ def main(algorithm, board_number):
     x_first_algorithm = X_first(first_node, memory_clearer, x) 
     
     if x == "depth_first" or x == "breadth_first":    
-        solution, time_elapsed, nodes_dict = x_first_algorithm.run()
+        solution, time_elapsed, nodes_dict, board = x_first_algorithm.run()
     
     elif x == "randomize":
         solution, time_elapsed = randomize(board)
