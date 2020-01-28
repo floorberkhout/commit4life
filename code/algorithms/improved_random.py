@@ -3,17 +3,21 @@ import time
 from board import Board
 
 def improved_random(board):      
+<<<<<<< HEAD
     
     count = 0
     
+=======
+    count = 0    
+>>>>>>> cab7de1b1a31807d1f12998efd21f1ee012e3491
     board_archive = {count: str(board)}
     step_archive = {}
     
 
     # Plays the game untill won    
     while board.game_won == False:
-        board.moveable_cars()
         
+<<<<<<< HEAD
         # Function that gets the moveable cars        
         move_cars_objects = []
 
@@ -21,8 +25,15 @@ def improved_random(board):
         for objects in board.cars.values():
             if objects.name in board.cars_move:
                 move_cars_objects.append(objects)
+=======
+        # Function that gets the moveable cars          
+        board.moveable_cars()
+        
+        # Function that seeks the objects from the corresponding moveable car
+        board.get_car_objects()
+>>>>>>> cab7de1b1a31807d1f12998efd21f1ee012e3491
 
-        request_car = random.choice(list(move_cars_objects))
+        request_car = random.choice(list(board.move_cars_objects))
         request_move = random.choice([-1, 1])
 
         # If move creates new state of board (so no reversing of last move), perform move

@@ -29,6 +29,7 @@ class Board:
         # Variables that are required for all the algorithms
         self.start_algo()
 
+    
     def load_cars(self, car_file):
         """ Loads car data from the given csv file """
 
@@ -206,7 +207,6 @@ class Board:
             for position in range(request_car.length):
                 self.board[x][y-position+request_move] = request_car.name
             request_car.coordinates[1] = int(y+request_move)
-            # write a move to the log
 
         return self.board
         
@@ -256,7 +256,21 @@ class Board:
                 else:
                     self.cars_move.add(car_car)        
         
-        return self.cars_move    
+        return self.cars_move
+    
+    def get_car_objects(self):
+        """
+        Seeks the objects from the corresponding moveable car
+        """
+        
+        # Objects of moveable cars
+        self.move_cars_objects = []                     
+        
+        for objects in self.cars.values():
+            if objects.name in self.cars_move:
+                self.move_cars_objects.append(objects)
+        
+        return self.move_cars_objects
 
     def write_move(self, request_car, request_move, log):
         """ Writes every move to a csv file """
