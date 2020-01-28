@@ -41,7 +41,6 @@ class X_first:
             
             # Recreates the board state by performing the move history
             if current_node_name != (0,):
-                # start_node = self.nodes[(0,)]
                 current_node = copy.deepcopy(self.start_node)
                 current_node.history = copy.deepcopy(self.nodes_archive[current_node_name])
                 current_node.recreate(current_node_name)
@@ -127,5 +126,4 @@ class X_first:
             self.build_children(next_node_name)
 
         time_elapsed = time.time() -  self.start_time
-
         return self.solution, time_elapsed, self.nodes
