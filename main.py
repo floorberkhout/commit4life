@@ -3,13 +3,14 @@
 #   Implements the game of Rush Hour
 ############################################
 
+import os, sys
+import numpy as np
+
 directory = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.join(directory, "code"))
 sys.path.append(os.path.join(directory, "code", "classes"))
 sys.path.append(os.path.join(directory, "code", "algorithms"))
 sys.path.append(os.path.join(directory, "code", "data_visualisation"))
-import os, sys
-import numpy as np
 
 # Imports the used structure
 from board import Board
@@ -25,6 +26,9 @@ def main(algorithm, board_number):
 
     # Creates board
     board = Board(f"data/Rushhour{sys.argv[2]}.csv")
+    
+    # Prints begin board
+    board.print_board()
     
     x = algorithm
     if memory_clearer:
@@ -45,9 +49,6 @@ def main(algorithm, board_number):
     
     elif x == "improved_random":
         solution, time_elapsed = improved_random(board)
-    
-    # Prints end board    
-    board.print_board()
     
     # Prints the time that the algorithm runned and prints the amount of moves     
     board.end_game(solution, time_elapsed)

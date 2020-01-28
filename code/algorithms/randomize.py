@@ -8,6 +8,7 @@ import time
 
 
 def randomize(board):
+    """ Makes random algorithm to solve Rush Hour """
     solution = []
     
     # Plays the game untill won

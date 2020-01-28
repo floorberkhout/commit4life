@@ -7,7 +7,9 @@ import random
 import time
 from board import Board
 
-def improved_random(board):      
+def improved_random(board):
+    """ Implements a improved random algorithm """      
+    
     count = 0    
     board_archive = {count: str(board)}
     step_archive = {}
@@ -53,6 +55,5 @@ def improved_random(board):
     for key, value in step_archive.items():
         if key in board_archive.keys():
                 solution.append(value)
-
     return solution, time_elapsed
 
