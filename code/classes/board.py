@@ -29,7 +29,6 @@ class Board:
 
         # gives the board a name tag
         self.name = car_file[5:-4]
-        print(self.name)
 
         # Variables that are required for all the algorithms
         self.start_algo()

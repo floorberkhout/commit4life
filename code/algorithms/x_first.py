@@ -43,9 +43,8 @@ class X_first:
             
             # Retrieves the node
             current_node = self.nodes[current_node_name]
-
         else:
-            
+                 
             # Recreates the board state by performing the move history
             if current_node_name != (0,):
                 current_node = copy.deepcopy(self.start_node)
@@ -64,7 +63,6 @@ class X_first:
                 
                 # Updates the new node
                 new_node.update_node(child, request_car, request_move)
-                self.printlevel(len(new_node.name))
 
                 if not self.memory_clearer:
                     self.nodes[new_node.name] = new_node

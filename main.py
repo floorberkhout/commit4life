@@ -3,12 +3,12 @@
 #   Implements the game of Rush Hour
 ############################################
 
-import os, sys
 directory = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.join(directory, "code"))
 sys.path.append(os.path.join(directory, "code", "classes"))
 sys.path.append(os.path.join(directory, "code", "algorithms"))
 sys.path.append(os.path.join(directory, "code", "data_visualisation"))
+import os, sys
 import numpy as np
 
 # Imports the used structure
@@ -18,7 +18,6 @@ from csvwriter import CsvWriter
 from randomize import randomize
 from improved_random import improved_random
 from x_first import X_first
-from board_visualisation import visualize_board
 
 
 def main(algorithm, board_number):
