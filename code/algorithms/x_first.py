@@ -19,7 +19,6 @@ class X_first:
         self.nodes_archive = {first_node.name: []}
         self.states = set()
         self.solved = False
-        self.move_count = 0
         self.solution = []
         self.level = 0
         self.start_time = time.time()
@@ -83,9 +82,8 @@ class X_first:
                     self.nodes[new_node.name] = new_node
                     self.solved = True
                     self.solution = copy.deepcopy(finish_node)
-                    self.print_steps()
                     self.convert_car_id_to_char()
-                    break
+                    return new_node.board
                 child += 1
 
                 # Writes the data to the nodes_archive
@@ -109,9 +107,11 @@ class X_first:
         """ Prints the amount of levels that the algorithm is deep """
         
         board = copy.deepcopy(self.nodes[(0,)])
-        for car_id, request_move in self.solution.history:
-            request_car = board.board.cars[car_id]
-            board.board.move(request_car, request_move)
+        for car_id, request_move in self.solution:
+            for car in board.board.cars.values:
+                if car.name == car_id:
+                    request_car = board.board.cars[car_id]
+                    board.board.move(request_car, request_move)
 
     def convert_car_id_to_char(self):
         """ Converts car id to char to save memory """
@@ -127,7 +127,7 @@ class X_first:
         
         while self.solved == False:
             next_node_name = self.get_next_node_name()
-            self.build_children(next_node_name)
+            new_node = self.build_children(next_node_name)
 
         time_elapsed = time.time() -  self.start_time
-        return self.solution, time_elapsed, self.nodes
+        return self.solution, time_elapsed, self.nodes, new_node

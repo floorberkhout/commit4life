@@ -173,6 +173,7 @@ class Board:
         self.move_count = 0
         self.game_won = False
         self.start = time.time()
+        self.print_board()
 
     
     def move(self, request_car, request_move):
@@ -290,7 +291,8 @@ class Board:
     
     def end_game(self, solution, time_elapsed):
         """ Prints end state """
-
+        
+        self.print_board()
         print("Congratulations you've won the game!")
         print("Move count: ", len(solution))
         print("Time elapsed: ", round(time_elapsed, 2))

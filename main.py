@@ -2,14 +2,14 @@
 #   main.py
 #   Implements the game of Rush Hour
 ############################################
+import os, sys
+import numpy as np
 
 directory = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.join(directory, "code"))
 sys.path.append(os.path.join(directory, "code", "classes"))
 sys.path.append(os.path.join(directory, "code", "algorithms"))
 sys.path.append(os.path.join(directory, "code", "data_visualisation"))
-import os, sys
-import numpy as np
 
 # Imports the used structure
 from board import Board
@@ -38,7 +38,7 @@ def main(algorithm, board_number):
     x_first_algorithm = X_first(first_node, memory_clearer, x) 
     
     if x == "depth_first" or x == "breadth_first":    
-        solution, time_elapsed, nodes_dict = x_first_algorithm.run()
+        solution, time_elapsed, nodes_dict, board = x_first_algorithm.run()
     
     elif x == "randomize":
         solution, time_elapsed = randomize(board)
