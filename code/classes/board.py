@@ -34,6 +34,8 @@ class Board:
         # Variables that are required for all the algorithms
         self.start_algo()
         
+        self.moveable_cars()
+        
     
     def load_cars(self, car_file):
         """ Loads car data from the given csv file """
