@@ -6,7 +6,6 @@
 import random
 import time
 from board import Board
-from node import Node
 
 def improved_random(board):      
     count = 0
