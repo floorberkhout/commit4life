@@ -4,7 +4,6 @@ class CsvWriter(object):
     """docstring fo CsvWriter."""
 
     def __init__(self, algorithm, board):
-        log_file = "resultaten/logtest.csv"
         self.log = open("resultaten/%s_%s" %(algorithm, board), "w")
         self.log.truncate()
 
