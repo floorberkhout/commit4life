@@ -70,7 +70,7 @@ Randomize
 4. It chooses random move [1, -1]
 5. It sees if making the move is possible 
 	 1. It makes the move if it is possible
-6. It checks if the winning(red/ X) car is in front of the exit, this means it has won
+6. It checks if the winning(red/ X) car is in front of the exit, this means it has won.
 	If this is not the case
 7. repeat
 
