@@ -58,9 +58,9 @@ pip install -r requirements.txt
 	- Rushhour9x9_6.csv
 	- Rushhour12x12_7.csv
 - doc
-	> This folder contains all images needed for the README.md and PROCESS.md
-- ppt
-	> This folder contains the powerpoint for our presentation about this case
+	> This folder contains all information needed for the presentation, README.md and PROCESS.md
+	- ppt
+		> This folder contains the powerpoint for our presentation about this case
 - results
 	> This folder contains the csv files in which the solution of the game stated in the name can be found 
 
@@ -68,6 +68,7 @@ pip install -r requirements.txt
 #### Algorithms
 
 ##### Randomize
+This algorithm makes use of car.py (car objects) and board.py (board object). 
 1. main.py loads car objects 
 2. main.py loads board object
 3. It chooses random car object from all the car objects on the board
@@ -78,6 +79,7 @@ pip install -r requirements.txt
 7. It repeats this if it isn't won
 
 ##### Improved random
+This algorithm makes use of car.py (car objects) and board.py (board object). 
 1. main.py loads car objects 
 2. main.py loads board object
 3. It chooses random car object from the moveable cars
@@ -92,6 +94,8 @@ pip install -r requirements.txt
 ##### x_first
 Depth and breadth first look in many ways like eachother. Therefore we created the file "x_first". The file sees whether the command line stated depth or breadth first and will use this
 information to either pick a random node from the queue (Depth-first) or a node that is in the front of the queue (Breadth-first), this determines the path to the solution.
+
+These algorithms make use of car.py (car objects), board.py (board object) and node.py (node object). In theory, the Node class can be merged into the Board class but because Node contains functions that are not needed for the random algorithms we seperated it into two classes. 
 - Depth-first 
 	1. main.py loads car objects 
 	2. main.py loads board object
