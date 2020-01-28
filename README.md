@@ -9,7 +9,8 @@ The advanced assignment, which is optional, reads as follows: generate a random 
 
 Example board:
 <img src="doc/Rushhour6x6_1.jpg" width="50%">
-![Example board](doc/Rushhour6x6_1.jpg =100x20)
+
+![Example board](doc/Rushhour6x6_1.jpg)
 
 ### Getting Started
 
