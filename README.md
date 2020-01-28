@@ -8,9 +8,7 @@ Waiting to be solved in this assignment are three 6x6 boards, three 9x9 boards a
 The advanced assignment, which is optional, reads as follows: generate a random Rush Hour board and try to solve them with the algorithms. Find out the difference between a 'difficult' board and an equally large 'easy' board. 
 
 Example board:
-<img src="doc/Rushhour6x6_1.jpg" width="50%">
-
-![Example board](doc/Rushhour6x6_1.jpg)
+<img src="doc/Rushhour6x6_1.jpg" width="30%">
 
 ### Getting Started
 
