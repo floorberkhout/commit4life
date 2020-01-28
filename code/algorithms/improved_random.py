@@ -1,13 +1,18 @@
+############################################
+#   improved_random.py
+#   Makes a random improved algorithm
+############################################
+
 import random
 import time
 from board import Board
+from node import Node
 
 def improved_random(board):      
     count = 0    
     board_archive = {count: str(board)}
     step_archive = {}
     
-
     # Plays the game untill won    
     while board.game_won == False:
         
@@ -18,6 +23,7 @@ def improved_random(board):
         board.get_car_objects()
 
         request_car = random.choice(list(board.move_cars_objects))
+        
         request_move = random.choice([-1, 1])
 
         # If move creates new state of board (so no reversing of last move), perform move

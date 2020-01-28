@@ -1,3 +1,8 @@
+#################################################################################################################
+#   node.py
+#   Makes nodes for two algorithms, breadth first and depth first, in order to remember the states of the board.
+#################################################################################################################
+
 import copy
 
 class Node():
@@ -20,8 +25,8 @@ class Node():
         """
         Returns a dict of all possible moves from the board
         """
-        possible_moves={}
-        # 2. Identify all possible moves
+        possible_moves = {}
+        # Identifies all possible moves
         for option_car in list(self.board.cars.values()):
             option = self.possible_moves_car(option_car)
             if option:
@@ -31,13 +36,14 @@ class Node():
     def possible_moves_car(self, request_car):
         n = self.board.length
         moves = []
-        # fetch the car details
+
+        # Fetches the car details
         car_orientation = request_car.orientation
         x = request_car.coordinates[0]
         y = request_car.coordinates[1]
         length = request_car.length
 
-        # determine moves
+        # Determine moves
         if car_orientation == 'H':
             for i in range (x + length, n):
                 if self.board.board[i][y] == '.':

@@ -1,3 +1,8 @@
+#####################################################
+#   board.py
+#   Implements board with cars for game Rush Hour.
+#####################################################
+
 from car import Car
 import time
 import numpy as np
@@ -28,7 +33,7 @@ class Board:
 
         # Variables that are required for all the algorithms
         self.start_algo()
-
+        
     
     def load_cars(self, car_file):
         """ Loads car data from the given csv file """
@@ -75,14 +80,13 @@ class Board:
 
             if car_name == 'X':
                 self.xcar = id
-
         return cars
 
+    
     def create_board(self, car_file):
         """ Creates the empty board """
 
         board=[]
-
         for rows in range(self.length):
             row = ['.'] * self.length
             board.append(row)
@@ -106,6 +110,7 @@ class Board:
                 for letter in range(car.length):
                     self.board[x][y-letter] = car.name
 
+    
     def print_board(self):
         """ Prints the board """
 
@@ -135,6 +140,7 @@ class Board:
         print("-", end="")
         print("")
 
+    
     def check_win (self, start):
         """ Checks if no car prevents the winning car from getting out, thus: winning """
 
@@ -156,6 +162,7 @@ class Board:
                 step_count += 1
                 return game_won, time_elapsed
 
+    
     def start_algo(self):
         """ Initializes variables requiered for every algorithm """
 
@@ -165,6 +172,7 @@ class Board:
         self.game_won = False
         self.start = time.time()
 
+    
     def move(self, request_car, request_move):
         """ Moves car on the board """
 
@@ -207,9 +215,9 @@ class Board:
             for position in range(request_car.length):
                 self.board[x][y-position+request_move] = request_car.name
             request_car.coordinates[1] = int(y+request_move)
-
         return self.board
         
+    
     def moveable_cars(self):
         """ Finds moveable cars """
         self.cars_move = set()
@@ -254,9 +262,9 @@ class Board:
                     (check_car[index_car - 1] != "." and check_car[index_car + 1] != ".")):
                     continue
                 else:
-                    self.cars_move.add(car_car)        
-        
+                    self.cars_move.add(car_car)               
         return self.cars_move
+    
     
     def get_car_objects(self):
         """
@@ -268,16 +276,17 @@ class Board:
         
         for objects in self.cars.values():
             if objects.name in self.cars_move:
-                self.move_cars_objects.append(objects)
-        
+                self.move_cars_objects.append(objects)        
         return self.move_cars_objects
 
+    
     def write_move(self, request_car, request_move, log):
         """ Writes every move to a csv file """
 
         log_row = request_car.name + ',' + str(request_move) + '\n'
         log.write(log_row)
 
+    
     def end_game(self, solution, time_elapsed):
         """ Prints end state """
 

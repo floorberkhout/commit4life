@@ -5,9 +5,7 @@ import sys
 
 class X_first:
     def __init__(self, first_node, memory_clearer, x):
-        """ 
-        Initializes a node 
-        """
+        """ Initializes a node """
 
         # Creates the first node with name 0
         self.nodes = {first_node.name: first_node}
@@ -24,9 +22,7 @@ class X_first:
         self.x_first = x
 
     def get_next_node_name(self):
-        """
-        Takes the next node from the queue in case of breadth first, fifo
-        """
+        """ Takes the next node from the queue in case of breadth first, fifo """
 
         if self.x_first == "depth_first":
             return self.nodes_queue.pop(random.randrange(len(self.nodes_queue)))
@@ -34,9 +30,7 @@ class X_first:
             return self.nodes_queue.pop(0)
 
     def build_children(self, current_node_name):
-        """
-        Creates all possible child-states and adds them to the nodes_queue
-        """
+        """ Creates all possible child-states and adds them to the nodes_queue """
 
         if self.memory_clearer == False:
             
@@ -100,9 +94,7 @@ class X_first:
             del current_node
 
     def printlevel(self, level):
-        """
-        Prints level so during tests the state of process is visible
-        """
+        """ Prints level so during tests the state of process is visible """
         
         if level > self.level:
             self.level = level
@@ -119,9 +111,7 @@ class X_first:
             board.board.move(request_car, request_move)
 
     def convert_car_id_to_char(self):
-        """
-        Converts car id to char to save memory
-        """
+        """ Converts car id to char to save memory """
         
         solution = []
         for car_id, request_move in self.solution.history:
@@ -130,9 +120,7 @@ class X_first:
         self.solution = solution
 
     def run(self):
-        """
-        Runs the algorithm untill all possible states are visited.
-        """
+        """ Runs the algorithm untill all possible states are visited """
         
         while self.solved == False:
             next_node_name = self.get_next_node_name()
