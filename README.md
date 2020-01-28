@@ -25,7 +25,7 @@ pip install -r requirements.txt
 ##### Files:
 - main.py
 - PROCESS.md
-- requierments.txt
+- requierements.txt
 - README.md
 
 ##### Folders:
