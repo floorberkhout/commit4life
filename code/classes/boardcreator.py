@@ -1,3 +1,8 @@
+###############################################################
+#   boardcreator.py
+#   Class that has ability to create a random board
+###############################################################
+
 import copy
 import time
 import sys
@@ -18,6 +23,7 @@ class BoardCreator:
         self.fill_board()
 
     def fill_board(self):
+        """ Functions that fills the board """
         # place the X car # for now on the last node of the board
         x = 0
         y = int(self.length/2 - 0.5)
@@ -50,7 +56,8 @@ class BoardCreator:
 
 
     def write_row(self, car_char, x, y, car_length, car_orientation):
-        # A, H, "2,6", 2
+        """ Functions that writes a row to the CSV """
+        # A, H, "2,6", 2 is the example format for output
         x = x + 1
         y = self.length - y
         xy = '"' + str(x) + ',' + str(y) + '"'
@@ -62,6 +69,7 @@ class BoardCreator:
         self.log.write(log_row)
 
     def determine_spot(self):
+        """ Functions that determines an empty spot """
         # define empty spots
         empty_spots = [(ix,iy) for ix, row in enumerate(self.board) for iy, i in enumerate(row) if i == '.']
 
@@ -93,6 +101,7 @@ class BoardCreator:
         return empty_spot[0], empty_spot[1], car_orientation
 
     def place_car(self, car_char, x, y, car_length, car_orientation):
+        """ Functions that places the car on the board """
         for position in range(car_length):
             if car_orientation == 'H':
                 self.board[x + position][y] = car_char
@@ -102,7 +111,6 @@ class BoardCreator:
 
     def create_board(self):
         """ Creates the empty board """
-
         self.board=[]
 
         for rows in range(self.length):
@@ -110,6 +118,7 @@ class BoardCreator:
             self.board.append(row)
 
     def reset(self):
+        """ Functions that resets the program if there are no more empty_spots """
         self.__init__(self.length, self.number_of_cars)
 
     def print_board(self):

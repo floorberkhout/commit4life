@@ -1,3 +1,8 @@
+###############################################################
+#   creator.py
+#   Algorithm that uses the class BoardCreator to create random boards and vaildates them
+###############################################################
+
 import os, sys
 directory = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.join(directory, "code"))
@@ -11,47 +16,50 @@ import copy
 # Imports the used structure
 from board import Board
 from node import Node
-from randomize import randomize
-from improved_random import improved_random
+from randomize_check_generated import randomize_check_generated
 from x_first import X_first
 from board_visualisation import visualize_board
 from boardcreator import BoardCreator
 
 def main():
-    """ Runs Rush Hour game with the algorithm """
+    """ Main program to create new boards """
 
+    # declare the input variables
+    length = 6
+    number_of_cars = 14
+    proper_length = 15
+
+    # sets the boolean proper_board to false
     proper_board = False
 
+    # name of the boards CSV file as created by BoardCreator
+    file_name = "data/Rushhour" + str(length) + "x" + str(length) + "_new.csv"
+
+    # Run the program untill a proper board has been established
     while proper_board == False:
-        # creates a new board
-        length = 9
-        number_of_cars = 25
+        # Creates a new board
         new_board = BoardCreator(length, number_of_cars)
         print("new attempt")
 
         # Reads the newly created board
-        board = Board("data/Rushhour9x9_new.csv")
+        board = Board(file_name)
 
         board2 = copy.deepcopy(board)
 
         # Check if a random algorithm can solve the newly created board
-        solution, time_elapsed = randomize(board)
+        solution, time_elapsed = randomize_check_generated(board)
         if solution == False:
             continue
 
-
-        # If the new board can be solved random, determine the optimal solution breath_first
-
-        # Initializes the first node
+        # If the new board was solved by randomize it's a valid board, then solve it breadth_first to see how many steps it takes
         first_node_name = (0,)
         first_node = Node(board2, first_node_name)
         x = "breadth_first"
-
         x_first_algorithm = X_first(first_node, True, x)
-        solution, time_elapsed, nodes_dict = x_first_algorithm.run()
+        solution, time_elapsed, nodes_dict, board = x_first_algorithm.run()
 
-        # if the optimal solution is more than X save the board as a good option
-        if len(solution) > 15:
+        # If the optimal solution is more than X save the board as a good option
+        if len(solution) > proper_length:
             proper_board = True
 
 

@@ -1,3 +1,8 @@
+###############################################################
+#   csvwriter.py
+#   Provides Csvwriter class to save results of game Rush Hour
+###############################################################
+
 import csv
 
 class CsvWriter(object):
