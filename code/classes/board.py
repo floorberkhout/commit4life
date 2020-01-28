@@ -222,6 +222,7 @@ class Board:
     
     def moveable_cars(self):
         """ Finds moveable cars """
+        
         self.cars_move = set()
         cars_board = []
         horizontal_list = []   
@@ -269,9 +270,7 @@ class Board:
     
     
     def get_car_objects(self):
-        """
-        Seeks the objects from the corresponding moveable car
-        """
+        """ Seeks the objects from the corresponding moveable car """
         
         # Objects of moveable cars
         self.move_cars_objects = []                     

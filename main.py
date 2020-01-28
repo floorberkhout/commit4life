@@ -46,7 +46,11 @@ def main(algorithm, board_number):
     
     elif x == "improved_random":
         solution, time_elapsed = improved_random(board)
-        
+    
+    # Prints end board    
+    board.print_board()
+    
+    # Prints the time that the algorithm runned and prints the amount of moves     
     board.end_game(solution, time_elapsed)
 
     # Writes the solution to a CSV file
@@ -67,7 +71,8 @@ if __name__ == "__main__":
             print("Board does not exist, choose '6x6_1' - '6x6_3', '9x9_4' - '9x9_6' or '12x12_7'")
             sys.exit()
         
-        # Default mode            
+        # Default mode is memory_clearer off, which means that he needs more memory to solve the board, 
+        # but is faster than when memory is not saved          
         memory_clearer = False
         
         # Asks for memory clearer 
