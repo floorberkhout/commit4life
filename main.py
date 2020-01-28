@@ -28,10 +28,7 @@ def main(algorithm, board_number):
 
     # Creates board
     board = Board(f"data/Rushhour{sys.argv[2]}.csv")
-    
-    # Prints begin board
-    board.print_board()
-    
+
     x = algorithm
     if memory_clearer:
         algorithm = algorithm + "_memory_clearer"

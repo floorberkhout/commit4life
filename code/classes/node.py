@@ -102,7 +102,4 @@ class Node():
             self.board.move(request_car, request_move)
         self.determine_possible_moves()
         self.set_name(name)
-<<<<<<< HEAD
-=======
-        
->>>>>>> 771016e35cc13f4a15604a56b5b273a75b5a6a7d
+
