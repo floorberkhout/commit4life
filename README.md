@@ -20,9 +20,13 @@ This code is completely written in Python3.6.3. In requirements.txt are all the 
 pip install -r requirements.txt
 
 #### Structure
-###### Files:
-main.py
-###### Folders:
+##### Files:
+- main.py
+- PROCESS.md
+- requierments.txt
+- README.md
+
+##### Folders:
 - code
 	> In this folder all the python scripts are found
 	- algoritmes
@@ -110,9 +114,11 @@ information to either pick a random node from the queue (Depth-first) or a node 
 
 
 #### Testing
-To run the code with the standard configuration use the command: python main.py [algorithm] [board]
-algorithm = "randomize" or "improved_random" or "breadth_first" or "depth_first"
-board = "6x6_1" or "6x6_2" or "6x6_3" or "9x9_4" or "9x9_5" or "9x9_6" or "12x12_7"
+To run the code with the standard configuration use the command: python main.py [algorithm] [board]. 
+
+Algorithm = "randomize" or "improved_random" or "breadth_first" or "depth_first". 
+
+Board = "6x6_1" or "6x6_2" or "6x6_3" or "9x9_4" or "9x9_5" or "9x9_6" or "12x12_7"
 
 When user chooses depth_first or breadth_first, user gets the question whether they want memory_clearer on or off.
 Type: "on" or "off". Put the memory clearer on to save objects as strings in order to save memory.  
