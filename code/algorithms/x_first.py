@@ -1,3 +1,8 @@
+###############################################################
+#   x_first.py
+#   Runs either depth-first or breadth-first algorithm
+###############################################################
+
 import copy
 import random
 import time
@@ -25,6 +30,7 @@ class X_first:
         """ Takes the next node from the queue in case of breadth first, fifo """
 
         if self.x_first == "depth_first":
+            # return self.nodes_queue.pop()
             return self.nodes_queue.pop(random.randrange(len(self.nodes_queue)))
         else:
             return self.nodes_queue.pop(0)
