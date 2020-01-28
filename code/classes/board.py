@@ -34,6 +34,7 @@ class Board:
         # Variables that are required for all the algorithms
         self.start_algo()
         
+        # Function to get all moveable cars
         self.moveable_cars()
         
     
@@ -182,8 +183,7 @@ class Board:
         x = request_car.coordinates[0]
         y = request_car.coordinates[1]
 
-        # check if the move would be valid TODO:
-
+        # Checks if the move would be valid
         if request_car.orientation == "H":
             try:
                 for position in range(request_car.length):
