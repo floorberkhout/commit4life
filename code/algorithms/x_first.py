@@ -30,7 +30,8 @@ class X_first:
         """ Takes the next node from the queue in case of breadth first, fifo """
 
         if self.x_first == "depth_first":
-            # return self.nodes_queue.pop()
+            
+            # Picks random node, instead of always the last node
             return self.nodes_queue.pop(random.randrange(len(self.nodes_queue)))
         else:
             return self.nodes_queue.pop(0)
@@ -106,9 +107,7 @@ class X_first:
             print(str(level-1) + " levels deep")
 
     def print_steps(self):
-        """
-        ?
-        """
+        """ Prints the amount of levels that the algorithm is deep """
         
         board = copy.deepcopy(self.nodes[(0,)])
         for car_id, request_move in self.solution.history:
