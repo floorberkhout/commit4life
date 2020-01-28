@@ -63,7 +63,7 @@ main.py
 
 #### Algorithms
 
-Randomize
+##### Randomize
 1. main.py loads car objects 
 2. main.py loads board object
 3. It chooses random car object from all the car objects on the board
@@ -73,7 +73,7 @@ Randomize
 6. It checks if the winning(red/ X) car is in front of the exit, this means it has won.
 7. It repeats this if it isn't won
 
-Improved random
+##### Improved random
 1. main.py loads car objects 
 2. main.py loads board object
 3. It chooses random car object from the moveable cars
@@ -85,7 +85,7 @@ Improved random
 / 
 7. It iterates over the solution and prunes all the duplicated boards to find the fastest way to the winning board within this solution if it is won
 
-x_first
+##### x_first
 Depth and breadth first look in many ways like eachother. Therefore we created the file "x_first". The file sees whether the command line stated depth or breadth first and will use this
 information to either pick a random node from the queue (Depth-first) or a node that is in the front of the queue (Breadth-first), this determines the path to the solution.
 	- Depth-first 
