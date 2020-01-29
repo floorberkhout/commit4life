@@ -1,14 +1,14 @@
 ###############################################################
-#   randomize.py
-#   Runs random algorithm
+#   randomize_check_generated.py
+#   Adapted randomize algorithm used to test random generated boards
 ###############################################################
 
 import random
 import time
 
 
-def randomize(board):
-    """ Makes random algorithm to solve Rush Hour """
+def randomize_check_generated(board):
+    """ Adapted randomize algorithm used to test random generated boards """
     solution = []
 
     counter = 0
@@ -27,5 +27,9 @@ def randomize(board):
 
         # Checks if another car prevents the winning car from getting out
         board.game_won, time_elapsed = board.check_win(board.start)
+
+        counter += 1
+        if counter > 100000:
+            return False, False
 
     return solution, time_elapsed

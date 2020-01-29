@@ -32,11 +32,11 @@ class Board:
 
         # Variables that are required for all the algorithms
         self.start_algo()
-        
+
         # Function to get all moveable cars
         self.moveable_cars()
-        
-    
+
+
     def load_cars(self, car_file):
         """ Loads car data from the given csv file """
 
@@ -84,7 +84,7 @@ class Board:
                 self.xcar = id
         return cars
 
-    
+
     def create_board(self, car_file):
         """ Creates the empty board """
 
@@ -112,7 +112,7 @@ class Board:
                 for letter in range(car.length):
                     self.board[x][y-letter] = car.name
 
-    
+
     def print_board(self):
         """ Prints the board """
 
@@ -142,7 +142,7 @@ class Board:
         print("-", end="")
         print("")
 
-    
+
     def check_win (self, start):
         """ Checks if no car prevents the winning car from getting out, thus: winning """
 
@@ -164,7 +164,7 @@ class Board:
                 step_count += 1
                 return game_won, time_elapsed
 
-    
+
     def start_algo(self):
         """ Initializes variables requiered for every algorithm """
 
@@ -175,7 +175,7 @@ class Board:
         self.start = time.time()
         self.print_board()
 
-    
+
     def move(self, request_car, request_move):
         """ Moves car on the board """
 
@@ -218,15 +218,15 @@ class Board:
                 self.board[x][y-position+request_move] = request_car.name
             request_car.coordinates[1] = int(y+request_move)
         return self.board
-        
-    
+
+
     def moveable_cars(self):
         """ Finds moveable cars """
-        
+
         self.cars_move = set()
         cars_board = []
-        horizontal_list = []   
-        
+        horizontal_list = []
+
         # Makes lists from all rows instead of columns and adds the list of columns to the same big list, cars_board
         for i in range(self.length):
             for col in self.board:
@@ -237,60 +237,60 @@ class Board:
 
         for row_col in cars_board:
             check_car = []
-            car = []    
-            
-            for letter in row_col:   
-                if not letter in check_car or letter == ".":                   
-                    
+            car = []
+
+            for letter in row_col:
+                if not letter in check_car or letter == ".":
+
                     # Appends all letters that are not double to a list
                     check_car.append(letter)
-                else:                  
-                    
-                    # Cars in row or column get saved in a list 
+                else:
+
+                    # Cars in row or column get saved in a list
                     car.append(letter)
-                        
+
             length_car_list = len(car)
             length_check_cars = len(check_car)
-            
+
             # Checks for moveable cars
             while car != []:
                 car_car = car[0]
-                
+
                 # Checks index of car to see where it is in the list
                 index_car = check_car.index(car_car)
                 car.remove(car_car)
-            
+
                 # If the car can not move, the loop goes on, otherwise, the car gets saved in another list
-                if ((length_check_cars - 1 == index_car and check_car[index_car - 1] != ".") or (index_car == 0 and check_car[index_car + 1] != ".") or 
+                if ((length_check_cars - 1 == index_car and check_car[index_car - 1] != ".") or (index_car == 0 and check_car[index_car + 1] != ".") or
                     (check_car[index_car - 1] != "." and check_car[index_car + 1] != ".")):
                     continue
                 else:
-                    self.cars_move.add(car_car)               
+                    self.cars_move.add(car_car)
         return self.cars_move
-    
-    
+
+
     def get_car_objects(self):
         """ Seeks the objects from the corresponding moveable car """
-        
+
         # Objects of moveable cars
-        self.move_cars_objects = []                     
-        
+        self.move_cars_objects = []
+
         for objects in self.cars.values():
             if objects.name in self.cars_move:
-                self.move_cars_objects.append(objects)        
+                self.move_cars_objects.append(objects)
         return self.move_cars_objects
 
-    
+
     def write_move(self, request_car, request_move, log):
         """ Writes every move to a csv file """
 
         log_row = request_car.name + ',' + str(request_move) + '\n'
         log.write(log_row)
 
-    
+
     def end_game(self, solution, time_elapsed):
         """ Prints end state """
-        
+
         self.print_board()
         print("Congratulations you've won the game!")
         print("Move count: ", len(solution))
