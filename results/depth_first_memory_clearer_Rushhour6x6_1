@@ -1,3 +1,15 @@
+<<<<<<< HEAD
+0.9168491363525391
+Rushhour6x6_1
+depth_first_memory_clearer
+26
+
+car,move
+C,-1
+G,-1
+A,-1
+G,-1
+=======
 0.9192090034484863
 Rushhour6x6_1
 depth_first_memory_clearer
@@ -9,9 +21,27 @@ J,-1
 I,2
 C,-1
 G,-2
+>>>>>>> 96752c67961daa2a3c274ba7fea2086e60a1b9ad
 L,-2
 J,-2
 H,1
+<<<<<<< HEAD
+J,-1
+E,3
+H,-1
+I,-1
+D,-1
+I,-2
+H,1
+E,-2
+J,3
+L,1
+E,2
+H,-1
+X,3
+L,1
+G,2
+=======
 E,2
 D,-1
 E,1
@@ -26,6 +56,7 @@ F,1
 X,3
 G,1
 H,-1
+>>>>>>> 96752c67961daa2a3c274ba7fea2086e60a1b9ad
 B,-1
 I,-1
 X,1
