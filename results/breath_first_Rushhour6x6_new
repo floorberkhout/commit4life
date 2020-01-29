@@ -1,0 +1,12 @@
+0.2
+Rushhour6x6_new
+breath_first
+6
+
+car,move
+G,1
+K,1
+F,3
+K,-1
+M,-1
+X,4

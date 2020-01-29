@@ -50,14 +50,14 @@ Complicaties:
 ###### dinsdag 07-01-20
 - Bart werkt aan load grid
 - Paloma werkt aan load cars
-- Floor werkt aan objects voor load cars car.py	
-	
+- Floor werkt aan objects voor load cars car.py
+
 - Vragen voor presentatiesessie:
 	voortgangsgesprek tijdens college
 	waar is het college?
 
 
-- Eerste borden opgelost met de hand ter vergelijking 
+- Eerste borden opgelost met de hand ter vergelijking
 <img src="doc/bord6x61" width="50%">
 <img src="doc/bord6x62" width="50%">
 
@@ -65,11 +65,11 @@ Complicaties:
 
 ###### woensdag 08-01-20
 Bart is bezig met de resultaten omzetten in een csv bestand
-Floor en Paloma hebben barts screenprint omgezet in de goede structuur	
+Floor en Paloma hebben barts screenprint omgezet in de goede structuur
 
 Verbeterpunten:
 	Onnodig power verbruiken tijdens het itereren
-	+2 / +12 stappen 
+	+2 / +12 stappen
 
 ###### vrijdag 10-01-20
 > apart de functies voor algoritmes >> verwerken in board.py
@@ -85,11 +85,11 @@ state space:
 	36 × 33 × 30 × 27 × 24 × 21 × 18 × 15 × 12 × 9 × 6 × 3 = 2.5456109e+14
 
 	per bord state space berekenen want die zit per bord ergens hier tussen in > lege plekken zijn niet elkaar gebonden lengte van de auto's wel.
-	
+
 	6x6_1
 		2 x 2 x 3 x 3 x 5 x 3 x 3 x 5 x 5 x 4 x 3 x 3 x 5 =  7290000
 
-	
+
 voortgangsgesprek:
 	win move (naar buiten rijden) telt als 1 stap
 	een move van meerdere stappen telt als maar 1 move (checken of er meerdere moves achter elkaar zijn en dan dat van het totaal moves aftrekken)
@@ -100,7 +100,7 @@ voortgangsgesprek:
 ###### dinsdag 14-01-20
 			Write_move_csv, check_for_win, move functions in board.py
 			Verder met advanced algoritme door Bart
-	CHECK	win functie verbeteren 
+	CHECK	win functie verbeteren
 	CHECK 	zorgen dat de vorige stap niet wordt teruggedraait in een nieuwe move (pruning)
 	CHECK	zorgen dat moves in dezelfde richting met de dezelfde auto die achterelkaar worden uitgevoerd niet een 'nieuwe' move is
 	CHECK	visualisation
@@ -129,7 +129,7 @@ breadth first
 	> hij write de csv nog niet kan nog niet
 	> netter
 	> afmaken wat betreft printen enzo
-	> 12x12 super veel geheugen nodig > optimaliseren 
+	> 12x12 super veel geheugen nodig > optimaliseren
 breadth first met iterative pruning
 	+ Minder goede uitslag maar wel sneller en minde geheugen opnemend
 depth first
@@ -142,37 +142,37 @@ doen:
 	depth first
 	grafiek van breadth first
 	12 proberen
-	1000 iteraties van random 
+	1000 iteraties van random
 
 
-###### maandag 20-01-20	
+###### maandag 20-01-20
 Voortgangsgesprek:
 	optimalisatie breadth first
 		beam search > langere oplossing zonder dat dat misschien nodig zou zijn
 		nodes met de meeste zetten
 
 	imshow() visualisatie van het bord
-	
-	Zo min mogelijk code presenteren	
+
+	Zo min mogelijk code presenteren
 	Size() check size of object
-		
-	random 
+
+	random
 		doet alles
-	
+
 	improved random
 		doet alles
-	
-	breadth first 
+
+	breadth first
 		alles 6x6's
-		zo efficient mogelijkheid opslaan 
-	
+		zo efficient mogelijkheid opslaan
+
 	depth first
 		testen
-		pruned op oplossingen 
-		
+		pruned op oplossingen
+
 	bord visualisatie & grafiekjes
 
-###### dinsdag 21-01-20	
+###### dinsdag 21-01-20
 	breadth first optimalisatie
 	depth first nog prunen op oplossingen als bart de nette versie klaar heeft
 	bord visualisatie afmaken met lijst vanuit breadth first
@@ -182,15 +182,15 @@ Voortgangsgesprek:
 		alle algoritmes loslaten op 6x6_1
 		alle algoritmes loslaten op 12x12
 		move_count, time_elapsed en geheugen vergelijken
-		
-###### vrijdag 24-01-20	
+
+###### vrijdag 24-01-20
 depth first is nu random
 dubbele borden van improved random worden er tussen uit gefilterd
 main.py is compatible met alle algortimes
 
-###### maandag 27-01-20	
+###### maandag 27-01-20
 code:
-- Bart verder met random bord genereren 
+- Bart verder met random bord genereren
 - repo cleanen
 - code cleanen en commenten
 - moveable cars naar board.py halen
@@ -215,7 +215,7 @@ Benodigdheden:
     - Code heeft duidelijke control flow; e.g. geen ellenlange if-statements midden in al grote functies.
     - De code is duidelijk in functionaliteit; docstrings, comments en variabelenamen zijn nuttig/beschrijven wat functies doen.
     - De code is intuitief en direct te gebruiken voor soortgelijke projecten.
-	
+
 presentatie:
 > Depth first random uitleggen
 > minder tekst in ppt
@@ -228,18 +228,17 @@ vragen voor voortgangsgesprek:
 - ppt in repo?
 - screenshots in repo?
 
-- hoe werkt het met de laatste merge conflicten? 
+- hoe werkt het met de laatste merge conflicten?
 
 Exploratie:
-- We denken 4, omdat we veel algoritmes van college hebben gebruikt en die beetje hebben geoptimaliseerd, namelijk: 
+- We denken 4, omdat we veel algoritmes van college hebben gebruikt en die beetje hebben geoptimaliseerd, namelijk:
 	- Breadth first met geheugenoptimalisatie
-	- Depth first kiest een random begin-node, ipv altijd de eerste node branch. 
+	- Depth first kiest een random begin-node, ipv altijd de eerste node branch.
 	- Randomalgoritme
 	- Improved random, waarbij random auto wordt gekozen, binnen de mogelijke auto's. Als het algoritme een uitkomst heeft, knipt hij de zetten van het bord die overbodig waren, waardoor het aantal zetten sterk wordt geoptimaliseerd.
 
-###### dinsdag 28-01-20	
+###### dinsdag 28-01-20
 Niet vergeten
-	- Heuristiek: als er geen auto's meer tussen de rode auto en de uitgang staan, ziet hij dat hij gewonnen heeft. 
+	- Heuristiek: als er geen auto's meer tussen de rode auto en de uitgang staan, ziet hij dat hij gewonnen heeft.
 	- tabel met alle borden in kolommen, alle algo's in de rijen en dan de gemiddelde stappen
-	- 
-
+	-
